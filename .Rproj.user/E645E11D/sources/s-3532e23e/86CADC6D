@@ -1,0 +1,25 @@
+{
+    "id": "86CADC6D",
+    "path": "~/git/sdc.intro/src/web/index.Rmd",
+    "project_path": "src/web/index.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1663084804994.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "tempName": "Untitled1",
+        "cursorPosition": "0,94",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1663163461,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1663163461770,
+    "read_only": false,
+    "read_only_alternatives": []
+}

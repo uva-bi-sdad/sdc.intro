@@ -1,0 +1,40 @@
+name: "my-website"
+output_dir: "../../docs"
+exclude: ["*.nb.html", "*.csv", "*.CSV", "*.dcf", "parlog", "old", "dashboard"]
+output:
+  html_document:
+    theme: "flatly"
+    css: style.css
+navbar:
+  title: "Social Data Commons"
+  left:
+    - text: ""
+      icon: url("https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg")
+      href: "https://github.com/uva-bi-sdad"
+    - text: "Overview"
+      href: index.html
+    - text: "Data Repositories"
+      href: data.html
+    - text: "Dashboards"
+      href: dashboards.html
+    - text: "Articles"
+      menu:
+      - text: "Rural Health"
+        href: health.html
+      - text: "Broadband Access"
+        href: broadband.html
+      - text: "Food Security"
+        href: food.html
+      - text: "Demographic Redistribution"
+        href: demographic.html
+    - text: "Bragging"
+      href: bragging.html
+    - text: "Collaborate With Us!"
+      href: collaborate.html
+    - text: ""
+      icon: fa-github
+      href: "https://github.com/uva-bi-sdad"
+site_favicon: "https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg"
+
+
+

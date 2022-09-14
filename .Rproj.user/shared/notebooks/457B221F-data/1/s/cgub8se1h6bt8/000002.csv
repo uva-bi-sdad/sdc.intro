@@ -1,0 +1,23 @@
+"0",""
+"2","Warning message:
+"
+"2","R graphics engine version 14 is not supported by this version of RStudio. The Plots tab will be disabled until a newer version of RStudio is installed. 
+"
+"0","library(reactable)"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"0","library(data.table)"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"2","data.table 1.14.2 using 7 threads (see ?getDTthreads).  Latest news: r-datatable.com
+"
+"0","data_cats_tops <- fread(""https://raw.githubusercontent.com/uva-bi-sdad/sdc.standards/main/src/data_categories_topics.csv"")"
+"2"," [100%] Downloaded 1095 bytes..."
+"2","
+"
+"0","reactable(data_cats_tops,"
+"0","          groupBy = c(""REPO"", ""DATATYPE"", ""DATACATEGORY""))"

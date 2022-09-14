@@ -1,0 +1,35 @@
+<link rel="icon" href= "https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg">
+
+---
+title: "Social Impact Data Commons"
+---
+
+### What is a data commons?
+
+A Data Commons is an open knowledge repository that ***co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography allowing governments and key stakeholders to learn continuously from their own data. \n
+
+For example, our data commons:
+
+* Provides data, indicators, indices, case studies, and training
+* Analyzes impact from social, economic, and health trends and major events 
+* Enables ongoing learning from data
+* Addresses issues of concern, for example, food insecurity, equity, lack of affordable housing
+
+A Data Commons allows multiple audiences to explore issues relevant to their communities.
+
+### Our motivation
+
+To inform equitable and sustainable growth in Virginia and the National Capital Region
+
+CLD3? Data Science framework?
+
+### Key features
+
+* Data sources, collected and created
+* Maps reflecting multiple geographies
+* Composite metrics
+* Navigation and capability to statistically explore the data
+* Data download via web or API 
+* Metadata
+
+
