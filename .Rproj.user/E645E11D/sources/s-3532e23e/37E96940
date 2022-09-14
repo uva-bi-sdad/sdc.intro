@@ -1,25 +1,25 @@
 {
-    "id": "B87A063C",
-    "path": "~/git/sdc.intro/src/web/data.Rmd",
-    "project_path": "src/web/data.Rmd",
-    "type": "r_markdown",
+    "id": "37E96940",
+    "path": "~/git/sdc.intro/.gitignore",
+    "project_path": ".gitignore",
+    "type": "gitignore",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1663173996996.0,
+    "created": 1663187400508.0,
     "source_on_save": false,
     "relative_order": 6,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "6,26",
+        "cursorPosition": "0,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1663174652,
+    "lastKnownWriteTime": 1663187418,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1663174652537,
+    "last_content_update": 1663187418729,
     "read_only": false,
     "read_only_alternatives": []
 }

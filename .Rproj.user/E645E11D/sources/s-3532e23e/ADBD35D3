@@ -1,7 +1,7 @@
 {
     "id": "ADBD35D3",
-    "path": "~/git/sdc.intro/src/web/bragging.Rmd",
-    "project_path": "src/web/bragging.Rmd",
+    "path": "~/git/sdc.intro/src/web/media.Rmd",
+    "project_path": "src/web/media.Rmd",
     "type": "r_markdown",
     "hash": "0",
     "contents": "",
@@ -10,15 +10,15 @@
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
-        "cursorPosition": "10,47",
+        "cursorPosition": "1,31",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1663082086,
+    "lastKnownWriteTime": 1663187142,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1663082086,
+    "last_content_update": 1663187142804,
     "read_only": false,
     "read_only_alternatives": []
 }
