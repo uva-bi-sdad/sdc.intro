@@ -2,9 +2,47 @@
 title: "Community Learning Through Data Driven Discovery"
 ---
 
-![Community Learning Through Data Driven Discovery (CLD3) Process](img/process-cld3.png){width="600px"}
-We use our Community Learning Through Data Driven Discovery (CLD3) framework to drive the construction of the data commons. 
+### We use our **Community Learning Through Data Driven Discovery (CLD3)** framework to drive the construction of the Social Impact Data Commons. Our initial grounding in **specific, local issues** is developed in partnership with communitiy stakeholders in Arlington and Fairfax Counties in Virginia.
+
+<center>![Community Learning Through Data Driven Discovery (CLD3) Process developed by the Social and Decision Analytics Division](img/process-cld3.png){width="600px"} </center>
+
+### Our initial local issues included
+
+* equity of Access to Broadband Communications
+* equity and Stability of Access to Staple Foods, and
+* transforming Racial Equity Data into Meaningful Geographies
+
+### Data collection
+
+After grounding in local issues, we collected data from a variety of sources to create novel measures and datasets. 
+
+![](img/data-collection.png)
+
+<!---
 Local questions driving dataset creation
 Arlington and Fairfax counties. 
 
 Links to CLD3 article.
+
+A Data Commons allows multiple audiences to explore issues relevant to their communities.
+
+ (in geographies they want, measuring what they want).
+
+
+
+
+CLD3? Data Science framework?
+
+### Key features
+
+* Data sources, collected and created
+* Maps reflecting multiple geographies
+* Composite metrics
+* Navigation and capability to statistically explore the data
+* Data download via web or API 
+* Metadata
+
+--->
+
+To learn more about the CLD3 framework, see [Keller, S. A., Shipp, S. S., Schroeder, A. D., & Korkmaz, G. (2020). Doing Data Science: A Framework and Case Study. Harvard Data Science Review, 2(1).](https://hdsr.mitpress.mit.edu/pub/hnptx6lq/release/10)
+

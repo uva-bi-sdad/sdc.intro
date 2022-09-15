@@ -1,14 +1,25 @@
 ---
 title: "Media and Presentations"
+output:
+  html_document:
+    fig_caption: true
 ---
 
 ### Media coverage
 
-[![UVA Today Article](img/media-uvatoday.png)](https://news.virginia.edu/content/nova-booms-uva-biocomplexity-institute-works-support-communitys-well-being)
+[![As NOVA Booms, UVA Biocomplexity Institute Works to Support Community's Well-being, 2022 article published in UVA Today](img/media-uvatoday.png)](https://news.virginia.edu/content/nova-booms-uva-biocomplexity-institute-works-support-communitys-well-being)
 
 ### Conference presentations
 
-![APDU presentation](img/media-apdulogo.png)
-![JSM presentation](img/media-jsmlogo.png)
-![NACCHO presentation](img/media-nacchologo.png)
-![Upcoming FCSM presentation](img/media-fcsmlogo.jpeg)
+!["The Social Impact Data Commons: A New Sustainable Architecture and Stakeholder Approach to Collect, Create, Validate and Distribute Sub-County-Level Datasets and Metrics to Support Regional Data-Driven Decision-Making", presented at the 2022 Association of Public Data Users conference by presented by Kathryn Linehan](img/media-apdulogo.png){width="300px"}
+
+
+!["Lessons Learned in Coordinating Large-Scale Data Science Initiatives", presented at the 2022 Joint Statistical Meetings by Joel Thurston](img/media-jsmlogo.png){width="300px"}
+
+
+!["The Virginia’s New Rural Health Data Commons, Featuring New Health-related Datasets and New Metrics for Visualizing Health Services Access", presented at the 2022 National Association of County and City Health Officials (NACCHO) annual conference by Aaron Schroeder and Cesar Montalvo](img/media-nacchologo.png){width="300px"}
+
+
+![Upcoming presentation at the 2022 Federal Committee on Statistical Methdology Research and Policy Conference by Joanna Schroeder](img/media-fcsmlogo.jpeg){width="300px"}
+
+

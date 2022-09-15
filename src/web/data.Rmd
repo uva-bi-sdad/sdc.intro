@@ -2,11 +2,11 @@
 title: "Data Repositories"
 ---
 
-![Repo graphic](img/data-repographic.png)
+Visit our [public data repositories](https://github.com/uva-bi-sdad]).
+
+![](img/data-repographic.png)
 
 ### Data library
-
-Visit our [public data repositories](https://github.com/uva-bi-sdad]).
 
 ```{r, echo = FALSE}
 library(reactable)
@@ -16,9 +16,3 @@ data_cats_tops <- fread("https://raw.githubusercontent.com/uva-bi-sdad/sdc.stand
 reactable(data_cats_tops,
           groupBy = c("REPO", "DATATYPE", "DATACATEGORY"))
 ```
-
-### Data collection
-
-We have collected data from a variety of sources
-
-![Data collection graphic](img/data-collection.png)
