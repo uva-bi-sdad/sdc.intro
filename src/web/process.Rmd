@@ -1,0 +1,10 @@
+---
+title: "Community Learning Through Data Driven Discovery"
+---
+
+![Community Learning Through Data Driven Discovery (CLD3) Process](img/process-cld3.png){width="600px"}
+We use our Community Learning Through Data Driven Discovery (CLD3) framework to drive the construction of the data commons. 
+Local questions driving dataset creation
+Arlington and Fairfax counties. 
+
+Links to CLD3 article.

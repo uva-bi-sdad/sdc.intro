@@ -2,6 +2,8 @@
 title: "Data Repositories"
 ---
 
+![Repo graphic](img/data-repographic.png)
+
 ### Data library
 
 Visit our [public data repositories](https://github.com/uva-bi-sdad]).

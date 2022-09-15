@@ -10,10 +10,12 @@ navbar:
   left:
     - text: "Overview"
       href: index.html
+    - text: "Process"
+      href: process.html
     - text: "Data Repositories"
       href: data.html
-    - text: "Dashboards"
-      href: dashboards.html
+    - text: "Dashboard"
+      href: dashboard.html
     - text: "Articles"
       menu:
       - text: "Rural Health"
@@ -26,8 +28,8 @@ navbar:
         href: demographic.html
     - text: "Media"
       href: media.html
-    - text: "Collaborate With Us!"
-      href: collaborate.html
+    - text: "Partners"
+      href: partners.html
     - text: ""
       icon: fa-github
       href: "https://github.com/uva-bi-sdad"
