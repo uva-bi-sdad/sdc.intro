@@ -16,9 +16,9 @@ navbar:
       href: data.html
     - text: "Dashboard"
       href: dashboard.html
-    - text: "Articles"
+    - text: "Tools"
       menu:
-      - text: "Rural Health"
+      - text: "Catchment Areas"
         href: health.html
       - text: "Broadband Access"
         href: broadband.html
