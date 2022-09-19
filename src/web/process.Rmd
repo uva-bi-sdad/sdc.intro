@@ -2,15 +2,15 @@
 title: "Community Learning Through Data Driven Discovery"
 ---
 
-### We use our **Community Learning Through Data Driven Discovery (CLD3)** framework to drive the construction of the Social Impact Data Commons. Our initial grounding in **specific, local issues** is developed in partnership with communitiy stakeholders in Arlington and Fairfax Counties in Virginia.
+### We use our **Community Learning Through Data Driven Discovery (CLD3)** framework to drive the construction of the Social Impact Data Commons. Our initial grounding in **specific, local issues** is developed in partnership with community stakeholders in Arlington and Fairfax Counties in Virginia.
 
 <center>![Community Learning Through Data Driven Discovery (CLD3) Process developed by the Social and Decision Analytics Division](img/process-cld3.png){width="600px"} </center>
 
 ### Our initial local issues included
 
-* equity of Access to Broadband Communications
-* equity and Stability of Access to Staple Foods, and
-* transforming Racial Equity Data into Meaningful Geographies
+* equity of access to broadband communications
+* equity and stability of access to staple foods
+* transforming racial equity data into meaningful geographies
 
 ### Data collection
 

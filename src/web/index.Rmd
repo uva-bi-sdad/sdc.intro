@@ -2,7 +2,7 @@
 title: "What is a Data Commons?"
 ---
 
-### A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography allowing governments and key stakeholders to learn continuously from their own data. \n
+### A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data. \n
 
 <center> ![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc.png){width="600px"} </center>
 
@@ -14,8 +14,8 @@ By creating below county-level datasets and measures derived from publicly colle
 
 * provides data, indicators, indices, case studies, and training
 * analyzes impact from social, economic, and health trends and major events 
-* enables ongoing learning from data, and
-* addresses issues of concern, for example, food insecurity and equity
+* enables ongoing learning from data
+* addresses local issues of concern (food insecurity and equity, for example)
 
 
 

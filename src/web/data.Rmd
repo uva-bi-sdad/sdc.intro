@@ -2,7 +2,7 @@
 title: "Data Repositories"
 ---
 
-Visit our [public data repositories](https://github.com/uva-bi-sdad]).
+Visit our [public data repositories](https://github.com/uva-bi-sdad).
 
 ![](img/data-repographic.png)
 
