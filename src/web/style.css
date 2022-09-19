@@ -1,5 +1,11 @@
 .navbar-default {
   background-color: #232D4B;
+}
+
+.navbar-brand {
+  width: 300px;
+  text-align: right;
+  background-color: #232D4B;
   background-image: url("https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg");
   background-size: 25px;
   background-position: center left 5%;
