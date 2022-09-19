@@ -4,5 +4,35 @@ title: "Dashboard"
 
 [![National Capital Region Dashboard](img/dashboard-ncrlogo.png){width=400px}](https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=tract&variable_type=Broadband&selected_variable=speed_measurements:avg_down_using_devices&selected_year=2021&filter.time_min=2019&filter.time_max=2021)
 
+Explore the Social Impact Data Commons for the National Capital Region
 
-![](img/dashboard-dashboardsc.png)
+### Dashboard features
+#### Explore measures by drilling down to geographies of interest
+
+![Average download speed for counties in the National Capital Region](img/dashboard-zoom0.png)
+
+![Average download speed for census tracts in Arlington, Virginia](img/dashboard-zoom1.png)
+
+![Average download speed for slected block groups in Arlington](img/dashboard-zoom2.png)
+
+#### View measures over time using plots
+
+![Average download speeds for counties over a three year period](img/dashboard-time.png)
+
+#### Analyze relationships between measures using filters
+
+![Households with broadband for all census tracts in Fairfax county, Virginia](img/dashboard-overall.png)
+
+![Households with broadband subset to census tracts with white population less than 60 percent in Fairfax County, Virginia](img/dashboard-nonwhite.png)
+
+#### Display measures by rank to compare regions
+
+![Dental care geographic availability ranking for counties displayed on the map](img/dashboard-rank.png)
+
+
+
+![Dental care geographic availability ranking for counties displayed in the table](img/dashboard-ranktable.png)
+
+#### Access metadata for each measure
+
+![Dental care geographic availablility detailed measure information](img/dashboard-info.png)
