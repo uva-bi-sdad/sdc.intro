@@ -5,6 +5,8 @@ output:
   html_document:
     theme: "flatly"
     css: style.css
+    includes:
+      in_header: header.html
 navbar:
   title: "Social Impact Data Commons"
   left:
