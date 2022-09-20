@@ -1,20 +1,24 @@
 ---
-title: "A Social Impact Data Commons for the NCR"
+title: "<center>Supporting local equity-informed decision-making in the National Capital Region</center>"
 ---
 
-## Supporting local equity-informed decision-making in the National Capital Region
+<center>
 
-#### By creating new below county-level datasets and measures derived from publicly collectible data sources, we provide actionable data for local-level decision-making. We aim to inform equitable and sustainable growth in Virginia and the National Capital Region.
+#### **DATA - APPLICATIONS - TOOLS - METHODS**
 
-### What is a Data Commons?
+</center>
 
-#### A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data. \n
+By creating new below county-level datasets and measures derived from publicly collectible data sources, we provide actionable data for local-level decision-making. We aim to inform equitable and sustainable growth in Virginia and the National Capital Region.
 
 <center>
 
 ![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc-2.png){width="600px"}
 
 </center>
+
+### What is a Data Commons?
+
+A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data. \n
 
 ### Our Social Impact Data Commons
 
