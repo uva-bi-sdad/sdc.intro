@@ -257,8 +257,20 @@ $(document).ready(function () {
 <li>
   <a href="data.html">Data Repositories</a>
 </li>
-<li>
-  <a href="dashboard.html">Dashboard</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dashboard
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://uva-bi-sdad.github.io/capital_region">Dashboard</a>
+    </li>
+    <li>
+      <a href="dashboard.html">Dashboard Features</a>
+    </li>
+  </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -327,25 +339,25 @@ $(document).ready(function () {
 </div>
 <div class="figure">
 <img src="img/dashboard-zoom2.png" alt="" />
-<p class="caption">Average download speed for slected block groups in Arlington</p>
+<p class="caption">Average download speed for selected block groups in Arlington</p>
 </div>
 </div>
 <div id="view-measures-over-time-using-plots" class="section level4">
 <h4>View measures over time using plots</h4>
 <div class="figure">
 <img src="img/dashboard-time.png" alt="" />
-<p class="caption">Average download speeds for counties over a three year period</p>
+<p class="caption">Average download speeds for counties over a three-year period</p>
 </div>
 </div>
 <div id="analyze-relationships-between-measures-using-filters" class="section level4">
 <h4>Analyze relationships between measures using filters</h4>
 <div class="figure">
 <img src="img/dashboard-overall.png" alt="" />
-<p class="caption">Households with broadband for all census tracts in Fairfax county, Virginia</p>
+<p class="caption">Households with broadband for all census tracts in Fairfax County, Virginia</p>
 </div>
 <div class="figure">
 <img src="img/dashboard-nonwhite.png" alt="" />
-<p class="caption">Households with broadband subset to census tracts with white population less than 60 percent in Fairfax County, Virginia</p>
+<p class="caption">Households with broadband subset to census tracts with White population less than 60 percent in Fairfax County, Virginia</p>
 </div>
 </div>
 <div id="display-measures-by-rank-to-compare-regions" class="section level4">
@@ -363,7 +375,7 @@ $(document).ready(function () {
 <h4>Access metadata for each measure</h4>
 <div class="figure">
 <img src="img/dashboard-info.png" alt="" />
-<p class="caption">Dental care geographic availablility detailed measure information</p>
+<p class="caption">Detailed information for the “dental care geographic availablility” measure</p>
 </div>
 </div>
 </div>

@@ -13,17 +13,17 @@ Explore the Social Impact Data Commons for the National Capital Region
 
 ![Average download speed for census tracts in Arlington, Virginia](img/dashboard-zoom1.png)
 
-![Average download speed for slected block groups in Arlington](img/dashboard-zoom2.png)
+![Average download speed for selected block groups in Arlington](img/dashboard-zoom2.png)
 
 #### View measures over time using plots
 
-![Average download speeds for counties over a three year period](img/dashboard-time.png)
+![Average download speeds for counties over a three-year period](img/dashboard-time.png)
 
 #### Analyze relationships between measures using filters
 
-![Households with broadband for all census tracts in Fairfax county, Virginia](img/dashboard-overall.png)
+![Households with broadband for all census tracts in Fairfax County, Virginia](img/dashboard-overall.png)
 
-![Households with broadband subset to census tracts with white population less than 60 percent in Fairfax County, Virginia](img/dashboard-nonwhite.png)
+![Households with broadband subset to census tracts with White population less than 60 percent in Fairfax County, Virginia](img/dashboard-nonwhite.png)
 
 #### Display measures by rank to compare regions
 
@@ -35,4 +35,4 @@ Explore the Social Impact Data Commons for the National Capital Region
 
 #### Access metadata for each measure
 
-![Dental care geographic availablility detailed measure information](img/dashboard-info.png)
+![Detailed information for the "dental care geographic availablility" measure](img/dashboard-info.png)

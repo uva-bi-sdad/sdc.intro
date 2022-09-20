@@ -11,7 +11,7 @@ output:
 
 ### Conference presentations
 
-!["The Social Impact Data Commons: A New Sustainable Architecture and Stakeholder Approach to Collect, Create, Validate and Distribute Sub-County-Level Datasets and Metrics to Support Regional Data-Driven Decision-Making", presented at the 2022 Association of Public Data Users conference by presented by Kathryn Linehan](img/media-apdulogo.png){width="300px"}
+!["The Social Impact Data Commons: A New Sustainable Architecture and Stakeholder Approach to Collect, Create, Validate and Distribute Sub-County-Level Datasets and Metrics to Support Regional Data-Driven Decision-Making", presented at the 2022 Association of Public Data Users conference by Kathryn Linehan](img/media-apdulogo.png){width="300px"}
 
 
 !["Lessons Learned in Coordinating Large-Scale Data Science Initiatives", presented at the 2022 Joint Statistical Meetings by Joel Thurston](img/media-jsmlogo.png){width="300px"}
