@@ -1,23 +1,24 @@
 ---
-title: "What is a Data Commons?"
+title: "A Social Impact Data Commons for the NCR"
 ---
 
-### A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data. \n
+## Supporting local equity-informed decision-making in the National Capital Region
 
-<center> ![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc.png){width="600px"} </center>
+#### By creating new below county-level datasets and measures derived from publicly collectible data sources, we provide actionable data for local-level decision-making. We aim to inform equitable and sustainable growth in Virginia and the National Capital Region.
 
-### Project motivation
+### What is a Data Commons?
 
-By creating below county-level datasets and measures derived from publicly collectable data sources, we provide actionable data for local government. We aim to inform equitable and sustainable growth in Virginia and the National Capital Region. 
+#### A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data. \n
+
+<center>
+
+![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc-2.png){width="600px"}
+
+</center>
 
 ### Our Social Impact Data Commons
 
-* provides data, indicators, indices, case studies, and training
-* analyzes impact from social, economic, and health trends and major events 
-* enables ongoing learning from data
-* addresses local issues of concern (food insecurity and equity, for example)
-
-
-
-
-
+-   provides data, indicators, indices, case studies, and training
+-   analyzes impact from social, economic, and health trends and major events
+-   enables ongoing learning from data
+-   addresses local issues of concern (food insecurity and equity, for example)
