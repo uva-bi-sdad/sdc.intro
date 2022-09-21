@@ -4,7 +4,7 @@ title: "Data Repositories"
 
 Visit our [public data repositories](https://github.com/uva-bi-sdad).
 
-![](img/data-repographic.png)
+<center>![Our public data repositories include information on housing, food, financial well-being, transport, broadband, environment, education, health, and business climate](img/data-repographic.png){width="600px"}</center>
 
 ### Data library
 
