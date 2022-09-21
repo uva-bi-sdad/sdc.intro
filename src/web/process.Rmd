@@ -14,9 +14,9 @@ title: "Community Learning Through Data Driven Discovery"
 
 ### Data collection
 
-After grounding in local issues, we collected data from a variety of sources to create novel measures and datasets. 
+After grounding in local issues, we collected data from a variety of sources to create novel measures and datasets. These datasets feed into our applications, including our API and dashboard.
 
-![](img/data-collection.png)
+![Examples of data sources collected and combined for the health, broadband, and education repositories, which feed into our applications.](img/process-datacollection.png)
 
 <!---
 Local questions driving dataset creation
