@@ -18,7 +18,7 @@ navbar:
       href: data.html
     - text: "Dashboard"
       href: dashboard.html
-    - text: "Tools"
+    - text: "Tools & Methods"
       menu:
       - text: "Catchment Areas"
         href: health.html
@@ -26,6 +26,10 @@ navbar:
         href: food.html
       - text: "Demographic Redistribution"
         href: demographic.html
+    - text: "Stories"
+      menu:
+      - text: "Access to Broadband"
+        href: broadband.html
     - text: "Media"
       href: media.html
     - text: "Partners"

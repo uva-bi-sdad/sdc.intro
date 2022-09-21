@@ -21,7 +21,7 @@ These areas of lowest broadband adoption appear to directly correlate with the a
 
 
 ![](img/broadband-percinc.png)
-
+<!--
 ## Digital equity index
 
 
@@ -30,4 +30,5 @@ These areas of lowest broadband adoption appear to directly correlate with the a
 * However, specific areas can be identified that have a significantly lower level of broadband adoption than the rest of Arlington
 * Calculated & of household income vs cost of 100Mb/s in every block group
 * These areas of lowest broadband adoption appear to correlate with the areas having the highest ratio of household income to the cost of broadband, indicating an economic issue, as opposite to an issue of availability
-* Digital equity index
+* Digital equity index -->
+
