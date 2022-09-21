@@ -17,11 +17,7 @@ navbar:
     - text: "Data Repositories"
       href: data.html
     - text: "Dashboard"
-      menu:
-        - text: "Dashboard"
-          href: "https://uva-bi-sdad.github.io/capital_region"
-        - text: "Dashboard Features"
-          href: dashboard.html
+      href: dashboard.html
     - text: "Tools"
       menu:
       - text: "Catchment Areas"
