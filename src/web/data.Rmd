@@ -1,6 +1,17 @@
 ---
 title: "Data Repositories"
+subtitle: "Freely Available Open Source Data and Code"
 ---
+
+<style type="text/css">
+  h1.title {
+    text-align: center;
+    margin-bottom: -3px;
+  }
+  h3.subtitle {
+    text-align: center;
+  }
+</style>
 
 Visit our [public data repositories](https://github.com/uva-bi-sdad).
 
@@ -14,5 +25,5 @@ library(data.table)
 
 data_cats_tops <- fread("https://raw.githubusercontent.com/uva-bi-sdad/sdc.standards/main/src/data_categories_topics.csv")
 reactable(data_cats_tops,
-          groupBy = c("REPO", "DATATYPE", "DATACATEGORY"))
+          groupBy = c("RepoName", "DataType", "DataCategory"))
 ```
