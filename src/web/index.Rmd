@@ -8,6 +8,9 @@ subtitle: "Supporting local equity-informed decision-making in the National Capi
     text-align: center;
     margin-bottom: -3px;
   }
+  h3.subtitle {
+    text-align: center;
+  }
 </style>
 
 <center>
