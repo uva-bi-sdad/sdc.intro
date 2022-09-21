@@ -27,12 +27,12 @@ output:
   <area shape="circle" coords="76,72,40" href="https://github.com/uva-bi-sdad/sdc.housing">
   <area shape="circle" coords="63,182,40" href="https://github.com/uva-bi-sdad/sdc.food">
   <area shape="circle" coords="100,285,40" href="https://github.com/uva-bi-sdad/sdc.financial_well_being">
-  <area shape="circle" coords="186,364,40" href="https://github.com/uva-bi-sdad/sdc.transportation">
+<!--  <area shape="circle" coords="186,364,40" href="https://github.com/uva-bi-sdad/sdc.transportation"> -->
   <area shape="circle" coords="298,390,40" href="https://github.com/uva-bi-sdad/sdc.broadband">
-  <area shape="circle" coords="405,360,40" href="https://github.com/uva-bi-sdad/sdc.environment">
+<!--  <area shape="circle" coords="405,360,40" href="https://github.com/uva-bi-sdad/sdc.environment"> -->
   <area shape="circle" coords="494,287,40" href="https://github.com/uva-bi-sdad/sdc.education">
   <area shape="circle" coords="533,186,40" href="https://github.com/uva-bi-sdad/sdc.health">
-  <area shape="circle" coords="519,74,40" href="https://github.com/uva-bi-sdad/sdc.business_climate">
+<!--   <area shape="circle" coords="519,74,40" href="https://github.com/uva-bi-sdad/sdc.business_climate"> -->
 </map>
 
 ### Open Source
