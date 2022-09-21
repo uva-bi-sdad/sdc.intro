@@ -14,7 +14,7 @@ title: "<center>Supporting local equity-informed decision-making in the National
   </tr>
   <tr>
     <td style="text-align: center;">
-    ![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc-2.png){width="600px"}
+    ![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc-3.png){width="600px"}
     </td>
   </tr>
   <tr>
