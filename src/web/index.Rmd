@@ -1,6 +1,14 @@
 ---
-title: "<center>Supporting local equity-informed decision-making in the National Capital Region</center>"
+title: "The Social Impact Data Commons"
+subtitle: "Supporting local equity-informed decision-making in the National Capital Region"
 ---
+
+<style type="text/css">
+  h1.title {
+    text-align: center;
+    margin-bottom: -3px;
+  }
+</style>
 
 <center>
 #### **DATA - APPLICATIONS - TOOLS - METHODS**
