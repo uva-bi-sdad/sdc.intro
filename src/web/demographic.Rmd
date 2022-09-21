@@ -1,8 +1,8 @@
 ---
-title: "Redistributing Demographics for Local Decisionmaking"
+title: "Redistributing Demographics for Local Decision-making"
 ---
 
-Often, data are not available in geographies relevant to local decisionmakers. For exmaple, census geographies do not perfectly align with Arlington Civic Associations.
+Often, data are not available in geographies relevant to local decisionmakers. For example, census geographies do not perfectly align with Arlington Civic Associations.
 
 ![](img/demographic-censusvcivic.png)
 
@@ -22,7 +22,7 @@ We review the current approaches to deal with a partial overlap
 
 ![Estimated Black population in Arlington County civic associations](img/demographic-arlciv.png)
 
-#### Fairfax County Average Download speed example
+#### Fairfax County average download speed example
 
 ![Average download speed in Fairfax County census tracts](img/demographic-fxcensus.png)
 

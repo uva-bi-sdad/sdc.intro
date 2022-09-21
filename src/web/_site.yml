@@ -22,8 +22,6 @@ navbar:
       menu:
       - text: "Catchment Areas"
         href: health.html
-      - text: "Broadband Access"
-        href: broadband.html
       - text: "Food Security"
         href: food.html
       - text: "Demographic Redistribution"
