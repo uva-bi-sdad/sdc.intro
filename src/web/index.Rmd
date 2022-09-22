@@ -45,6 +45,13 @@ subtitle: "Supporting local equity-informed decision-making in the National Capi
 </h4>
     </td>
   </tr>
+  <tr>
+    <td style="text-align:center; font-size:10px;">
+    <hr />
+    Sponsored by<br />
+    <img src="img/partners-mclogo.png" height="50px">
+    </td>
+  </tr>
 </table>
 
 
