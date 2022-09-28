@@ -20,7 +20,7 @@ subtitle: "Supporting local equity-informed decision-making in the National Capi
 <table>
   <tr>
     <td>
-    <h4>By creating new below county-level datasets and measures derived from publicly collectible data sources, we provide actionable data for local-level decision-making. We aim to inform equitable and sustainable growth in Virginia and the National Capital Region.</h4>
+    <h4>By creating new <b>below county-level datasets and measures</b> derived from publicly collectible data sources, we provide <b>actionable data for local-level decision-making</b>. We aim to <b>inform equitable and sustainable growth</b> in Virginia and the National Capital Region.</h4>
     </td>
   </tr>
   <tr>
@@ -53,13 +53,5 @@ subtitle: "Supporting local equity-informed decision-making in the National Capi
     </td>
   </tr>
 </table>
-
-
-
-
-
-
-
-
 
 
