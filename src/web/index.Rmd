@@ -52,6 +52,11 @@ subtitle: "Supporting local equity-informed decision-making in the National Capi
     <img src="img/partners-mclogo.png" height="50px">
     </td>
   </tr>
+  <tr>
+    <td style="text-align:center; font-size:10px; padding-top: 12px;">
+    Project Contact: Aaron Schroeder, ads7fg@virginia.edu
+    </td>
+  </tr>
 </table>
 
 
