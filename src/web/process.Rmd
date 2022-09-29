@@ -80,19 +80,24 @@ CLD3? Data Science framework?
 
 #### References 
 
-Doing Data Science: A Framework and Case Study [Article](https://hdsr.mitpress.mit.edu/pub/hnptx6lq/release/10)
+Doing Data Science: A Framework and Case Study [Article](https://hdsr.mitpress.mit.edu/pub/hnptx6lq/release/10) \n
+
 Harvard Data Science Review, 2(1). (2020) S.A. Keller, S.S. Shipp, A. D., Schroeder, & G. Korkmaz
  
 
-Helping Communities Use Data to Make Better Decisions [Article](https://issues.org/helping-communities-use-data-to-make-better-decisions/)
+Helping Communities Use Data to Make Better Decisions [Article](https://issues.org/helping-communities-use-data-to-make-better-decisions/) \n
+
 Issues in Science and Technology, Spring:83-89. (2018) S. Keller, S. Nusser, S. Shipp, C. Woteki
  
 
-Harnessing the power of data to support community‐based research [ABS](https://onlinelibrary.wiley.com/doi/full/10.1002/wics.1426)
+Harnessing the power of data to support community‐based research [ABS](https://onlinelibrary.wiley.com/doi/full/10.1002/wics.1426) \n
+
 WIREs Comp Stat doi: 10.1002/wics.1426. (2018) S. Keller, S. Shipp, G. Korkmaz, E. Molfino, J. Goldstein, V. Lancaster, B. Pires, D. Higdon, D. Chen, A. Schroeder
  
 
-Building Capacity for Data Driven Governance - Creating a New Foundation for Democracy [Article](https://amstat.tandfonline.com/doi/abs/10.1080/2330443X.2017.1374897#.XIlm0xNKhR5)
+Building Capacity for Data Driven Governance - Creating a New Foundation for Democracy
+[Article](https://amstat.tandfonline.com/doi/abs/10.1080/2330443X.2017.1374897#.XIlm0xNKhR5) \n
+
 Statistics and Public Policy, 4:1-11. (2017) S. A. Keller, V. Lancaster, S. Shipp
 
 
