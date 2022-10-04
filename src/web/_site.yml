@@ -1,4 +1,4 @@
-name: "my-website"
+name: "The Social Impact Data Commons"
 output_dir: "../../docs"
 exclude: ["*.nb.html", "*.csv", "*.CSV", "*.dcf", "parlog", "old", "dashboard"]
 output:
