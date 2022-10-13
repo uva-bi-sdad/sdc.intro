@@ -1,6 +1,6 @@
 ---
 title: "Health Equity in the National Capital Region"
-subtitle: "Is access to urgent care equitable in Fairfax?"
+subtitle: "Is access to urgent care equitable in Fairfax County?"
 ---
 
 <style type="text/css">
