@@ -13,6 +13,7 @@
 
 <title>Health Equity in the National Capital Region</title>
 
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -288,9 +289,6 @@ $(document).ready(function () {
     <li>
       <a href="broadband.html">Access to Broadband</a>
     </li>
-    <li>
-      <a href="health_equity.html">Health Equity</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -318,8 +316,10 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Health Equity in the National Capital Region</h1>
-<h3 class="subtitle">Is access to urgent care equitable in Fairfax County?</h3>
+<h1 class="title toc-ignore">Health Equity in the National Capital
+Region</h1>
+<h3 class="subtitle">Is access to urgent care equitable in Fairfax
+County?</h3>
 
 </div>
 
@@ -334,24 +334,81 @@ $(document).ready(function () {
   }
 </style>
 <div style="clear: both">
-<h3 id="issue-overview">Issue overview</h3>
-<p>Our stakeholders in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race, by household income, and by housing type. We began by choosing to analyze access to urgent care facilities, gathering data from the <a href="https://hifld-geoplatform.opendata.arcgis.com/">Homeland Security Foundation-Level Data</a>. To get a better understanding of the idea of access, we compared several measures.</p>
-<h3 id="where-are-urgent-cares-in-fairfax">Where are urgent cares in Fairfax?</h3>
-<p><img src="img/health_equity-fairfaxcounturgent.png" style="float: right;" width="600" /> First, we began by began by examining the locations of urgent care. We found that there are 20 urgent care facilites across the county. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts in Fairfax county, there is no urgent care present. Fairfax residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though.</p>
+<div id="issue-overview" class="section level3">
+<h3>Issue overview</h3>
+<p>Our stakeholders in Arlington and Fairfax Counties were interested in
+understanding the equity of access to health services by neighborhood,
+by race, by household income, and by housing type. We began by choosing
+to analyze access to urgent care facilities, gathering data from the <a
+href="https://hifld-geoplatform.opendata.arcgis.com/">Homeland Security
+Foundation-Level Data</a>. To get a better understanding of the idea of
+access, we compared several measures.</p>
 </div>
-<div style="clear: both">
-<h3 id="how-long-does-it-take-to-drive-to-urgent-cares">How long does it take to drive to urgent cares?</h3>
-<p><img src="img/health_equity-fairfaxdrivetimeurgent.png" style="float: left;" width="600" /> The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge. Fairfax residents who live in more urban areas or along major roads have greater access to urgent cares by drive time. The highest average drive time to the ten closest urgent cares is over 21 minutes, while the lowest is eight minutes. Our measure of access, though, still does not take into account any population-level information.</p>
+<div id="where-are-urgent-cares-in-fairfax" class="section level3">
+<h3>Where are urgent cares in Fairfax?</h3>
+<p><img src="img/health_equity-fairfaxcounturgent.png"
+style="float: right;" width="600" /> First, we began by began by
+examining the locations of urgent care. We found that there are 20
+urgent care facilites across the county. We calculated access to urgent
+care by count, or presence of an urgent care in a given geography. For
+most census tracts in Fairfax county, there is no urgent care present.
+Fairfax residents who live in a census tract without an urgent care may
+be able to easily drive to one nearby, though.</p>
 </div>
-<div style="clear: both">
-<h3 id="how-do-we-develop-a-comprehensive-measure-of-access">How do we develop a comprehensive measure of access?</h3>
-<p><img src="img/health_equity-fairfaxurgentfca.png" style="float: right;" width="600" /> <img src="img/health_equity-fairfaxurgentfcarank.png" style="float: right;" width="600" /> Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. The areas with the lowest access to urgent cares are actually those in more urban areas, where drive time is lowest. This is because while facilities are close by drive time, the population serviced by these urgent cares is so large that these residents have effectively lower access. The area with the greatest access is along a major highway in western Fairfax, bordering the relatively less-populated urban area of Manassass.</p>
 </div>
-<div style="clear: both">
-<h3 id="is-there-inequity-in-access-to-urgent-cares-by-demographics">Is there inequity in access to urgent cares by demographics?</h3>
-<p><img src="img/health_equity-fairfaxwhite.png" style="float: left;" width="600" /> <img src="img/health_equity-fairfaxurgentfcarank.png" style="float: left;" width="600" /> <img src="img/health_equity-fairfaxhisp.png" style="float: left;" width="600" /></p>
-<p>After developing a comprehensive measure of access, we began to dig into the question of equity of access to urgent care facilities by demographics. We observed that the neighborhoods affected by low access to urgent cares have different demographic compositions. The Mclean neighborhood in northeast Fairfax, which is largely white and high income on average, has some of the lowest access to urgent cares in the county. The Bailey’s Crossroads neighborhood, which borders Arlington in eastern Fairfax, also has some of the lowest access to urgent cares. Bailey’s Crossroads is also characterized by a high Latino population and lower average household income.</p>
-<p>Having a comprehensive knowledge of the equity of access to urgent care within neighborhoods in Fairfax County empowers our local stakeholds to make more effective policy decisions to address and correct inequities.</p>
+<div id="how-long-does-it-take-to-drive-to-urgent-cares"
+class="section level3" style="clear: both">
+<h3>How long does it take to drive to urgent cares?</h3>
+<p><img src="img/health_equity-fairfaxdrivetimeurgent.png"
+style="float: left;" width="600" /> The next measure of access we
+analyzed was drive time to the ten closest urgent care facilities. Here,
+we begin to see patterns of access emerge. Fairfax residents who live in
+more urban areas or along major roads have greater access to urgent
+cares by drive time. The highest average drive time to the ten closest
+urgent cares is over 21 minutes, while the lowest is eight minutes. Our
+measure of access, though, still does not take into account any
+population-level information.</p>
+</div>
+<div id="how-do-we-develop-a-comprehensive-measure-of-access"
+class="section level3" style="clear: both">
+<h3>How do we develop a comprehensive measure of access?</h3>
+<p><img src="img/health_equity-fairfaxurgentfca.png"
+style="float: right;" width="600" /> <img
+src="img/health_equity-fairfaxurgentfcarank.png" style="float: right;"
+width="600" /> Next, we analyzed access to urgent care by geographic
+availability using three-step floating catchment areas. Three-step
+floating catchment areas is an aggregation of facilities per population
+ratio weighted by travel time. Here, we see an even fuller picture
+access to urgent care in the region. The areas with the lowest access to
+urgent cares are actually those in more urban areas, where drive time is
+lowest. This is because while facilities are close by drive time, the
+population serviced by these urgent cares is so large that these
+residents have effectively lower access. The area with the greatest
+access is along a major highway in western Fairfax, bordering the
+relatively less-populated urban area of Manassass.</p>
+</div>
+<div id="is-there-inequity-in-access-to-urgent-cares-by-demographics"
+class="section level3" style="clear: both">
+<h3>Is there inequity in access to urgent cares by demographics?</h3>
+<p><img src="img/health_equity-fairfaxwhite.png" style="float: left;"
+width="600" /> <img src="img/health_equity-fairfaxurgentfcarank.png"
+style="float: left;" width="600" /> <img
+src="img/health_equity-fairfaxhisp.png" style="float: left;"
+width="600" /></p>
+<p>After developing a comprehensive measure of access, we began to dig
+into the question of equity of access to urgent care facilities by
+demographics. We observed that the neighborhoods affected by low access
+to urgent cares have different demographic compositions. The Mclean
+neighborhood in northeast Fairfax, which is largely white and high
+income on average, has some of the lowest access to urgent cares in the
+county. The Bailey’s Crossroads neighborhood, which borders Arlington in
+eastern Fairfax, also has some of the lowest access to urgent cares.
+Bailey’s Crossroads is also characterized by a high Latino population
+and lower average household income.</p>
+<p>Having a comprehensive knowledge of the equity of access to urgent
+care within neighborhoods in Fairfax County empowers our local
+stakeholds to make more effective policy decisions to address and
+correct inequities.</p>
 </div>
 
 
