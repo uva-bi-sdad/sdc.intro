@@ -1,7 +1,27 @@
 ---
 title: "Health Equity in the National Capital Region"
-subtitle: "Is access to urgent care equitable in Fairfax County?"
+subtitle: "Is access to urgent care equitable in Arlington and Fairfax County?"
 ---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(leaflet)
+library(tidyverse)
+library(sf)
+library(leaflegend)
+
+urgent <- read_csv("https://raw.githubusercontent.com/uva-bi-sdad/sdc.health/main/Health%20Care%20Services/Urgent%20Care%20Centers/Service%20Access%20Scores/data/distribution/va_hdcttrbg_hifld_2021_access_scores_urgent.csv") %>% filter(str_detect(geoid, "^51059|^51013"))
+tracts <- geojsonsf::geojson_sf("https://raw.githubusercontent.com/uva-bi-sdad/sdc.geographies/main/VA/Census%20Geographies/Tract/2020/data/distribution/va_geo_census_cb_2020_census_tracts.geojson") %>% filter(str_detect(geoid, "^51059|^51013"))
+counties <- geojsonsf::geojson_sf("https://raw.githubusercontent.com/uva-bi-sdad/sdc.geographies/main/VA/Census%20Geographies/County/2020/data/distribution/va_geo_census_cb_2020_counties.geojson") %>% filter(str_detect(geoid, "^51059|^51013"))
+points <- geojsonio::geojson_sf("https://raw.githubusercontent.com/uva-bi-sdad/dc.hifld.urgent/master/data/points_2021.geojson")
+white <- read_csv("~/git/dc.acs.demographics/data/va_hdcttr_acs_2009_2019_demographics.csv.xz") %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "perc_white", year == 2019) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
+hispanic <- read_csv("~/git/dc.acs.demographics/data/va_hdcttr_acs_2009_2019_demographics.csv.xz") %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "perc_hispanic_or_latino", year == 2019) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
+
+urgent <- tracts %>% left_join(urgent, by = "geoid") 
+
+#devtools::install_github("thomasp85/scico")
+library(scico)
+```
+
 
 <style type="text/css">
   h1.title {
@@ -19,9 +39,33 @@ subtitle: "Is access to urgent care equitable in Fairfax County?"
 
 Our stakeholders in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race, by household income, and by housing type. We began by choosing to analyze access to urgent care facilities, gathering data from the [Homeland Security Foundation-Level Data](https://hifld-geoplatform.opendata.arcgis.com/). To get a better understanding of the idea of access, we compared several measures. 
 
-### Where are urgent cares in Fairfax?
+### Where are urgent cares in Arlington and Fairfax?
 
-![](img/health_equity-fairfaxcounturgent.png){width="600px" style="float: right;"}
+```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+cat('<div width="600px" style="float: right;">')
+plot <- urgent %>% filter(measure == "urgent_cnt")
+
+pal <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = plot$value,
+  na.color = NA
+)
+
+plot %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~pal(value), weight = 1,
+                opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", plot$geoid, " : ", round(plot$value, 1), " urgent cares")) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+             stroke = TRUE, radius = 5, opacity = 1, weight = 2) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+  addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
+            title = "Urgent care availability (count)", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+cat('</div>')
+```
+
+
 First, we began by began by examining the locations of urgent care. We found that there are 20 urgent care facilites across the county. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts in Fairfax county, there is no urgent care present. Fairfax residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though. 
 
 </div>
@@ -30,7 +74,31 @@ First, we began by began by examining the locations of urgent care. We found tha
 
 ### How long does it take to drive to urgent cares?
 
-![](img/health_equity-fairfaxdrivetimeurgent.png){width="600px" style="float: left;"}
+```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+cat('<div width="600px" style="float: left;">')
+plot <- urgent %>% filter(measure == "urgent_near_10_median")
+
+pal <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = plot$value,
+  na.color = NA
+)
+
+plot %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~pal(value), weight = 1,
+                opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", plot$geoid, " : ", round(plot$value, 1), " minutes")) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+             stroke = TRUE, radius = 5, opacity = 1, weight = 2) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+  addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
+            title = "Urgent care availability (drive time)", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+cat('</div>')
+```
+
+
 The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge. Fairfax residents who live in more urban areas or along major roads have greater access to urgent cares by drive time. The highest average drive time to the ten closest urgent cares is over 21 minutes, while the lowest is eight minutes. Our measure of access, though, still does not take into account any population-level information.
 
 </div>
@@ -39,8 +107,50 @@ The next measure of access we analyzed was drive time to the ten closest urgent 
 
 ### How do we develop a comprehensive measure of access?
 
-![](img/health_equity-fairfaxurgentfca.png){width="600px" style="float: right;"}
-![](img/health_equity-fairfaxurgentfcarank.png){width="600px" style="float: right;"}
+```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+cat('<div width="500px" style="float: right;">')
+plot <- urgent %>% filter(measure == "urgent_3sfca")
+
+pal <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = plot$value,
+  na.color = NA
+)
+
+plot %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~pal(value), weight = 1,
+                opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", plot$geoid, " : ", round(plot$value, 1))) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+             stroke = TRUE, radius = 5, opacity = 1, weight = 2) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+  addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
+            title = "Urgent care geographic availability", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+plot <- urgent %>% filter(measure == "urgent_3sfca") %>% arrange(-value) %>% rownames_to_column() %>% mutate(value = as.numeric(rowname))
+
+palrank <- colorNumeric(
+  palette = scico(30, palette = 'lajolla'),
+  domain = plot$value,
+  na.color = NA
+)
+
+plot %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~palrank(value), weight = 1,
+                opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", plot$geoid, " : ", round(plot$value, 1))) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+             stroke = TRUE, radius = 5, opacity = 1, weight = 2) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+    addLegendNumeric(position = "bottomleft", pal = palrank, values = ~value, orientation = "horizontal",
+            title = "Urgent care geographic availability (rank)", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+cat('</div>')
+```
+
 Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. The areas with the lowest access to urgent cares are actually those in more urban areas, where drive time is lowest. This is because while facilities are close by drive time, the population serviced by these urgent cares is so large that these residents have effectively lower access. The area with the greatest access is along a major highway in western Fairfax, bordering the relatively less-populated urban area of Manassass. 
 
 </div>
@@ -48,9 +158,53 @@ Next, we analyzed access to urgent care by geographic availability using three-s
 <div style="clear: both">
 
 ### Is there inequity in access to urgent cares by demographics?
-![](img/health_equity-fairfaxwhite.png){width="600px" style="float: left;"}
-![](img/health_equity-fairfaxurgentfcarank.png){width="600px" style="float: left;"}
-![](img/health_equity-fairfaxhisp.png){width="600px" style="float: left;"}
+
+```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+cat('<div width="600px" style="float: left;">')
+
+pal2 <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = c(0,100),
+  na.color = NA
+)
+
+white %>%
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~pal2(value), weight = 1,
+            opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", white$geoid, " : ", round(white$value, 1), " percent")) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+  addLegendNumeric(position = "bottomleft", pal = pal2, values = c(0,100), orientation = "horizontal",
+            title = "White population (percent)", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+plot %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~palrank(value), weight = 1,
+                opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", plot$geoid, " : ", round(plot$value, 1))) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+             stroke = TRUE, radius = 5, opacity = 1, weight = 2) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+  addLegendNumeric(position = "bottomleft", pal = palrank, values = ~value, orientation = "horizontal",
+            title = "Urgent care geographic availability (rank)", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+hispanic %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(color = ~pal2(value), weight = 1,
+                opacity = 1.0, fillOpacity = 1, popup = paste0("Census Tract ", hispanic$geoid, " : ", round(hispanic$value, 1), " percent")) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+             stroke = TRUE, radius = 5, opacity = 1, weight = 2) %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+    addLegendNumeric(position = "bottomleft", pal = pal2, values = c(0,100), orientation = "horizontal",
+            title = "Hispanic/Latino population (percent)", height = 20, width = 200) %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+cat('</div>')
+```
+
 
 After developing a comprehensive measure of access, we began to dig into the question of equity of access to urgent care facilities by demographics. We observed that the neighborhoods affected by low access to urgent cares have different demographic compositions. The Mclean neighborhood in northeast Fairfax, which is largely white and high income on average, has some of the lowest access to urgent cares in the county. The Bailey's Crossroads neighborhood, which borders Arlington in eastern Fairfax, also has some of the lowest access to urgent cares. Bailey's Crossroads is also characterized by a high Latino population and lower average household income. 
 
