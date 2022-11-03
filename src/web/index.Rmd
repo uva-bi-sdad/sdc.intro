@@ -49,4 +49,3 @@ subtitle: "Supporting local equity-informed decision-making in the National Capi
   </tr>
 </table>
 
-

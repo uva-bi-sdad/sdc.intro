@@ -30,8 +30,8 @@ navbar:
       menu:
       - text: "Access to Broadband"
         href: broadband.html
-      - text: "Health Equity"
-        href: health_equity.html
+      # - text: "Health Equity"
+      #   href: health_equity.html
     - text: "Media"
       href: media.html
     - text: "Partners"
