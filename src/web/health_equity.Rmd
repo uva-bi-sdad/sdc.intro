@@ -19,6 +19,8 @@ asian <- read_csv("~/git/dc.acs.demographics/data/va_hdcttr_acs_2009_2019_demogr
 
 urgent <- tracts %>% left_join(urgent, by = "geoid") 
 
+income <- read_csv("~/git/sdc.financial_well_being_dev/Pay and Benefits/Household Income/data/distribution/va_cttrbg_2015_2019_median_household_income.csv.xz") %>% mutate(geoid = as.character(geoid)) %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "median_household_income", year == 2019) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
+
 #devtools::install_github("thomasp85/scico")
 library(scico)
 ```
@@ -63,6 +65,10 @@ leaflet() %>%
   addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
             title = "Urgent care availability (count)", height = 20, width = 200) %>%
   setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+cat('<caption>Data source: Homeland Infrastructure Foundation-Level Data, accessed 2021.
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=access_scores_urgent:urgent_cnt&selected_year=2021&filter.time_min=2021&filter.time_max=2021&filter.county=51013,51059"> <br> Explore this measure on our dashboard </a> </caption>')
+
 cat('</div>')
 ```
 
@@ -96,6 +102,11 @@ leaflet() %>%
   addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
             title = "Urgent care availability (drive time)", height = 20, width = 200) %>%
   setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+cat('<caption>Data source: Homeland Infrastructure Foundation-Level Data, accessed 2021. <br> 
+Drive times calculated using Open Street Routing Machine.
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=access_scores_urgent:urgent_near_10_median&selected_year=2021&filter.time_min=2021&filter.time_max=2021&filter.county=51013,51059"> <br> Explore this measure on our dashboard </a> </caption>')
+
 cat('</div>')
 ```
 
@@ -149,6 +160,12 @@ leaflet() %>%
     addLegendNumeric(position = "bottomleft", pal = palrank, values = ~value, orientation = "horizontal",
             title = "Urgent care geographic availability (rank)", height = 20, width = 200) %>%
   setView(lng = -77.3, lat = 38.85, zoom = 9.5)
+
+cat('<caption>Data source: Homeland Infrastructure Foundation-Level Data, accessed 2021. <br> 
+Population data from the American Community Survey (ACS). <br>
+Drive times calculated using Open Street Routing Machine. 
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=access_scores_urgent:urgent_3sfca&selected_year=2021&filter.time_min=2021&filter.time_max=2021&filter.county=51013,51059"> <br> Explore this measure on our dashboard </a> </caption>')
+
 cat('</div>')
 ```
 
@@ -201,6 +218,30 @@ leaflet() %>%
     addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
              stroke = TRUE, radius = 5, opacity = 1, weight = 2)
 
+pal <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = income$value,
+  na.color = NA
+)
+
+income %>% 
+  leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron, group = "Base") %>%
+  addPolygons(color = ~pal(value), weight = 1, opacity = 1.0, fillOpacity = .8, popup = paste0("Census Tract ", income$geoid, " : $", round(income$value, 1), "average household income"), group = "Income") %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+  addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
+                   title = "Median household income", height = 20, width = 200, group = "Base") %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5) %>%
+  addLayersControl(
+    baseGroups = c("Income"),
+    options = layersControlOptions(collapsed = FALSE)
+    ) %>%
+  addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
+                   stroke = TRUE, radius = 5, opacity = 1, weight = 2)
+
+cat('<caption>Data source: Demographic and income data from the American Community Survey <br> (ACS). 
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=demographics:perc_hispanic_or_latino&selected_year=2019&filter.time_min=2009&filter.time_max=2019&filter.county=51013,51059"> <br> Explore these measures on our dashboard </a> </caption>')
+
 cat('</div>')
 ```
 
@@ -210,5 +251,63 @@ After developing a comprehensive measure of access, we began to dig into the que
 In addition to income and demographic variables, we could explore access to urgent care by additional factors affecting health equity, including primary language spoken at home or access to health insurance. 
 
 Having a comprehensive knowledge of the equity of access to urgent care within neighborhoods in Fairfax and Arlington counties empowers our local stakeholders to make more effective policy decisions to address and correct inequities.
+
+</div>
+
+<div style="clear: both">
+
+### Exploring access to additional health services
+
+```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4, message = FALSE}
+cat('<div width="600px" style="float: right;">')
+
+hospital <- read_csv("https://github.com/uva-bi-sdad/sdc.health/raw/main/Health%20Care%20Services/Hospitals%20and%20Emergency%20Rooms/Service%20Access%20Scores/data/distribution/va_hdcttrbg_hifld_2021_access_scores_hospitals.csv") %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "hosp_e2sfca", year == 2021) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
+
+doctors <- read_csv("https://github.com/uva-bi-sdad/sdc.health/raw/main/Health%20Care%20Services/Physicians/Primary%20Care/Service%20Access%20Scores/data/distribution/va_hdcttrbg_webmd_2021_access_scores_primcare.csv") %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "primcare_e2sfca", year == 2021) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
+
+drug <- read_csv("https://github.com/uva-bi-sdad/sdc.health/raw/main/Health%20Care%20Services/Drug%20and%20Rehab/Service%20Catchment%20Scores/data/distribution/va_hdcttrbg_samhsa_2021_access_scores_substance.csv") %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "subs_e2sfca", year == 2021) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
+
+pal <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = hospital$value,
+  na.color = NA
+)
+
+pal2 <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = doctors$value,
+  na.color = NA
+)
+
+pal3 <- colorNumeric(
+  palette = scico(30, palette = 'vik'),
+  domain = drug$value,
+  na.color = NA
+)
+
+hospital %>% 
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron, group = "Base") %>%
+  addPolygons(color = ~pal(value), weight = 1,
+                opacity = 1.0, fillOpacity = .8, popup = paste0("Census Tract ", hospital$geoid, " : ", round(hospital$value, 1), " hospital access"), group = "Hospitals") %>%
+  addPolygons(data = doctors, color = ~pal2(value), weight = 1,
+                opacity = 1.0, fillOpacity = .8, popup = paste0("Census Tract ", doctors$geoid, " : ", round(doctors$value, 1), " primary care access"), group = "Primary Care") %>%
+  addPolygons(data = drug, color = ~pal3(value), weight = 1,
+                opacity = 1.0, fillOpacity = .8, popup = paste0("Census Tract ", drug$geoid, " : ", round(drug$value, 1), " substance use facility access"), group = "Substance Use Facilities") %>%
+  addPolylines(data = counties, opacity = 1, color = "#000000") %>%
+    addLegendNumeric(position = "bottomleft", pal = pal2, values = ~doctors$value, orientation = "horizontal",
+            title = "Health service access", height = 20, width = 200, group = "Base") %>%
+  setView(lng = -77.3, lat = 38.85, zoom = 9.5) %>%
+    addLayersControl(
+    baseGroups = c("Hospitals", "Primary Care", "Substance Use Facilities"),
+    options = layersControlOptions(collapsed = FALSE)
+  ) 
+
+cat('<caption>Data source: Hospital data from Homeland Infrastructure Foundation-Level Data, <br> accessed 2021. <br> Primary care physician data from WebMD, accessed 2021. <br> Substance Use Facilities from Substance Abuse and Mental Health Services <br> Administration, accessed 2021.  
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=access_scores_primcare:primcare_e2sfca&selected_year=2021&filter.time_min=2021&filter.time_max=2021&filter.county=51013,51059"> Explore these measures on our dashboard </a> </caption>')
+
+cat('</div>')
+```
+Using the social impact data commons, we can explore access to additional health services along equity lines. For example, we can explore differences in access to hospitals, primary care physicians, or substance use facilities. We find that access to these services across Fairfax and Arlington do not necessarily follow the same pattern. Using this specific information, policymakers can make more informed decisions regarding closing health equity gaps. 
 
 </div>
