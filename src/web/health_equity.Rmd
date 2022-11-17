@@ -227,13 +227,13 @@ pal <- colorNumeric(
 income %>% 
   leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron, group = "Base") %>%
-  addPolygons(color = ~pal(value), weight = 1, opacity = 1.0, fillOpacity = .8, popup = paste0("Census Tract ", income$geoid, " : $", round(income$value, 1), "average household income"), group = "Income") %>%
+  addPolygons(color = ~pal(value), weight = 1, opacity = 1.0, fillOpacity = .8, popup = paste0("Census Tract ", income$geoid, " : $", round(income$value, 1), " median household income"), group = "Household Income") %>%
   addPolylines(data = counties, opacity = 1, color = "#000000") %>%
   addLegendNumeric(position = "bottomleft", pal = pal, values = ~value, orientation = "horizontal",
                    title = "Median household income", height = 20, width = 200, group = "Base") %>%
   setView(lng = -77.3, lat = 38.85, zoom = 9.5) %>%
   addLayersControl(
-    baseGroups = c("Income"),
+    baseGroups = c("Household Income"),
     options = layersControlOptions(collapsed = FALSE)
     ) %>%
   addCircleMarkers(data = points, fillOpacity = 1, fillColor = "#FFFFFF", color = "#000000",
@@ -308,6 +308,6 @@ cat('<caption>Data source: Hospital data from Homeland Infrastructure Foundation
 
 cat('</div>')
 ```
-Using the social impact data commons, we can explore access to additional health services along equity lines. For example, we can explore differences in access to hospitals, primary care physicians, or substance use facilities. We find that access to these services across Fairfax and Arlington do not necessarily follow the same pattern. Using this specific information, policymakers can make more informed decisions regarding closing health equity gaps. 
+Using the Social Impact Data Commons, we can explore access to additional health services along equity lines. For example, we can explore differences in access to hospitals, primary care physicians, or substance use facilities. We find that access to these services across Fairfax and Arlington do not necessarily follow the same pattern. Using specific measures, policymakers can make informed decisions to address health equity gaps. 
 
 </div>
