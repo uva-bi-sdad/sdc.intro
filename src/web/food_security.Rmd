@@ -1,0 +1,24 @@
+---
+title: "Food Security"
+subtitle: "How do we measure the food insecurity in Arlington and Fairfax County?"
+---
+
+### Issue overview
+
+Our stakeholders in Arlington and Fairfax Counties were interested in measuring food insecurity at the local level. Present measures for food insecurity are not readily available below the county level. Further, current approaches to measuring food insecurity do not take into account major drivers of food insecurity: income, household size, and cost of living. We aimed to create a new approach to estimating food insecurity for actionable local policymaking.
+
+### Calculating cost of living
+
+Current cost of living calculators do not go below county level, we made our own to esimate cost of living at the census tract level.
+Table of sources & calculator
+
+### Approach to measuring food insecurity
+
+Using iterative proportional fitting to estimate income and household size composition of each census tract
+Based on income and household size, families with that household composition in that census tract are either food insecure, at-risk, or food secure
+
+### Results
+
+Areas with high food insecurity
+
+### Comparison with current measures of food insecurity

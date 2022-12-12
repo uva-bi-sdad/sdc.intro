@@ -1,0 +1,14 @@
+---
+title: "Economic Health and Diversity"
+subtitle: "What is the diversity of business ownership in Arlington and Fairfax Counties?"
+---
+
+### Issue overview
+
+Our Arlington and Fairfax County stakeholders were interested in diving deeply into measures of economic health, specifically economic diversity in their counties. We began by analyzing the diversity of business ownership in the counties, collecting data from [Mergent Intellect](https://www.mergentintellect.com/index.php/search/index). To create policy-actionable metrics, we transformed data into relevant local geographies for decisionmaking, including business corridors. 
+
+### Measures of business ownership diversity
+
+### Business ownership diversity by industry, business size
+
+### Business ownership diversity in business corridors

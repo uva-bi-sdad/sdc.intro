@@ -3,7 +3,7 @@ title: "Health Equity in the National Capital Region"
 subtitle: "Is access to urgent care equitable in Arlington and Fairfax County?"
 ---
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, eval = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
 library(leaflet)
 library(tidyverse)
 library(sf)
@@ -44,7 +44,7 @@ Our stakeholders in Arlington and Fairfax Counties were interested in understand
 
 ### Where are urgent cares in Arlington and Fairfax?
 
-```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="600px" style="float: right;">')
 plot <- urgent %>% filter(measure == "urgent_cnt")
 
@@ -72,6 +72,7 @@ cat('<caption>Data source: Homeland Infrastructure Foundation-Level Data, access
 cat('</div>')
 ```
 
+![](img/urgent-locations.png){width="600px" style="float: right;"}
 
 First, we began by began by examining the locations of urgent care. We found that there are 20 urgent care facilities in Fairfax and one facility in Arlington. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts, there is no urgent care present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though. 
 
@@ -81,7 +82,7 @@ First, we began by began by examining the locations of urgent care. We found tha
 
 ### How long does it take to drive to urgent cares?
 
-```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="600px" style="float: left;">')
 plot <- urgent %>% filter(measure == "urgent_near_10_median")
 
@@ -110,6 +111,7 @@ Drive times calculated using Open Street Routing Machine.
 cat('</div>')
 ```
 
+![](img/urgent-drivetime.png){width="600px" style="float: left;"}
 
 The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge. Fairfax and Arlington residents who live in more urban areas or along major roads have greater access to urgent cares by drive time. In Fairfax, the highest average drive time to the ten closest urgent cares is over 21 minutes, while the lowest is eight minutes. Across Arlington, it can take as much as 16 minutes to drive to the closest urgent care and and as little five minutes. Our measure of access, though, still does not take into account any population-level information.
 
@@ -119,7 +121,7 @@ The next measure of access we analyzed was drive time to the ten closest urgent 
 
 ### How do we develop a comprehensive measure of access?
 
-```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="500px" style="float: right;">')
 plot <- urgent %>% filter(measure == "urgent_3sfca")
 
@@ -169,6 +171,10 @@ Drive times calculated using Open Street Routing Machine.
 cat('</div>')
 ```
 
+![](img/urgent-fca.png){width="600px" style="float: right;"}
+![](img/urgent-fcarank.png){width="600px" style="float: right;"}
+
+
 Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. The areas with the lowest access to urgent cares are actually those in more urban areas inside the Beltway, where drive time is lowest. While facilities are close by drive time, the population serviced by these urgent cares is so large that these residents have effectively lower access. The area with the greatest access is Centreville, which lies along a major highway in western Fairfax, bordering the relatively less-populated urban area of Manassass. Areas in southern Fairfax are also comparatively well-serviced. The areas of lowest access in the region are northern Arlington, Bailey's Crossroads, Tysons Corner, and McLean. Southern Arlington and Annandale also have comparatively low access to urgent care facilities. 
 
 </div>
@@ -177,7 +183,7 @@ Next, we analyzed access to urgent care by geographic availability using three-s
 
 ### Is there inequity in access to urgent cares by demographics?
 
-```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
+```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="600px" style="float: left;">')
 
 pal2 <- colorNumeric(
@@ -245,6 +251,11 @@ cat('<caption>Data source: Demographic and income data from the American Communi
 cat('</div>')
 ```
 
+![](img/urgent-hisppop.png){width="600px" style="float: left;"}
+![](img/urgent-whitepop.png){width="600px" style="float: left;"}
+![](img/urgent-aapipop.png){width="600px" style="float: left;"}
+![](img/urgent-hhincome.png){width="600px" style="float: left;"}
+
 
 After developing a comprehensive measure of access, we began to dig into the question of equity of access to urgent care facilities by demographics. We observed that the neighborhoods affected by low access to urgent cares have different demographic compositions. Northern Arlington, where the population is largely white and high income on average, has some of the lowest access to urgent cares in the region. The Southern Arlington and neighboring Bailey's Crossroads and Annandale in Fairfax have higher Hispanic/Latino populations and lower income on average. These areas also have relatively low access to urgent cares. Bailey's Crossroads is also characterized by a high Latino population and lower average household income. Centreville, McLean, and Tyson's Corner have larger Asian American/Pacific Islander populations. Centreville has some of the highest access to urgent care in the region while McLean and Tyson's have some of the lowest access. 
 
@@ -258,7 +269,7 @@ Having a comprehensive knowledge of the equity of access to urgent care within n
 
 ### Exploring access to additional health services
 
-```{r, results='asis', echo = FALSE, fig.width=5.5, fig.height=4, message = FALSE}
+```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4, message = FALSE}
 cat('<div width="600px" style="float: right;">')
 
 hospital <- read_csv("https://github.com/uva-bi-sdad/sdc.health/raw/main/Health%20Care%20Services/Hospitals%20and%20Emergency%20Rooms/Service%20Access%20Scores/data/distribution/va_hdcttrbg_hifld_2021_access_scores_hospitals.csv") %>% filter(str_detect(geoid, "^51059|^51013"), region_type == "tract", measure == "hosp_e2sfca", year == 2021) %>% left_join(tracts, by = "geoid") %>% st_as_sf()
