@@ -38,9 +38,46 @@ library(scico)
 
 <div style="clear: both">
 
+```{css float-right-figure-caption, echo = FALSE}
+.my-right-figure {
+  display: table;
+  float: right;
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+.my-right-figure p {
+  display: table-caption;
+  caption-side: bottom;
+  padding-left: 30px
+}
+.figure {
+  display: contents;
+}
+```
+
+```{css float-left-figure-caption, echo = FALSE}
+.my-left-figure {
+  display: table;
+  float: left;
+  padding-right: 30px;
+  padding-bottom: 10px;
+}
+.my-left-figure p {
+  display: table-caption;
+  caption-side: bottom;
+  padding-right: 30px
+}
+.figure {
+  display: contents;
+}
+```
+
 ### Issue overview
 
 Our stakeholders in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race, by household income, and by housing type. We began by choosing to analyze access to urgent care facilities, gathering data from the [Homeland Security Foundation-Level Data](https://hifld-geoplatform.opendata.arcgis.com/). To get a better understanding of the idea of access, we compared several measures. 
+
+<br>
+<br>
 
 ### Where are urgent cares in Arlington and Fairfax?
 
@@ -72,6 +109,7 @@ cat('<caption>Data source: Homeland Infrastructure Foundation-Level Data, access
 cat('</div>')
 ```
 
+
 ![](img/urgent-locations.png){width="600px" style="float: right;"}
 
 First, we began by began by examining the locations of urgent care. We found that there are 20 urgent care facilities in Fairfax and one facility in Arlington. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts, there is no urgent care present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though. 
@@ -79,6 +117,9 @@ First, we began by began by examining the locations of urgent care. We found tha
 </div>
 
 <div style="clear: both">
+
+<br>
+<br>
 
 ### How long does it take to drive to urgent cares?
 
@@ -118,6 +159,9 @@ The next measure of access we analyzed was drive time to the ten closest urgent 
 </div>
 
 <div style="clear: both">
+
+<br>
+<br>
 
 ### How do we develop a comprehensive measure of access?
 
@@ -171,15 +215,26 @@ Drive times calculated using Open Street Routing Machine.
 cat('</div>')
 ```
 
-![](img/urgent-fca.png){width="600px" style="float: right;"}
-![](img/urgent-fcarank.png){width="600px" style="float: right;"}
+<div class="my-right-figure">
+```{r echo=FALSE, fig.cap="Urgent care geographic availability map colored by value", out.width='600px', fig.align='right'}
+knitr::include_graphics('img/urgent-fca.png')
+```
+</div>
 
+<div class="my-right-figure">
+```{r echo=FALSE, fig.cap="Urgent care geographic availability map colored by rank", out.width='600px', fig.align='right'}
+knitr::include_graphics('img/urgent-fcarank.png')
+```
+</div>
 
 Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. The areas with the lowest access to urgent cares are actually those in more urban areas inside the Beltway, where drive time is lowest. While facilities are close by drive time, the population serviced by these urgent cares is so large that these residents have effectively lower access. The area with the greatest access is Centreville, which lies along a major highway in western Fairfax, bordering the relatively less-populated urban area of Manassass. Areas in southern Fairfax are also comparatively well-serviced. The areas of lowest access in the region are northern Arlington, Bailey's Crossroads, Tysons Corner, and McLean. Southern Arlington and Annandale also have comparatively low access to urgent care facilities. 
 
 </div>
 
 <div style="clear: both">
+
+<br>
+<br>
 
 ### Is there inequity in access to urgent cares by demographics?
 
@@ -266,6 +321,9 @@ Having a comprehensive knowledge of the equity of access to urgent care within n
 </div>
 
 <div style="clear: both">
+
+<br>
+<br>
 
 ### Exploring access to additional health services
 

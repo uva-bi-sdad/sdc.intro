@@ -13,7 +13,6 @@
 
 <title>Equity and Access to Health Services for Rural Areas</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -316,45 +315,24 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Equity and Access to Health Services for
-Rural Areas</h1>
+<h1 class="title toc-ignore">Equity and Access to Health Services for Rural Areas</h1>
 
 </div>
 
 
-<div id="floating-catchment-areas-for-specific-services"
-class="section level2">
+<div id="floating-catchment-areas-for-specific-services" class="section level2">
 <h2>Floating catchment areas for specific services</h2>
-<p>The gloating catchment area (FCA) is a method that identifies spatial
-accessibility to a specific service, for example, hospitals,
-supermarkets, schools.</p>
-<p>FCA defines the service area by a threshold travel time while
-accounting for the availability of physicians by their surrounded
-demands (Lou et al., 2003).</p>
+<p>The gloating catchment area (FCA) is a method that identifies spatial accessibility to a specific service, for example, hospitals, supermarkets, schools.</p>
+<p>FCA defines the service area by a threshold travel time while accounting for the availability of physicians by their surrounded demands (Lou et al., 2003).</p>
 <p><img src="img/health-fca2.png" /></p>
 <p><img src="img/health-fca1.png" /></p>
 </div>
 <div id="catchment-package" class="section level2">
 <h2>Catchment package</h2>
-<p>We developed an R package to calculate spatial access and
-availability metrics.</p>
-<p>Catchments (catchment areas) are regions defined by the effective
-range of a catching entity (or the result of its catching). For example,
-a basin might catch water, a hospital patients, a school students, or a
-store or restaurant customers. Each of these entities might have any
-number of conceptual catchments, such as those externally defined (like
-a school district), those realized (as by the origin of actual
-customers), and those projected (such as a travel-time radius).</p>
-<p><a
-href="https://uva-bi-sdad.github.io/catchment/articles/introduction.html">Introduction
-to Floating Catchment Areas</a> walks through tractable examples.</p>
-<p><a
-href="https://uva-bi-sdad.github.io/catchment/reference/catchment_ratio.html">catchment_ratio</a>
-is the main function, used to define catchments by a travel-cost matrix
-with bounds and/or a decay function, and calculate supply to demand
-ratios within them. It is a generalized implementation of a range of 2-
-and 3-step floating catchment area models, which is generally meant to
-align with those of the access Python package.</p>
+<p>We developed an R package to calculate spatial access and availability metrics.</p>
+<p>Catchments (catchment areas) are regions defined by the effective range of a catching entity (or the result of its catching). For example, a basin might catch water, a hospital patients, a school students, or a store or restaurant customers. Each of these entities might have any number of conceptual catchments, such as those externally defined (like a school district), those realized (as by the origin of actual customers), and those projected (such as a travel-time radius).</p>
+<p><a href="https://uva-bi-sdad.github.io/catchment/articles/introduction.html">Introduction to Floating Catchment Areas</a> walks through tractable examples.</p>
+<p><a href="https://uva-bi-sdad.github.io/catchment/reference/catchment_ratio.html">catchment_ratio</a> is the main function, used to define catchments by a travel-cost matrix with bounds and/or a decay function, and calculate supply to demand ratios within them. It is a generalized implementation of a range of 2- and 3-step floating catchment area models, which is generally meant to align with those of the access Python package.</p>
 </div>
 
 
