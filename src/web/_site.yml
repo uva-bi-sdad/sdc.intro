@@ -16,6 +16,13 @@ navbar:
       href: process.html
     - text: "Data Repositories"
       href: data.html
+#      menu:
+#      - text: "Data Repositories"
+#        href: data.html
+#      - text: "Data Inventory"
+#        href: data_inventory.html
+#      - text: "Data Dictionary"
+#        href: data_dictionary.html
     - text: "Dashboard"
       href: dashboard.html
     - text: "Tools & Methods"
@@ -30,8 +37,8 @@ navbar:
       menu:
       - text: "Access to Broadband"
         href: broadband.html
-      - text: "Health Equity"
-        href: health_equity.html
+    #  - text: "Health Equity"
+    #    href: health_equity.html
     - text: "Media"
       href: media.html
     - text: "Partners"

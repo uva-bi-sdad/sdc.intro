@@ -1,0 +1,10 @@
+---
+title: "Data Inventory"
+subtitle: "Report of Collected Data"
+output:
+  html_document:
+    includes:
+      after_body: data_inventory_table.html
+---
+
+## Data

@@ -1,6 +1,6 @@
 ---
 title: "Economic Health and Diversity"
-subtitle: "What is the diversity of business ownership in Arlington and Fairfax Counties?"
+subtitle: "How does diversity of business ownership in Fairfax change over time and space?"
 ---
 
 ### Issue overview
