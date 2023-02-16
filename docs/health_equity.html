@@ -368,7 +368,7 @@ $(document).ready(function () {
 <p>We inventoried a variety of urgent care location data sources for accuracy and quality. Given that urgent care is a rapidly growing health care service, we found that administrative datasets were incomplete by a wide margin. We found that <a href="https://maps.google.com/">Google Maps</a> provided the most complete picture of urgent care facility locations in the Capital Region. To get a better understanding of the idea of access, we compared several measures.</p>
 <p><br> <br></p>
 <h3 id="where-are-urgent-cares-in-arlington-and-fairfax">Where are urgent cares in Arlington and Fairfax?</h3>
-<p><img src="img/urgent-locationslong.png" style="float: right;" width="500" /></p>
+<p><img src="img/urgent-locations.png" style="float: right;" width="500" /></p>
 First, we began by began by examining the locations of urgent care.
 <blockquote>
 There are 113 urgent care facilities in Fairfax and 18 facilities in Arlington.
@@ -378,7 +378,7 @@ There are 113 urgent care facilities in Fairfax and 18 facilities in Arlington.
 <div style="clear: both">
 <p><br> <br></p>
 <h3 id="how-long-does-it-take-to-drive-to-urgent-cares">How long does it take to drive to urgent cares?</h3>
-<p><img src="img/urgent-drivetimelong.png" style="float: left;" width="500" /></p>
+<p><img src="img/urgent-drivetimemins.png" style="float: left;" width="500" /></p>
 The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge.
 <blockquote>
 Fairfax and Arlington residents who live in more urban areas, along major roads, or in Metro corridors, have greater access to urgent cares by drive time.
@@ -400,167 +400,18 @@ In Arlington, northern neighborhoods near Marymount University and southern neig
 </blockquote>
 <p>These areas have relatively high populations given the proximity of urgent cares. The area with the greatest access is Centreville, Chantilly, and Herndon, which lie along a major roads in western Fairfax and have a relatively high number of urgent cares for the population. Bailey’s Crossroads and Annandale also have comparatively low access for the region.</p>
 </div>
+<p><img src="img/urgent-fcaincome.png" style="float: left;" width="500" /> <br> <br></p>
+Applying filters to our dataset can help us zero in on populations and neighbhorhoods of interest. In this case, we filter for census tracts with a median household income in the lowest 25th percentile (below $101,838). We can see that some census tracts with low median household income are well served by urgent cares, particularly in western Fairfax near Centreville, Chanilly, and Herndon.
+<blockquote>
+Many census tracts, such as those in southern Arlington, Annandale, Bailey’s Crossroads, and near Fort Hunt, have both a relatively low median household income and a relatively low access to urgent care.
+</blockquote>
 <div style="clear: both">
 <p><br> <br></p>
 <h3 id="is-there-inequity-in-access-to-urgent-cares-by-demographics">Is there inequity in access to urgent cares by demographics?</h3>
 <h4 id="demographics-and-income-mapped-in-fairfax-and-arlington">Demographics and Income mapped in Fairfax and Arlington</h4>
-<style>
-* {box-sizing: border-box}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  width:60%;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* Caption text */
-.text {
-  color: black;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: bottom;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-  background-color:white;
-}
-
-/* Number text (1/5 etc) */
-.numbertext {
-  color: black;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-</style>
-
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides">
-    <div class="numbertext">1 / 5</div>
-    <img src="img/urgent-hisppop.png" style="width:100%">
-    <div class="text">Hispanic/Latino population</div>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">2 / 5</div>
-    <img src="img/urgent-blackpop.png" style="width:100%">
-    <div class="text">Black population</div>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">3 / 5</div>
-    <img src="img/urgent-whitepop.png" style="width:100%">
-    <div class="text">White population</div>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">4 / 5</div>
-    <img src="img/urgent-aapipop.png" style="width:100%">
-    <div class="text">Asian American/Pacific Islander population</div>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">5 / 5</div>
-    <img src="img/urgent-hhincome.png" style="width:100%">
-    <div class="text">Median household income</div>
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+<div style="text-align: center">
+<p><img src="img/urgent-demographics.png" width="700" /></p>
 </div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(4)"></span>
-  <span class="dot" onclick="currentSlide(5)"></span>
-</div>
-
-<script>
-  let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-</script>
 <p>After developing a comprehensive measure of access, we began to dig into the question of equity of access to urgent care facilities by demographics. We observed that the neighborhoods affected by low access to urgent cares have different demographic compositions.</p>
 <p>Northern Arlington, where the population is largely white and high income on average, has some of the lowest access to urgent cares in the region.</p>
 <p>The Southern Arlington and neighboring Bailey’s Crossroads and Annandale in Fairfax have higher Hispanic/Latino populations and lower income on average. These areas also have relatively low access to urgent cares. Bailey’s Crossroads is also characterized by a high Latino population and lower average household income.</p>
@@ -568,15 +419,6 @@ function showSlides(n) {
 <p>Some census tracts in Huntington and Fort Hunt have higher than average Black populations and lower than average household income. These areas are also the most underserved in access to urgent care.</p>
 <p>In addition to income and demographic variables, we could explore access to urgent care by additional factors affecting health equity, including primary language spoken at home or access to health insurance.</p>
 <p>Having a comprehensive knowledge of the equity of access to urgent care within neighborhoods in Fairfax and Arlington counties empowers our local stakeholders to make more effective policy decisions to address and correct inequities.</p>
-</div>
-<div style="clear: both">
-<p><br> <br></p>
-<h3 id="how-does-access-to-urgent-care-compare-to-the-national-capital-region">How does access to urgent care compare to the National Capital Region?</h3>
-<div style="float: right;">
-
-</div>
-<p><img src="img/urgent-fcact.png" style="float: right;" width="600" /> Although Fairfax has the largest number of urgent cares in the Capital Region, it falls near the average level of access to urgent cares by floating catchment area.</p>
-<p>Arlington ranks in the bottom 25 percent of counties for access to urgent care.</p>
 </div>
 <div style="clear: both">
 <p><br> <br></p>

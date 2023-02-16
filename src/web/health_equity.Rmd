@@ -112,7 +112,7 @@ cat('</div>')
 ```
 
 
-![](img/urgent-locationslong.png){width="500px" style="float: right;"}
+![](img/urgent-locations.png){width="500px" style="float: right;"}
 
 First, we began by began by examining the locations of urgent care. <blockquote> There are 113 urgent care facilities in Fairfax and 18 facilities in Arlington. </blockquote> By number of facilities, Fairfax has the greatest access to urgent care in the National Capital region. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts, there is no urgent care present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though. 
 
@@ -154,7 +154,7 @@ Drive times calculated using Open Street Routing Machine.
 cat('</div>')
 ```
 
-![](img/urgent-drivetimelong.png){width="500px" style="float: left;"}
+![](img/urgent-drivetimemins.png){width="500px" style="float: left;"}
 
 The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge. <blockquote> Fairfax and Arlington residents who live in more urban areas, along major roads, or in Metro corridors, have greater access to urgent cares by drive time. </blockquote> In Fairfax, the highest average drive time to the ten closest urgent cares is over 15 minutes, while the lowest is three minutes. Across Arlington, it can take as much as nine minutes to drive to the closest urgent care and and as little two minutes. In both these counties, geographic inequities exist in access to urgent care. Our measure of access, though, still does not take into account any population-level information.
 
@@ -224,6 +224,12 @@ cat('</div>')
 Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. <blockquote> In Fairfax the areas with the lowest access to urgent cares are the southwestern neighborhoods, including Fort Hunt and Huntington, and northern McLean. </blockquote> <blockquote> In Arlington, northern neighborhoods near Marymount University and southern neighbhorhoods below Columbia Pike have the lowest access. </blockquote> These areas have relatively high populations given the proximity of urgent cares. The area with the greatest access is Centreville, Chantilly, and Herndon, which lie along a major roads in western Fairfax and have a relatively high number of urgent cares for the population. Bailey's Crossroads and Annandale also have comparatively low access for the region. 
 
 </div>
+
+![](img/urgent-fcaincome.png){width="500px" style="float: left;"}
+<br>
+<br>
+
+Applying filters to our dataset can help us zero in on populations and neighbhorhoods of interest. In this case, we filter for census tracts with a median household income in the lowest 25th percentile (below $101,838). We can see that some census tracts with low median household income are well served by urgent cares, particularly in western Fairfax near Centreville, Chanilly, and Herndon. <blockquote> Many census tracts, such as those in southern Arlington, Annandale, Bailey's Crossroads, and near Fort Hunt, have both a relatively low median household income and a relatively low access to urgent care. </blockquote>
 
 <div style="clear: both">
 
@@ -302,9 +308,12 @@ cat('</div>')
 ```
 
 #### Demographics and Income mapped in Fairfax and Arlington
-```{r, echo=FALSE}
+```{r, echo=FALSE, include = FALSE, eval = FALSE}
 htmltools::includeHTML("urgent-demographic_gallery.html")
 ```
+<div style = "text-align: center">
+![](img/urgent-demographics.png){width="700px"}
+</div>
 
 After developing a comprehensive measure of access, we began to dig into the question of equity of access to urgent care facilities by demographics. We observed that the neighborhoods affected by low access to urgent cares have different demographic compositions.
 
@@ -327,23 +336,23 @@ Having a comprehensive knowledge of the equity of access to urgent care within n
 <br>
 <br>
 
-### How does access to urgent care compare to the National Capital Region?
+[//]: # ### How does access to urgent care compare to the National Capital Region?
 
-<div width="500px" style="float: right;">
+[//]: # <div width="500px" style="float: right;">
 
-</div>
+[//]: # </div>
 
-![](img/urgent-fcact.png){width="600px" style="float: right;"}
-Although Fairfax has the largest number of urgent cares in the Capital Region, it falls near the average level of access to urgent cares by floating catchment area. 
+[//]: # ![](img/urgent-fcact.png){width="600px" style="float: right;"}
+[//]: # Although Fairfax has the largest number of urgent cares in the Capital Region, it falls near the average level of access to urgent cares by floating catchment area. 
 
-Arlington ranks in the bottom 25 percent of counties for access to urgent care. 
+[//]: # Arlington ranks in the bottom 25 percent of counties for access to urgent care. 
 
-</div>
+[//]: # </div>
 
-<div style="clear: both">
+[//]: # <div style="clear: both">
 
-<br>
-<br>
+[//]: # <br>
+[//]: # <br>
 
 ### Exploring access to additional health services
 

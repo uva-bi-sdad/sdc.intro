@@ -1,11 +1,20 @@
 ---
 title: "Economic Health and Diversity"
-subtitle: "How does diversity of business ownership in Fairfax change over time and space?"
+subtitle: "How has economic diversity in Fairfax changed over time and space?"
 ---
 
 ### Issue overview
 
 Our Arlington and Fairfax County stakeholders were interested in diving deeply into measures of economic health, specifically economic diversity in their counties. We began by analyzing the diversity of business ownership in the counties, collecting data from [Mergent Intellect](https://www.mergentintellect.com/index.php/search/index). To create policy-actionable metrics, we transformed data into relevant local geographies for decisionmaking, including business corridors. 
+
+#### Defining economic diversity
+
+**Company ownership diversity** refers to the diversity of company activities where owners belong to a minority group
+**Company economic diversity** refers to diversity of companies in terms of industry activities
+
+We propose metrics to describe industry activities that are *cross-sectional* and *dynamic*. We also focus a subset of companies where owners belong to a minority group.
+
+
 
 ### Measures of business ownership diversity
 
