@@ -14,9 +14,13 @@ Our Arlington and Fairfax County stakeholders were interested in diving deeply i
 
 We propose metrics to describe industry activities that are *cross-sectional* and *dynamic*. We also focus a subset of companies where owners belong to a minority group.
 
+### Overall trends
 
+Overall, there is an increasing number of companies in Fairfax County between 2011 and 2020. There is also a righting number of minority owned companies. This increase could be the result of improved data collection or a real increase. It is important to note that minority-owned companies still represent a small share of companies in Fairfax County. 
 
 ### Measures of business ownership diversity
+
+
 
 ### Business ownership diversity by industry, business size
 

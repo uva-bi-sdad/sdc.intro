@@ -13,7 +13,6 @@
 
 <title>Media and Presentations</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -145,15 +144,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -339,78 +334,46 @@ $(document).ready(function () {
 </style>
 <div id="media-coverage" class="section level3">
 <h3>Media coverage</h3>
-<div width="600px" style="float: right;">
-<p><a
-href="https://news.virginia.edu/content/nova-booms-uva-biocomplexity-institute-works-support-communitys-well-being"><img
-src="img/media-uvatoday.png"
-alt="As NOVA Booms, UVA Biocomplexity Institute Works to Support Community’s Well-being, 2022 article published in UVA Today" /></a></p>
+<div style="float: right;">
+<p><a href="https://news.virginia.edu/content/nova-booms-uva-biocomplexity-institute-works-support-communitys-well-being"><img src="img/media-uvatoday.png" alt="As NOVA Booms, UVA Biocomplexity Institute Works to Support Community’s Well-being, 2022 article published in UVA Today" /></a></p>
 </div>
 <p><br> <br> <br> <br></p>
 <div style="clear: both">
-<p><img src="img/media-ffxlogo.png" style="float: right;"
-width="200" /></p>
-<p>The Social Impact Data Commons was featured in a presentation to the
-<strong>Fairfax County Board of Supervisors Information Technology
-Committee</strong> on 14 June 2022 in a Digital Equity/Broadband and
-Discussion.</p>
+<p><img src="img/media-ffxlogo.png" style="float: right;" width="200" /></p>
+<p>The Social Impact Data Commons was featured in a presentation to the <strong>Fairfax County Board of Supervisors Information Technology Committee</strong> on 14 June 2022. The topic of discussion was Digital Equity/Broadband in the county.</p>
 </div>
 <p><br> <br> <br> <br></p>
 </div>
 <div id="conference-presentations" class="section level3">
 <h3>Conference presentations</h3>
 <div style="clear: both">
-<p><img src="img/media-apdulogo.png" style="float: right;"
-width="300" /></p>
-<p><strong>“The Social Impact Data Commons: A New Sustainable
-Architecture and Stakeholder Approach to Collect, Create, Validate and
-Distribute Sub-County-Level Datasets and Metrics to Support Regional
-Data-Driven Decision-Making”</strong>, presented at the 2022 Association
-of Public Data Users (APDU) conference by Kathryn Linehan</p>
+<p><img src="img/media-apdulogo.png" style="float: right;" width="300" /></p>
+<p><strong>“The Social Impact Data Commons: A New Sustainable Architecture and Stakeholder Approach to Collect, Create, Validate and Distribute Sub-County-Level Datasets and Metrics to Support Regional Data-Driven Decision-Making”</strong>, presented at the 2022 Association of Public Data Users (APDU) conference by Kathryn Linehan</p>
 </div>
 <p><br> <br></p>
 <div style="clear: both">
-<p><img src="img/media-masnlogo.png" style="float: left;"
-width="375" /></p>
-<p><strong>“Data Re-Use in Action: Social Impact Data Commons”</strong>,
-presented at the 2022 Mid-Atlantic Statistics Network (MASN) by Aaron
-Schroeder.</p>
+<p><img src="img/media-masnlogo.png" style="float: left;" width="375" /></p>
+<p><strong>“Data Re-Use in Action: Social Impact Data Commons”</strong>, presented at the 2022 Mid-Atlantic Statistics Network (MASN) by Aaron Schroeder.</p>
 </div>
 <p><br> <br></p>
 <div style="clear: both">
-<p><img src="img/media-jsmlogo.png" style="float: right;"
-width="200" /></p>
-<p><strong>“Lessons Learned in Coordinating Large-Scale Data Science
-Initiatives”</strong>, presented at the 2022 Joint Statistical Meetings
-by Joel Thurston</p>
+<p><img src="img/media-jsmlogo.png" style="float: right;" width="200" /></p>
+<p><strong>“Lessons Learned in Coordinating Large-Scale Data Science Initiatives”</strong>, presented at the 2022 Joint Statistical Meetings by Joel Thurston</p>
 </div>
 <p><br> <br> <br> <br></p>
 <div style="clear: both">
-<p><img src="img/media-nacchologo.png" style="float: left;"
-width="250" /></p>
-<p><strong>“The Virginia’s New Rural Health Data Commons, Featuring New
-Health-related Datasets and New Metrics for Visualizing Health Services
-Access”</strong>, presented at the 2022 National Association of County
-and City Health Officials (NACCHO) annual conference by Aaron Schroeder
-and Cesar Montalvo</p>
+<p><img src="img/media-nacchologo.png" style="float: left;" width="250" /></p>
+<p><strong>“The Virginia’s New Rural Health Data Commons, Featuring New Health-related Datasets and New Metrics for Visualizing Health Services Access”</strong>, presented at the 2022 National Association of County and City Health Officials (NACCHO) annual conference by Aaron Schroeder and Cesar Montalvo</p>
 </div>
 <p><br> <br></p>
 <div style="clear: both">
-<p><img src="img/media-fcsmlogo.jpeg" style="float: right;"
-width="300" /></p>
-<p><strong>“Building the Social Impact Data Commons Data Discovery and
-Acquisition Lessons Learned”</strong>, presented at the 2022 Federal
-Committee on Statistical Methodology (FCSM) Research and Policy
-Conference by Joanna Schroeder</p>
+<p><img src="img/media-fcsmlogo.jpeg" style="float: right;" width="300" /></p>
+<p><strong>“Building the Social Impact Data Commons Data Discovery and Acquisition Lessons Learned”</strong>, presented at the 2022 Federal Committee on Statistical Methodology (FCSM) Research and Policy Conference by Joanna Schroeder</p>
 </div>
 <p><br> <br></p>
 <div style="clear: both">
-<p><img src="img/media-ichpslogo.png" style="float: left;"
-width="300" /></p>
-<p><strong>“Virginia’s New Rural Health Data Commons: Informing Health
-Policy through Featuring Health Related Metrics for Visualizing Health
-Services Access”</strong>, presented at the 2023 International
-Conference on Health Policy Statistics (ICHPS) by Cesar Montalvo and
-Joanna Schroeder</p>
+<p><img src="img/media-ichpslogo.png" style="float: left;" width="300" /></p>
+<p><strong>“Virginia’s New Rural Health Data Commons: Informing Health Policy through Featuring Health Related Metrics for Visualizing Health Services Access”</strong>, presented at the 2023 International Conference on Health Policy Statistics (ICHPS) by Cesar Montalvo and Joanna Schroeder</p>
 </div>
 <p><br> <br></p>
 </div>

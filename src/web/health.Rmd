@@ -1,10 +1,9 @@
 ---
 title: "Equity and Access to Health Services for Rural Areas"
+subtitle: "Floating catchment areas for specific services"
 ---
 
-## Floating catchment areas for specific services
-
-The gloating catchment area (FCA) is a method that identifies spatial accessibility to a specific service, for example, hospitals, supermarkets, schools.
+The floating catchment area (FCA) is a method that identifies spatial accessibility to a specific service, for example, hospitals, supermarkets, schools.
 
 FCA defines the service area by a threshold travel time while accounting for the availability of physicians by their surrounded demands (Lou et al., 2003).
 
