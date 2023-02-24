@@ -71,18 +71,16 @@ library(scico)
   display: contents;
 }
 ```
+<hr />
+<div class="section_header">Issue overview</div>
 
-### Issue overview
+<div class="section_text"> Our partners in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race, by household income, and by housing type. We began analyzing access to urgent care facilities. 
 
-Our stakeholders in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race, by household income, and by housing type. We began analyzing access to urgent care facilities. 
+We inventoried a variety of urgent care location data sources for accuracy and quality. Given that urgent care is a rapidly growing health care service, we found that administrative datasets were incomplete by a wide margin. We found that [Google Maps](https://maps.google.com/) provided the most complete picture of urgent care facility locations in the Capital Region. To get a better understanding of the idea of access, we compared several measures.</div>
 
-We inventoried a variety of urgent care location data sources for accuracy and quality. Given that urgent care is a rapidly growing health care service, we found that administrative datasets were incomplete by a wide margin. We found that [Google Maps](https://maps.google.com/) provided the most complete picture of urgent care facility locations in the Capital Region. To get a better understanding of the idea of access, we compared several measures. 
+<div class="section_header">Where are urgent cares in Arlington and Fairfax?</div>
 
-<br>
-<br>
-
-### Where are urgent cares in Arlington and Fairfax?
-
+<div class="section_text">
 ```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="600px" style="float: right;">')
 plot <- urgent %>% filter(measure == "urgent_cnt")
@@ -112,19 +110,18 @@ cat('</div>')
 ```
 
 
-![](img/urgent-locations.png){width="500px" style="float: right;"}
+![](img/urgent-locations.png){width="400px" style="float: right; border: 1px solid #232d4b; box-shadow: 5px 5px 3px lightblue; margin:15px 15px 25px 15px;"}
 
-First, we began by began by examining the locations of urgent care. <blockquote> There are 113 urgent care facilities in Fairfax and 18 facilities in Arlington. </blockquote> By number of facilities, Fairfax has the greatest access to urgent care in the National Capital region. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts, there is no urgent care present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though. 
+First, we began by examining the locations of urgent care.<br /><br /> <blockquote> <strong>There are 113 urgent care facilities in Fairfax and 18 facilities in Arlington.</strong> </blockquote> By number of facilities, Fairfax has the greatest access to urgent care in the National Capital region. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts, there is no urgent care present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though.</div>
 
 </div>
 
 <div style="clear: both">
 
-<br>
-<br>
 
-### How long does it take to drive to urgent cares?
+<div class="section_header">How long does it take to drive to urgent cares?</div>
 
+<div class="section_text">
 ```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="600px" style="float: left;">')
 plot <- urgent %>% filter(measure == "urgent_near_10_median")
@@ -154,19 +151,16 @@ Drive times calculated using Open Street Routing Machine.
 cat('</div>')
 ```
 
-![](img/urgent-drivetimemins.png){width="500px" style="float: left;"}
+![](img/urgent-drivetimemins.png){width="400px" style="float: left; border: 1px solid #232d4b; box-shadow: 5px 5px 3px lightblue; margin:15px 15px 25px 15px;"}
 
-The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge. <blockquote> Fairfax and Arlington residents who live in more urban areas, along major roads, or in Metro corridors, have greater access to urgent cares by drive time. </blockquote> In Fairfax, the highest average drive time to the ten closest urgent cares is over 15 minutes, while the lowest is three minutes. Across Arlington, it can take as much as nine minutes to drive to the closest urgent care and and as little two minutes. In both these counties, geographic inequities exist in access to urgent care. Our measure of access, though, still does not take into account any population-level information.
-
-</div>
+The next measure of access we analyzed was drive time to the ten closest urgent care facilities. Here, we begin to see patterns of access emerge. <br /><br /><strong><blockquote> Fairfax and Arlington residents who live in more urban areas, along major roads, or in Metro corridors, have greater access to urgent cares by drive time. </blockquote></strong> In Fairfax, the highest average drive time to the ten closest urgent cares is over 15 minutes, while the lowest is three minutes. Across Arlington, it can take as much as nine minutes to drive to the closest urgent care and and as little two minutes. In both these counties, geographic inequities exist in access to urgent care. Our measure of access, though, still does not take into account any population-level information.</div>
 
 <div style="clear: both">
 
-<br>
-<br>
 
-### How do we develop a comprehensive measure of access?
+<div class="section_header">How do we develop a comprehensive measure of access?</div>
 
+<div class="section_text">
 ```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="500px" style="float: right;">')
 plot <- urgent %>% filter(measure == "urgent_3sfca")
@@ -218,27 +212,23 @@ cat('</div>')
 ```
 
 <div style = "text-align: center">
-![](img/urgent-fca_compare.png){width="700px"}
+![](img/urgent-fca_compare.png){width="700px" style="border: 1px solid #232d4b; box-shadow: 5px 5px 3px lightblue; margin:15px 15px 25px 15px;"}
 </div>
 
-Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. <blockquote> In Fairfax the areas with the lowest access to urgent cares are the southwestern neighborhoods, including Fort Hunt and Huntington, and northern McLean. </blockquote> <blockquote> In Arlington, northern neighborhoods near Marymount University and southern neighbhorhoods below Columbia Pike have the lowest access. </blockquote> These areas have relatively high populations given the proximity of urgent cares. The area with the greatest access is Centreville, Chantilly, and Herndon, which lie along a major roads in western Fairfax and have a relatively high number of urgent cares for the population. Bailey's Crossroads and Annandale also have comparatively low access for the region. 
+Next, we analyzed access to urgent care by geographic availability using three-step floating catchment areas. Three-step floating catchment areas is an aggregation of facilities per population ratio weighted by travel time. Here, we see an even fuller picture access to urgent care in the region. <br /><br /><strong><blockquote> In Fairfax the areas with the lowest access to urgent cares are the southwestern neighborhoods, including Fort Hunt and Huntington, and northern McLean. </blockquote></strong> <strong><blockquote> In Arlington, northern neighborhoods near Marymount University and southern neighbhorhoods below Columbia Pike have the lowest access. </blockquote></strong> These areas have relatively high populations given the proximity of urgent cares. The area with the greatest access is Centreville, Chantilly, and Herndon, which lie along a major roads in western Fairfax and have a relatively high number of urgent cares for the population. Bailey's Crossroads and Annandale also have comparatively low access for the region.
 
-</div>
 
-![](img/urgent-fcaincome.png){width="500px" style="float: left;"}
-<br>
-<br>
+![](img/urgent-fcaincome.png){width="400px" style="float: left; border: 1px solid #232d4b; box-shadow: 5px 5px 3px lightblue; margin:15px 15px 25px 15px;"}
 
-Applying filters to our dataset can help us zero in on populations and neighbhorhoods of interest. In this case, we filter for census tracts with a median household income in the lowest 25th percentile (below $101,838). We can see that some census tracts with low median household income are well served by urgent cares, particularly in western Fairfax near Centreville, Chanilly, and Herndon. <blockquote> Many census tracts, such as those in southern Arlington, Annandale, Bailey's Crossroads, and near Fort Hunt, have both a relatively low median household income and a relatively low access to urgent care. </blockquote>
+Applying filters to our dataset can help us zero in on populations and neighbhorhoods of interest. In this case, we filter for census tracts with a median household income in the lowest 25th percentile (below $101,838). We can see that some census tracts with low median household income are well served by urgent cares, particularly in western Fairfax near Centreville, Chanilly, and Herndon. <strong><blockquote> Many census tracts, such as those in southern Arlington, Annandale, Bailey's Crossroads, and near Fort Hunt, have both a relatively low median household income and a relatively low access to urgent care. </blockquote></strong></div>
 
 <div style="clear: both">
 
-<br>
-<br>
 
 
-### Is there inequity in access to urgent cares by demographics?
+<div class="section_header">Is there inequity in access to urgent cares by demographics?</div>
 
+<div class="section_text">
 ```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4}
 cat('<div width="600px" style="float: left;">')
 
@@ -307,12 +297,12 @@ cat('<caption>Data source: Demographic and income data from the American Communi
 cat('</div>')
 ```
 
-#### Demographics and Income mapped in Fairfax and Arlington
+<center>Demographics and Income mapped in Fairfax and Arlington</center>
 ```{r, echo=FALSE, include = FALSE, eval = FALSE}
 htmltools::includeHTML("urgent-demographic_gallery.html")
 ```
 <div style = "text-align: center">
-![](img/urgent-demographics.png){width="700px"}
+![](img/urgent-demographics.png){width="700px" style="border: 1px solid #232d4b; box-shadow: 5px 5px 3px lightblue; margin:15px 15px 15px 15px;"}
 </div>
 
 After developing a comprehensive measure of access, we began to dig into the question of equity of access to urgent care facilities by demographics. We observed that the neighborhoods affected by low access to urgent cares have different demographic compositions.
@@ -327,14 +317,10 @@ Some census tracts in Huntington and Fort Hunt have higher than average Black po
 
 In addition to income and demographic variables, we could explore access to urgent care by additional factors affecting health equity, including primary language spoken at home or access to health insurance. 
 
-Having a comprehensive knowledge of the equity of access to urgent care within neighborhoods in Fairfax and Arlington counties empowers our local stakeholders to make more effective policy decisions to address and correct inequities.
-
-</div>
+Having a comprehensive knowledge of the equity of access to urgent care within neighborhoods in Fairfax and Arlington counties empowers our local stakeholders to make more effective policy decisions to address and correct inequities.</div>
 
 <div style="clear: both">
 
-<br>
-<br>
 
 [//]: # ### How does access to urgent care compare to the National Capital Region?
 
@@ -354,7 +340,10 @@ Having a comprehensive knowledge of the equity of access to urgent care within n
 [//]: # <br>
 [//]: # <br>
 
-### Exploring access to additional health services
+
+<div class="section_header">Exploring access to additional health services</div>
+
+<div class="section_text">
 
 ```{r, eval = FALSE, results='asis', echo = FALSE, fig.width=5.5, fig.height=4, message = FALSE}
 cat('<div width="600px" style="float: right;">')
