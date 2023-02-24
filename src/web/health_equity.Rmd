@@ -1,6 +1,6 @@
 ---
 title: "Health Equity in the National Capital Region"
-subtitle: "Is access to urgent care equitable in Arlington and Fairfax County?"
+subtitle: "Is access to urgent care centers equitable in Arlington and Fairfax County?"
 ---
 
 ```{r, eval = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
