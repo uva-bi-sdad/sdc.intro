@@ -37,8 +37,10 @@ navbar:
       menu:
       - text: "Access to Broadband"
         href: broadband.html
-    #  - text: "Health Equity"
+      - text: "Health Equity"
     #    href: health_equity.html
+      - text: "Food Insecurity"
+      - text: "Business Diversity"
     - text: "Media"
       href: media.html
     - text: "Partners"
