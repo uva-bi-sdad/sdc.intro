@@ -5,19 +5,12 @@ output:
 ---
 
 <style type="text/css">
-  h1.title {
-    text-align: center;
-    margin-bottom: -3px;
-  }
-  h3.subtitle {
-    text-align: center;
-  }
   p {
   font-size: 20px;
 }
 </style>
 
-### Media coverage
+<h3 style=color:#F84C1E;> Media coverage </h3>
 
 <div width="600px" style="float: right;">
 
@@ -44,7 +37,7 @@ The Social Impact Data Commons was featured in a presentation to the **Fairfax C
 <br>
 <br>
 
-### Conference presentations
+<h3 style=color:#F84C1E;> Conference presentations </h3>
 
 <div style="clear: both">
 
@@ -113,3 +106,5 @@ The Social Impact Data Commons was featured in a presentation to the **Fairfax C
 
 <br>
 <br>
+
+`r htmltools::includeHTML("./footer.html")`

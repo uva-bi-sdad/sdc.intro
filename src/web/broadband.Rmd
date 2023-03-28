@@ -3,25 +3,25 @@ title: "Equity of Access to Broadband"
 subtitle: "Multiple Measures Tell the Story in Arlington County"
 ---
 
-<style type="text/css">
-  h1.title {
-    text-align: center;
-    margin-bottom: -3px;
-  }
-  h3.subtitle {
-    text-align: center;
-  }
-</style>
-
 <div style="clear: both">
 
-### Issue overview
+<hr />
 
+<div class="section_header">Issue overview</div>
+
+<div class="section_text">
 Our stakeholders in Arlington County were interested in understanding the nuances of access to broadband in their community. While anecdotal evidence and existing data sources can tell us that high-speed Internet is not accessible to everyone, there is not enough information at the sub-county level to tell us where exactly the households in need are. Also, the contributing factors for inaccessibility are not always obvious. Both of these pieces of information are critical for local governments, such as Arlington County, to develop effective policy to bridge the digital divide.
 
-### What broadband infrastructure exists in Arlington?
+</div>
 
-![](img/broadband-avgdown.png){width="600px" style="float: right;"}
+<div class="section_header"> What broadband infrastructure exists in Arlington? </div>
+
+<div class="section_text">
+
+<div style="float: right;">
+![](img/broadband-avgdown.png){width="600px" class="story_image"}
+<figcaption> Data source: Ookla, accessed 2022 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=avg_down_using_devices&selected_year=2019&filter.time_min=2019&filter.time_max=2021"> <br> Explore this measure on our dashboard </a> </figcaption>
+</div>
 
 We began by examining Internet speeds in Arlington. We used information provided by [Ookla](https://www.ookla.com/ookla-for-good/open-data), an Internet speed test service. Ookla provides Internet speeds in 600 meter squares squares, which we translated into Census tracts. \n
 
@@ -33,9 +33,12 @@ From this, we understood that the infrastructure for broadband is highly availab
 
 <div style="clear: both">
 
-### Who has adopted broadband?
+<div class="section_header"> Who has adopted broadband? </div>
 
-![](img/broadband-hhbb.png){width="600px" style="float: left;"}
+<div style="float: left;">
+![](img/broadband-hhbb.png){width="600px" class="story_image"}
+<figcaption> Data source: American Community Survey, Table B28002, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_hh_with_broadband&selected_year=2019&filter.time_min=2017&filter.time_max=2019"> <br> Explore this measure on our dashboard </a> </figcaption>
+</div>
 
 Next, we wanted to understand the rates of broadband adoption across different parts of Arlington County. \n
 
@@ -47,9 +50,13 @@ From this, we saw that while broadband adoption was high overall throughout the 
 
 <div style="clear: both">
 
-### Why isn't broadband accessibile to everyone?
+<div class="section_header"> Why isn't broadband accessibile to everyone? </div>
+<div class="section_text">
 
-![](img/broadband-percinc.png){width="600px" style="float: right;"}
+<div style="float: right;">
+![](img/broadband-percinc.png){width="600px" class="story_image"}
+<figcaption> Data sources: American Community Survey (ACS), Table B19013, accessed 2022 <br> Broadband Now, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_income_min_price_100&selected_year=2021&filter.time_min=2021&filter.time_max=2021"> <br> Explore this measure on our dashboard </a> </figcaption>
+</div>
 
 We scraped [BroadbandNow](https://broadbandnow.com/), an aggregator of Internet price packages, for information on the average cost of broadband in a given area. We combined this Internet cost information with data from the American Community Survey on average income. Given this, we were able to calculate the cost of broadband as a percent of income in the County. \n
 
@@ -59,14 +66,6 @@ Knowing at a granular geographic level where households face difficulty accessin
 
 </div>
 
-<!--
-## Digital equity index
 
-
-* Average download speeds (from Ookla) are relatively high across Arlington with the slowest average still above 100Mb (the newer standard for "broadband")
-* Ookla data only recently made available in 600-meter square that we translated into block groups
-* However, specific areas can be identified that have a significantly lower level of broadband adoption than the rest of Arlington
-* Calculated & of household income vs cost of 100Mb/s in every block group
-* These areas of lowest broadband adoption appear to correlate with the areas having the highest ratio of household income to the cost of broadband, indicating an economic issue, as opposite to an issue of availability
-* Digital equity index -->
+`r htmltools::includeHTML("./footer.html")`
 

@@ -12,3 +12,5 @@ subtitle: "Is access to primary care physicians equitable in Arlington and Fairf
 # Access to primary care physicians by FCA
 
 # Access to primary care physicians by FCA by demographics
+
+`r htmltools::includeHTML("./footer.html")`

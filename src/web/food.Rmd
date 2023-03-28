@@ -16,3 +16,5 @@ title: "Measuring Food Security and Stability of Access to Staple Foods"
 * Two measures of Food Insecurity: Feeding America and Capital Area Food Bank
 * New approach for measuring
 
+`r htmltools::includeHTML("./footer.html")`
+

@@ -36,3 +36,4 @@ title: "Dashboard"
 #### Access metadata for each measure
 
 ![Detailed information for the "dental care geographic availablility" measure](img/dashboard-info.png)
+`r htmltools::includeHTML("./footer.html")`

@@ -12,3 +12,5 @@ subtitle: "Is access to hospitals equitable in Arlington and Fairfax County?"
 # Access to hospitals by FCA
 
 # Access to hospitals by FCA by demographics
+
+`r htmltools::includeHTML("./footer.html")`

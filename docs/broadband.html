@@ -324,48 +324,75 @@ $(document).ready(function () {
 </div>
 
 
-<style type="text/css">
-  h1.title {
-    text-align: center;
-    margin-bottom: -3px;
-  }
-  h3.subtitle {
-    text-align: center;
-  }
-</style>
 <div style="clear: both">
-<h3 id="issue-overview">Issue overview</h3>
+
+<hr />
+<div class="section_header">
+Issue overview
+</div>
+<div class="section_text">
 <p>Our stakeholders in Arlington County were interested in understanding the nuances of access to broadband in their community. While anecdotal evidence and existing data sources can tell us that high-speed Internet is not accessible to everyone, there is not enough information at the sub-county level to tell us where exactly the households in need are. Also, the contributing factors for inaccessibility are not always obvious. Both of these pieces of information are critical for local governments, such as Arlington County, to develop effective policy to bridge the digital divide.</p>
-<h3 id="what-broadband-infrastructure-exists-in-arlington">What broadband infrastructure exists in Arlington?</h3>
-<p><img src="img/broadband-avgdown.png" style="float: right;" width="600" /></p>
+</div>
+<div class="section_header">
+What broadband infrastructure exists in Arlington?
+</div>
+<div class="section_text">
+<div style="float: right;">
+<img src="img/broadband-avgdown.png" class="story_image" width="600" />
+<figcaption>
+Data source: Ookla, accessed 2022 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=avg_down_using_devices&selected_year=2019&filter.time_min=2019&filter.time_max=2021"> <br> Explore this measure on our dashboard </a>
+</figcaption>
+</div>
 <p>We began by examining Internet speeds in Arlington. We used information provided by <a href="https://www.ookla.com/ookla-for-good/open-data">Ookla</a>, an Internet speed test service. Ookla provides Internet speeds in 600 meter squares squares, which we translated into Census tracts. </p>
 <p>We saw that Internet speeds are relatively high across Arlington. Even the slowest average download speeds were still above 100Mb, which is the standard for high-speed Internet or broadband. </p>
 <p>From this, we understood that the infrastructure for broadband is highly available in Arlington County.</p>
 </div>
 <div style="clear: both">
-<h3 id="who-has-adopted-broadband">Who has adopted broadband?</h3>
-<p><img src="img/broadband-hhbb.png" style="float: left;" width="600" /></p>
+<div class="section_header">
+Who has adopted broadband?
+</div>
+<div style="float: left;">
+<img src="img/broadband-hhbb.png" class="story_image" width="600" />
+<figcaption>
+Data source: American Community Survey, Table B28002, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_hh_with_broadband&selected_year=2019&filter.time_min=2017&filter.time_max=2019"> <br> Explore this measure on our dashboard </a>
+</figcaption>
+</div>
 <p>Next, we wanted to understand the rates of broadband adoption across different parts of Arlington County. </p>
 <p>We used information from the <a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> to analyze the percentage of households with broadband by Census tracts. </p>
 <p>From this, we saw that while broadband adoption was high overall throughout the county, there remained some pockets of the County with noticably lower rates. Given the availability of broadband infrastructure in these areas, we sought to better understand the contributing factors to their lower rates of adoption.</p>
 </div>
 <div style="clear: both">
-<h3 id="why-isnt-broadband-accessibile-to-everyone">Why isn’t broadband accessibile to everyone?</h3>
-<p><img src="img/broadband-percinc.png" style="float: right;" width="600" /></p>
+
+<div class="section_header">
+Why isn’t broadband accessibile to everyone?
+</div>
+<div class="section_text">
+<div style="float: right;">
+<img src="img/broadband-percinc.png" class="story_image" width="600" />
+<figcaption>
+Data sources: American Community Survey (ACS), Table B19013, accessed 2022 <br> Broadband Now, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_income_min_price_100&selected_year=2021&filter.time_min=2021&filter.time_max=2021"> <br> Explore this measure on our dashboard </a>
+</figcaption>
+</div>
 <p>We scraped <a href="https://broadbandnow.com/">BroadbandNow</a>, an aggregator of Internet price packages, for information on the average cost of broadband in a given area. We combined this Internet cost information with data from the American Community Survey on average income. Given this, we were able to calculate the cost of broadband as a percent of income in the County. </p>
 <p>We saw that the areas of lowest broadband adoption appear to directly correlate with the areas having the highest ratio of household income to the cost of broadband. This indicated that broadband accessibility is likely related to economic affordability, rather than infrastructure, in Arlington County. </p>
 <p>Knowing at a granular geographic level where households face difficulty accessing high speed Internet enables Arlington County stakeholders to make better informed policy decisions regarding allocation of broadband resources, as well as the types of resources offered.</p>
 </div>
-<!--
-## Digital equity index
-
-
-* Average download speeds (from Ookla) are relatively high across Arlington with the slowest average still above 100Mb (the newer standard for "broadband")
-* Ookla data only recently made available in 600-meter square that we translated into block groups
-* However, specific areas can be identified that have a significantly lower level of broadband adoption than the rest of Arlington
-* Calculated & of household income vs cost of 100Mb/s in every block group
-* These areas of lowest broadband adoption appear to correlate with the areas having the highest ratio of household income to the cost of broadband, indicating an economic issue, as opposite to an issue of availability
-* Digital equity index -->
+<hr />
+<div>
+  <table style="text-align:center;margin: auto;">
+  <tr>
+    <td style="text-align:center; font-size:10px;">
+    Sponsored by <br>
+    <img src="img/partners-mclogo.png" height="50px">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:center; font-size:10px; padding-top: 12px;">
+    Project Contact: Aaron Schroeder, ads7fg@virginia.edu
+    </td>
+  </tr>
+  </table>
+</div>
 
 
 

@@ -390,3 +390,5 @@ container <- htmltools::withTags(table(
 #datatable(list, container = container)
 datatable(list)
 ```
+
+`r htmltools::includeHTML("./footer.html")`

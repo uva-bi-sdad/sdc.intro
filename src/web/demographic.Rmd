@@ -28,3 +28,5 @@ We review the current approaches to deal with a partial overlap
 
 ![Average download speed in Fairfax County planning districts](img/demographic-fxpd.png)
 Incorporating data from multiple sources: IPUMS, using IPF
+
+`r htmltools::includeHTML("./footer.html")`

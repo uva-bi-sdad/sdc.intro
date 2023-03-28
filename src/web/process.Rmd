@@ -3,16 +3,6 @@ title: "Community Learning Through Data Driven Discovery"
 subtitle: "Our Guiding Process"
 ---
 
-<style type="text/css">
-  h1.title {
-    text-align: center;
-    margin-bottom: -3px;
-  }
-  h3.subtitle {
-    text-align: center;
-  }
-</style>
-
 <center>![Community Learning Through Data Driven Discovery (CLD3) Process developed by the Social and Decision Analytics Division](img/process-cld3.png){width="600px"} </center>
 
 #### We use our **Community Learning Through Data Driven Discovery (CLD3)** framework to drive the construction of the Social Impact Data Commons. Our initial grounding in **specific, local issues** is developed in partnership with community stakeholders in Arlington and Fairfax Counties in Virginia.
@@ -100,4 +90,5 @@ Building Capacity for Data Driven Governance - Creating a New Foundation for Dem
 
 Statistics and Public Policy, 4:1-11. (2017) S. A. Keller, V. Lancaster, S. Shipp
 
+`r htmltools::includeHTML("./footer.html")`
 

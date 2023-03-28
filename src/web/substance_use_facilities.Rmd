@@ -12,3 +12,5 @@ subtitle: "Is access to substance use facilities equitable in Arlington and Fair
 # Access to substance use facilities by FCA
 
 # Access to substance use facilities by FCA by demographics
+
+`r htmltools::includeHTML("./footer.html")`
