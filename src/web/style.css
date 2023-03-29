@@ -1,27 +1,46 @@
 /* NAVBAR */
+.navbar-header {
+  padding: 0px 15px;
+  max-width: 940px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#navbar {
+  padding: 0px 15px;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .navbar-default {
   background-color: #232D4B;
 }
 
 .navbar-brand {
-  width: 300px;
+  width: 315px;
   text-align: right;
   background-color: #232D4B;
   background-image: url("https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg");
   background-size: 25px;
-  background-position: center left 5%;
+  background-position: center left 30px;
   background-repeat: no-repeat;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
+  text-align: left;
   color: #F84C1E;
   background: #232D4B;
 }
 
 a.navbar-brand:hover {
   color: #F84C1E !important;
+}
+
+#navbar a {
+  padding: 7.5px 15px 15px 15px;
 }
 
 /* LINKS */
