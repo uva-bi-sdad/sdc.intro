@@ -19,7 +19,7 @@ Our stakeholders in Arlington County were interested in understanding the nuance
 <div class="section_text">
 
 <div style="float: right;">
-![](img/broadband-avgdown.png){width="600px" class="story_image"}
+![](img/broadband-avgdown.png){width="400px" class="story_image"}
 <figcaption> Data source: Ookla, accessed 2022 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=avg_down_using_devices&selected_year=2019&filter.time_min=2019&filter.time_max=2021"> <br> Explore this measure on our dashboard </a> </figcaption>
 </div>
 
@@ -36,7 +36,7 @@ From this, we understood that the infrastructure for broadband is highly availab
 <div class="section_header"> Who has adopted broadband? </div>
 
 <div style="float: left;">
-![](img/broadband-hhbb.png){width="600px" class="story_image"}
+![](img/broadband-hhbb.png){width="400px" class="story_image"}
 <figcaption> Data source: American Community Survey, Table B28002, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_hh_with_broadband&selected_year=2019&filter.time_min=2017&filter.time_max=2019"> <br> Explore this measure on our dashboard </a> </figcaption>
 </div>
 
@@ -54,7 +54,7 @@ From this, we saw that while broadband adoption was high overall throughout the 
 <div class="section_text">
 
 <div style="float: right;">
-![](img/broadband-percinc.png){width="600px" class="story_image"}
+![](img/broadband-percinc.png){width="400px" class="story_image"}
 <figcaption> Data sources: American Community Survey (ACS), Table B19013, accessed 2022 <br> Broadband Now, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_income_min_price_100&selected_year=2021&filter.time_min=2021&filter.time_max=2021"> <br> Explore this measure on our dashboard </a> </figcaption>
 </div>
 
@@ -63,6 +63,14 @@ We scraped [BroadbandNow](https://broadbandnow.com/), an aggregator of Internet 
 We saw that the areas of lowest broadband adoption appear to directly correlate with the areas having the highest ratio of household income to the cost of broadband. This indicated that broadband accessibility is likely related to economic affordability, rather than infrastructure, in Arlington County. \n
 
 Knowing at a granular geographic level where households face difficulty accessing high speed Internet enables Arlington County stakeholders to make better informed policy decisions regarding allocation of broadband resources, as well as the types of resources offered.
+
+</div>
+
+<div style="clear: both">
+
+<div class="section_header"> How does broadband access correlate with neighborhood demographics? </div>
+<div class="section_text">
+
 
 </div>
 

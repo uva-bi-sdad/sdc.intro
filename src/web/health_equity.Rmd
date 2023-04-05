@@ -77,7 +77,7 @@ Applying filters to our dataset can help us zero in on populations and neighbhor
 
 <center>Demographics mapped in Fairfax and Arlington</center>
 
-<div style = "text-align: center">
+<div style = "text-align: center;">
 ![](img/urgent-demographics.png){width="700px" class="story_image"}
 <figcaption>Data source: American Community Survey (ACS) Table B01001, accessed 2021.
     <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=demographics:perc_hispanic_or_latino&selected_year=2019&filter.time_min=2009&filter.time_max=2019&filter.county=51013,51059"> <br> Explore these measures on our dashboard </a> </figcaption>
