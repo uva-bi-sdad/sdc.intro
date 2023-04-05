@@ -36,26 +36,28 @@ From this, we understood that the infrastructure for broadband is highly availab
 <div class="section_header"> Who has adopted broadband? </div>
 
 <div style="float: left;">
-![](img/broadband-hhbb.png){width="400px" class="story_image"}
+![](img/broadband-avgdown.png){width="400px" class="story_image"}
 <figcaption> Data source: American Community Survey, Table B28002, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_hh_with_broadband&selected_year=2019&filter.time_min=2017&filter.time_max=2019"> <br> Explore this measure on our dashboard </a> </figcaption>
 </div>
+<div class="section_text">
 
 Next, we wanted to understand the rates of broadband adoption across different parts of Arlington County. \n
 
 We used information from the [American Community Survey](https://www.census.gov/programs-surveys/acs) to analyze the percentage of households with broadband by Census tracts. \n
 
 From this, we saw that while broadband adoption was high overall throughout the county, there remained some pockets of the County with noticably lower rates. Given the availability of broadband infrastructure in these areas, we sought to better understand the contributing factors to their lower rates of adoption.
+</div>
 
 </div>
 
 <div style="clear: both">
 
-<div class="section_header"> Why isn't broadband accessibile to everyone? </div>
+<div class="section_header"> Why isn't broadband accessible to everyone? </div>
 <div class="section_text">
 
 <div style="float: right;">
 ![](img/broadband-percinc.png){width="400px" class="story_image"}
-<figcaption> Data sources: American Community Survey (ACS), Table B19013, accessed 2022 <br> Broadband Now, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_income_min_price_100&selected_year=2021&filter.time_min=2021&filter.time_max=2021"> <br> Explore this measure on our dashboard </a> </figcaption>
+<figcaption> Data sources: American Community Survey (ACS), <br> Table B19013, accessed 2022 <br> Broadband Now, accessed 2021 <a href = "https://uva-bi-sdad.github.io/capital_region/?shape_type=county&selected_county=51013&selected_variable=perc_income_min_price_100&selected_year=2021&filter.time_min=2021&filter.time_max=2021"> <br> Explore this measure on our dashboard </a> </figcaption>
 </div>
 
 We scraped [BroadbandNow](https://broadbandnow.com/), an aggregator of Internet price packages, for information on the average cost of broadband in a given area. We combined this Internet cost information with data from the American Community Survey on average income. Given this, we were able to calculate the cost of broadband as a percent of income in the County. \n
@@ -70,6 +72,19 @@ Knowing at a granular geographic level where households face difficulty accessin
 
 <div class="section_header"> How does broadband access correlate with neighborhood demographics? </div>
 <div class="section_text">
+
+<div style = "text-align: center;">
+![](img/broadband-demographics.png){width="700px" class="story_image"}
+<figcaption>Data source: American Community Survey (ACS) Table B01001, accessed 2021.
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=demographics:perc_hispanic_or_latino&selected_year=2019&filter.time_min=2009&filter.time_max=2019&filter.county=51013"> <br> Explore these measures on our dashboard </a> </figcaption>
+</div>
+
+<div class="section_text">
+When analyzing the relationship between demographics and access to broadband, we see that neighborhoods with higher White populations tend to have greater access to broadband. <br> <br>
+A higher than average population of Black, Hispanic/Latino, and Asian American/Pacific Islander Arlingtonians live along Colombia Pike, where the economic burden of broadband is generally highest in the county. Some of these areas are historically Black neighborhoods, such as Green Valley and Johnson's Hill. <br> <br>
+For example, the census tract with the highest economic burden of broadband has a White population of 59 percent (compared to the county average of 79), a Black population of 16 percent (compared to the county average of 6), and a Hispanic/Latino population of 23 percent (compared to the county average of 11). <br> <br>
+Our analysis indicates that the economic burden of broadband is higher on communities of color in Arlington.
+</div>
 
 
 </div>
