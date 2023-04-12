@@ -38,9 +38,10 @@ navbar:
       - text: "Access to Broadband"
         href: broadband.html
       - text: "Health Equity"
-    #    href: health_equity.html
-      - text: "Food Insecurity"
+        href: health_equity.html
       - text: "Business Diversity"
+        href: economic_diversity.html
+      - text: "Food Insecurity"
     - text: "Media"
       href: media.html
     - text: "Partners"

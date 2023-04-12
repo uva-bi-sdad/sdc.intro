@@ -59,7 +59,6 @@ if (window.hljs) {
 
 
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -84,9 +83,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -239,7 +235,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -261,7 +257,7 @@ $(document).ready(function () {
   <a href="dashboard.html">Dashboard</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tools &amp; Methods
      
     <span class="caret"></span>
@@ -279,7 +275,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Stories
      
     <span class="caret"></span>
@@ -288,9 +284,13 @@ $(document).ready(function () {
     <li>
       <a href="broadband.html">Access to Broadband</a>
     </li>
-    <li class="dropdown-header">Health Equity</li>
+    <li>
+      <a href="health_equity.html">Health Equity</a>
+    </li>
+    <li>
+      <a href="economic_diversity.html">Business Diversity</a>
+    </li>
     <li class="dropdown-header">Food Insecurity</li>
-    <li class="dropdown-header">Business Diversity</li>
   </ul>
 </li>
 <li>
@@ -343,7 +343,7 @@ $(document).ready(function () {
 <h3>Widely Available</h3>
 <p>Our data repositories are replicated to the leading open data archives, including the University of Virginia Dataverse (LibraData) and the Inter-University Consortium of Political and Social Research (ICPSR) database.</p>
 <!-- ### Data library -->
-<style>
+<p><style>
   td.rotate {
     /* Something you can count on */
     /* height: 140px; */
@@ -1353,7 +1353,7 @@ $(document).ready(function () {
  <tr  >
   <td  >education</td>
   <td>Count of
-  population with high school diploma or higher education   </td>
+  population with high school diploma or higher education	</td>
   <td>2015-2019</td>
   <td>X</td>
   <td>X</td>
@@ -1373,7 +1373,7 @@ $(document).ready(function () {
  <tr  >
   <td  >education</td>
   <td>Percent of
-  population with high school diploma or higher education   </td>
+  population with high school diploma or higher education	</td>
   <td>2015-2019</td>
   <td>X</td>
   <td>X</td>
@@ -1671,7 +1671,7 @@ $(document).ready(function () {
  <tr>
   <td >housing</td>
   <td>Total count of
-  vacant addresses - Other  </td>
+  vacant addresses - Other	</td>
   <td>2015-2020</td>
   <td>X</td>
   <td>X</td>
@@ -1691,7 +1691,7 @@ $(document).ready(function () {
  <tr>
   <td>housing</td>
   <td>Percentage of
-  vacant addresses  </td>
+  vacant addresses	</td>
   <td>2015-2020</td>
   <td>X</td>
   <td>X</td>
@@ -1711,7 +1711,7 @@ $(document).ready(function () {
  <tr>
   <td >housing</td>
   <td>Percentage of
-  vacant addresses - Other  </td>
+  vacant addresses - Other	</td>
   <td>2015-2020</td>
   <td>X</td>
   <td>X</td>
@@ -1731,7 +1731,7 @@ $(document).ready(function () {
  <tr  >
   <td  >housing</td>
   <td>All vacant
-  addresses 12 months or longer count   </td>
+  addresses 12 months or longer count	</td>
   <td>2015-2020</td>
   <td>X</td>
   <td>X</td>
@@ -1771,7 +1771,7 @@ $(document).ready(function () {
  <tr>
   <td>housing</td>
   <td>All eviction cases
-  filed in an area  </td>
+  filed in an area	</td>
   <td>2015-2016</td>
   <td>X</td>
   <td>X</td>
@@ -1831,7 +1831,7 @@ $(document).ready(function () {
  <tr  >
   <td  >transportation</td>
   <td>Percentage workers
-  over 16 carpooled to work </td>
+  over 16 carpooled to work	</td>
   <td>2015-2019</td>
   <td>X</td>
   <td>X</td>
@@ -2708,8 +2708,7 @@ $(document).ready(function () {
   <td>&nbsp;</td>
   <td>&nbsp;</td>
  </tr>
-</table>
-<hr />
+</table> <hr />
 <div>
   <table style="text-align:center;margin: auto;">
   <tr>
@@ -2724,7 +2723,7 @@ $(document).ready(function () {
     </td>
   </tr>
   </table>
-</div>
+</div></p>
 </div>
 
 

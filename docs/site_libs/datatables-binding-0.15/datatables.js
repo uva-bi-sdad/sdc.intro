@@ -17,10 +17,9 @@ var markInterval = function(d, digits, interval, mark, decMark, precision) {
   return xv.join(decMark);
 };
 
-DTWidget.formatCurrency = function(data, currency, digits, interval, mark, decMark, before, zeroPrint) {
+DTWidget.formatCurrency = function(data, currency, digits, interval, mark, decMark, before) {
   var d = parseFloat(data);
   if (isNaN(d)) return '';
-  if (zeroPrint !== null && d === 0.0) return zeroPrint;
   var res = markInterval(d, digits, interval, mark, decMark);
   res = before ? (/^-/.test(res) ? '-' + currency + res.replace(/^-/, '') : currency + res) :
     res + currency;
@@ -33,24 +32,21 @@ DTWidget.formatString = function(data, prefix, suffix) {
   return prefix + d + suffix;
 };
 
-DTWidget.formatPercentage = function(data, digits, interval, mark, decMark, zeroPrint) {
+DTWidget.formatPercentage = function(data, digits, interval, mark, decMark) {
   var d = parseFloat(data);
   if (isNaN(d)) return '';
-  if (zeroPrint !== null && d === 0.0) return zeroPrint;
   return markInterval(d * 100, digits, interval, mark, decMark) + '%';
 };
 
-DTWidget.formatRound = function(data, digits, interval, mark, decMark, zeroPrint) {
+DTWidget.formatRound = function(data, digits, interval, mark, decMark) {
   var d = parseFloat(data);
   if (isNaN(d)) return '';
-  if (zeroPrint !== null && d === 0.0) return zeroPrint;
   return markInterval(d, digits, interval, mark, decMark);
 };
 
-DTWidget.formatSignif = function(data, digits, interval, mark, decMark, zeroPrint) {
+DTWidget.formatSignif = function(data, digits, interval, mark, decMark) {
   var d = parseFloat(data);
   if (isNaN(d)) return '';
-  if (zeroPrint !== null && d === 0.0) return zeroPrint;
   return markInterval(d, digits, interval, mark, decMark, true);
 };
 
@@ -70,55 +66,6 @@ DTWidget.formatDate = function(data, method, params) {
 };
 
 window.DTWidget = DTWidget;
-
-// A helper function to update the lims of the existing filters
-var set_filter_lims = function(td, new_vals) {
-  // Based on the filter type, set its new values
-  if (['factor', 'logical'].includes(td.getAttribute('data-type'))) {
-    // Reformat the new dropdown options for use with selectize
-    new_vals = new_vals.map(function(item) {return {text: item, value: item}});
-
-    // Find the selectize object
-    var dropdown = $(td).find('.selectized').eq(0)[0].selectize;
-
-    // Note the current values
-    var old_vals = dropdown.getValue();
-
-    // Remove the existing values
-    dropdown.clearOptions();
-
-    // Add the new options
-    dropdown.addOption(new_vals);
-
-    // Preserve the existing values
-    dropdown.setValue(old_vals);
-
-  } else if (['number', 'integer', 'date', 'time'].includes(td.getAttribute('data-type'))) {
-    // Note what the new limits will be just for this filter
-    var new_lims = [...new_vals];
-
-    // Determine the current values and limits
-    var slider = $(td).find('.noUi-target').eq(0);
-    var old_vals = slider.val().map(Number);
-    var old_lims = slider.noUiSlider('options').range;
-    old_lims = [old_lims.min, old_lims.max];
-
-    // Preserve the current values if filters have been applied; otherwise, apply no filtering
-    if (old_vals[0] != old_lims[0]) {
-      new_vals[0] = Math.max(old_vals[0], new_vals[0]);
-    }
-
-    if (old_vals[1] != old_lims[1]) {
-      new_vals[1] = Math.min(old_vals[1], new_vals[1]);
-    }
-
-    // Update the endpoints of the slider
-    slider.noUiSlider({
-      start: new_vals,
-      range: {'min': new_lims[0], 'max': new_lims[1]}
-    }, true);
-  }
-};
 
 var transposeArray2D = function(a) {
   return a.length === 0 ? a : HTMLWidgets.transposeArray2D(a);
@@ -187,6 +134,16 @@ HTMLWidgets.widget({
       instance.ctselectHandle.setGroup(crosstalkOptions.group);
     }
 
+    // If we are in a flexdashboard scroll layout then we:
+    //  (a) Always want to use pagination (otherwise we'll have
+    //      a "double scroll bar" effect on the phone); and
+    //  (b) Never want to fill the container (we want the pagination
+    //      level to determine the size of the container)
+    if (window.FlexDashboard && !window.FlexDashboard.isFillPage()) {
+      data.options.bPaginate = true;
+      data.fillContainer = false;
+    }
+
     // if we are in the viewer then we always want to fillContainer and
     // and autoHideNavigation (unless the user has explicitly set these)
     if (window.HTMLWidgets.viewerMode) {
@@ -250,7 +207,7 @@ HTMLWidgets.widget({
 
       // if we aren't paginating then move around the info/filter controls
       // to save space at the bottom and rephrase the info callback
-      if (data.options.paging === false) {
+      if (data.options.bPaginate === false) {
 
         // we know how to do this cleanly for bootstrap, not so much
         // for other themes/layouts
@@ -267,20 +224,17 @@ HTMLWidgets.widget({
     }
 
     // auto hide navigation if requested
-    // Note, this only works on client-side processing mode as on server-side,
-    // cells (data.data) is null; In addition, we require the pageLength option
-    // being provided explicitly to enable this. Despite we may be able to deduce
-    // the default value of pageLength, it may complicate things so we'd rather
-    // put this responsiblity to users and warn them on the R side.
-    if (data.autoHideNavigation === true && data.options.paging !== false) {
-      // strip all nav if length >= cells
-      if ((cells instanceof Array) && data.options.pageLength >= cells.length)
-        options.dom = bootstrapActive ? "<'row'<'col-sm-12'tr>>" : "t";
-      // alternatively lean things out for flexdashboard mobile portrait
-      else if (bootstrapActive && window.FlexDashboard && window.FlexDashboard.isMobilePhone())
-        options.dom = "<'row'<'col-sm-12'f>>" +
-                      "<'row'<'col-sm-12'tr>>"  +
-                      "<'row'<'col-sm-12'p>>";
+    if (data.autoHideNavigation === true) {
+      if (bootstrapActive && data.options.bPaginate !== false) {
+        // strip all nav if length >= cells
+        if ((cells instanceof Array) && data.options.iDisplayLength >= cells.length)
+          options.dom = "<'row'<'col-sm-12'tr>>";
+        // alternatively lean things out for flexdashboard mobile portrait
+        else if (window.FlexDashboard && window.FlexDashboard.isMobilePhone())
+          options.dom = "<'row'<'col-sm-12'f>>" +
+                        "<'row'<'col-sm-12'tr>>"  +
+                        "<'row'<'col-sm-12'p>>";
+      }
     }
 
     $.extend(true, options, data.options || {});
@@ -522,10 +476,10 @@ HTMLWidgets.widget({
             'background-color': '#fff',
             'border': '1px #ddd solid',
             'border-radius': '4px',
-            'padding': data.vertical ? '35px 20px': '20px 20px 10px 20px'
+            'padding': '20px 20px 10px 20px'
           });
           var $spans = $x0.children('span').css({
-            'margin-top': data.vertical ? '0' : '10px',
+            'margin-top': '10px',
             'white-space': 'nowrap'
           });
           var $span1 = $spans.first(), $span2 = $spans.last();
@@ -552,9 +506,9 @@ HTMLWidgets.widget({
               // first, make sure the slider div leaves at least 20px between
               // the two (slider value) span's
               $x0.width(Math.max(160, $span1.outerWidth() + $span2.outerWidth() + 20));
-              // then, if the input is really wide or slider is vertical,
-              // make the slider the same width as the input
-              if ($x0.outerWidth() < $input.outerWidth() || data.vertical) {
+              // then, if the input is really wide, make the slider the same
+              // width as the input
+              if ($x0.outerWidth() < $input.outerWidth()) {
                 $x0.outerWidth($input.outerWidth());
               }
               // make sure the slider div does not reach beyond the right margin
@@ -619,10 +573,6 @@ HTMLWidgets.widget({
           };
           var opts = type === 'date' ? { step: 60 * 60 * 1000 } :
                      type === 'integer' ? { step: 1 } : {};
-
-          opts.orientation = data.vertical ? 'vertical': 'horizontal';
-          opts.direction = data.vertical ? 'rtl': 'ltr';
-
           filter = $x.noUiSlider($.extend({
             start: [r1, r2],
             range: {min: r1, max: r2},
@@ -806,44 +756,39 @@ HTMLWidgets.widget({
           throw 'The editable parameter must be "cell", "row", "column", or "all"';
       }
       var disableCols = data.editable.disable ? data.editable.disable.columns : null;
-      var numericCols = data.editable.numeric;
-      var areaCols = data.editable.area;
       for (var i = 0; i < target.length; i++) {
         (function(cell, current) {
           var $cell = $(cell), html = $cell.html();
-          var _cell = table.cell(cell), value = _cell.data(), index = _cell.index().column;
-          var $input;
-          if (inArray(index, numericCols)) {
-            $input = $('<input type="number">');
-          } else if (inArray(index, areaCols)) {
-            $input = $('<textarea></textarea>');
-          } else {
-            $input = $('<input type="text">');
-          }
+          var _cell = table.cell(cell), value = _cell.data();
+          var $input = $('<input type="text">'), changed = false;
           if (!immediate) {
             $cell.data('input', $input).data('html', html);
             $input.attr('title', 'Hit Ctrl+Enter to finish editing, or Esc to cancel');
           }
           $input.val(value);
-          if (inArray(index, disableCols)) {
+          if (inArray(_cell.index().column, disableCols)) {
             $input.attr('readonly', '').css('filter', 'invert(25%)');
           }
           $cell.empty().append($input);
           if (cell === current) $input.focus();
           $input.css('width', '100%');
 
-          if (immediate) $input.on('blur', function(e) {
+          if (immediate) $input.on('change', function() {
+            changed = true;
             var valueNew = $input.val();
             if (valueNew != value) {
               _cell.data(valueNew);
               if (HTMLWidgets.shinyMode) {
-                changeInput('cell_edit', [cellInfo(cell)], 'DT.cellInfo', null, {priority: 'event'});
+                changeInput('cell_edit', [cellInfo(cell)], 'DT.cellInfo', null, {priority: "event"});
               }
               // for server-side processing, users have to call replaceData() to update the table
               if (!server) table.draw(false);
             } else {
               $cell.html(html);
             }
+            $input.remove();
+          }).on('blur', function() {
+            if (!changed) $input.trigger('change');
           }).on('keyup', function(e) {
             // hit Escape to cancel editing
             if (e.keyCode === 27) $input.trigger('blur');
@@ -1356,16 +1301,16 @@ HTMLWidgets.widget({
       if (this.className === '') e.stopPropagation();
     });
 
-    methods.addRow = function(data, rowname, resetPaging) {
-      var n = table.columns().indexes().length, d = n - data.length;
+    methods.addRow = function(data, rowname) {
+      var data0 = table.row(0).data(), n = data0.length, d = n - data.length;
       if (d === 1) {
         data = rowname.concat(data)
       } else if (d !== 0) {
         console.log(data);
-        console.log(table.columns().indexes());
+        console.log(data0);
         throw 'New data must be of the same length as current data (' + n + ')';
       };
-      table.row.add(data).draw(resetPaging);
+      table.row.add(data).draw();
     }
 
     methods.updateSearch = function(keywords) {
@@ -1415,20 +1360,6 @@ HTMLWidgets.widget({
       table.ajax.reload(null, resetPaging);
     }
 
-    // update table filters (set new limits of sliders)
-    methods.updateFilters = function(newLims) {
-      // loop through each filter in the filter row
-      filterRow.each(function(i, td) {
-        var k = i;
-        if (filterRow.length > newLims.length) {
-          if (i === 0) return;  // first column is row names
-          k = i - 1;
-        }
-        // Update the filters to reflect the updated data
-        set_filter_lims(td, newLims[k]);
-      });
-    };
-
     table.shinyMethods = methods;
   },
   resize: function(el, width, height, instance) {
@@ -1452,12 +1383,6 @@ HTMLWidgets.widget({
     var framingHeight = dtWrapper.innerHeight() - dtScrollBody.innerHeight();
     var scrollBodyHeight = availableHeight - framingHeight;
 
-    // we need to set `max-height` to none as datatables library now sets this
-    // to a fixed height, disabling the ability to resize to fill the window,
-    // as it will be set to a fixed 100px under such circumstances, e.g., RStudio IDE,
-    // or FlexDashboard
-    // see https://github.com/rstudio/DT/issues/951#issuecomment-1026464509
-    dtScrollBody.css('max-height', 'none');
     // set the height
     dtScrollBody.height(scrollBodyHeight + 'px');
   },
