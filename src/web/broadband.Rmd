@@ -45,7 +45,7 @@ Next, we wanted to understand the rates of broadband adoption across different p
 
 We used information from the [American Community Survey](https://www.census.gov/programs-surveys/acs) to analyze the percentage of households with broadband by Census tracts. \n
 
-From this, we saw that while broadband adoption was high overall throughout the county, there remained some pockets of the County with noticably lower rates. Given the availability of broadband infrastructure in these areas, we sought to better understand the contributing factors to their lower rates of adoption.
+From this, we saw that while broadband adoption was high overall throughout the county, there remained some pockets of the County with noticeably lower rates. Given the availability of broadband infrastructure in these areas, we sought to better understand the contributing factors to their lower rates of adoption.
 </div>
 
 </div>
