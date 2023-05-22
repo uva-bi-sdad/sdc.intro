@@ -376,6 +376,8 @@ Input “2” for Outline Weight and “3” for Background Outline Weight
 Exit the Settings Menu
 <li>
 In the Variable Menu, select Urgent care geographic (count) under Health
+<li>
+Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -417,6 +419,8 @@ Scroll down to Map Options and input “2” for Outline Weight and “3” for 
 Exit the Settings Menu
 <li>
 In the Variable Menu, select Urgent care availability (drive time) under Health
+<li>
+Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -459,6 +463,8 @@ Exit the Settings Menu
 In the Variable Menu, select Urgent care geographic availability under Health
 <li>
 In the Settings Menu, toggle Color by Rank on
+<li>
+Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -502,6 +508,8 @@ In the Filter Window, select Add Variable Condition
 Scroll down to select Median household income
 <li>
 Input “Selected” for Component, “&lt;=” for Operator, and 101838 for Value
+<li>
+Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -553,6 +561,8 @@ In the Variable Menu, select Black population under Demographics
 In the Variable Menu, select Hispanic/Latino population under Demographics
 <li>
 In the Variable Menu, select White population under Demographics
+<li>
+Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -573,6 +583,64 @@ Exploring access to additional health services
 </div>
 <div class="section_text">
 <p>Using the Social Impact Data Commons, we can explore access to additional health services using an equity lens. For example, we can explore differences in access to hospitals, primary care physicians, or substance use facilities. We find that access to these services across Fairfax and Arlington do not necessarily follow the same pattern. Using specific measures, policymakers can make informed decisions to address specific health equity gaps.</p>
+</div>
+<div style="clear: both">
+
+<div class="section_header">
+Performing statistical analyses
+</div>
+<div class="section_text">
+<p>Using R statistical software, we can perform statistical analyses to analyze the relationships between variables.</p>
+<pre class="r"><code># Install and load necessary packages
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(stringr)
+library(devtools)
+library(smplot2)
+library(tidyr)
+
+# Input the urls (From the Export Data Screen, select Copy API Link)
+hisp_url &lt;- &quot;https://ncr-data-commons.netlify.app/api?id=51013,51059&amp;include=perc_hispanic_or_latino&amp;dataset=tract&amp;table_format=mixed&amp;file_format=csv&quot;
+black_url &lt;- &quot;https://ncr-data-commons.netlify.app/api?id=51013,51059&amp;include=perc_afr_amer_alone&amp;dataset=tract&amp;table_format=mixed&amp;file_format=csv&quot;
+aapi_url &lt;- &quot;https://ncr-data-commons.netlify.app/api?id=51013,51059&amp;include=perc_AAPI&amp;dataset=tract&amp;table_format=mixed&amp;file_format=csv&quot;
+white_url &lt;- &quot;https://ncr-data-commons.netlify.app/api?id=51013,51059&amp;include=perc_wht_alone&amp;dataset=tract&amp;table_format=mixed&amp;file_format=csv&quot;
+urgent_care_url &lt;- &quot;https://ncr-data-commons.netlify.app/api?id=51013,51059&amp;include=urgent_3sfca&amp;dataset=tract&amp;table_format=mixed&amp;file_format=csv&quot;
+
+# Filter the data, select years, and deselect name
+hisp_data &lt;- read_csv(hisp_url) %&gt;% filter(time == 2020) %&gt;% select(-time, -Name)
+black_data &lt;- read_csv(black_url) %&gt;% filter(time == 2020) %&gt;% select(-time, -Name)
+aapi_data &lt;- read_csv(aapi_url) %&gt;% filter(time == 2020) %&gt;% select(-time, -Name)
+white_data &lt;- read_csv(white_url) %&gt;% filter(time == 2020) %&gt;% select(-time, -Name)
+urgent_care_data &lt;- read_csv(urgent_care_url)
+
+# Join the data frames together
+data &lt;- left_join(hisp_data, urgent_care_data, by = &quot;ID&quot;) %&gt;% 
+  left_join(black_data, by = &quot;ID&quot;) %&gt;% 
+  left_join(aapi_data, by = &quot;ID&quot;) %&gt;% 
+  left_join(white_data, by = &quot;ID&quot;) %&gt;% 
+  # Create a new variable for county
+  mutate(county = ifelse(str_detect(ID, &quot;^51059&quot;), &quot;Fairfax&quot;, &quot;Arlington&quot;)) %&gt;% 
+  # Deselect time and name again
+  select(-time, -Name) %&gt;% 
+  # Put demographic variables in one column together for easy visualization
+  pivot_longer(cols = c(perc_AAPI, perc_hispanic_or_latino, perc_afr_amer_alone, perc_wht_alone))
+
+# Create a scatter plot and correlation statistics for variables
+data %&gt;% 
+  ggplot(aes(x = as.numeric(value), y = urgent_3sfca, color = county, group = county)) +
+  geom_point() +
+  sm_statCorr(label_x = 85) +
+  facet_grid(name ~ .,
+             labeller = as_labeller(c(perc_AAPI = &quot;Asian American/Pacific Islander Alone&quot;,
+                          perc_hispanic_or_latino = &quot;Hispanic or Latino&quot;,
+                          perc_afr_amer_alone = &quot;African American Alone&quot;,
+                          perc_wht_alone = &quot;White Alone&quot;))) +
+  labs(x = &quot;Percentage of Demographic Population in Each Census Tract&quot;,
+       y = &quot;Urgent Care Availability per 1,000&quot;,
+       caption = &quot;Great caption&quot;)</code></pre>
+<p><img src="health_equity_beta_files/figure-html/unnamed-chunk-1-1.png" width="672" /> <br></p>
+<p>We can see that there are no statistically significant relationships between access to urgent care and the chosen demographic variables in Arlington County. In Fairfax County, a higher percentage of a census tract with Asian American/Pacific Islander population is significantly correlated with a higher access to urgent cares. Additionally, a higher percentage of a census tract with Black and White populations are significantly correlated with a lower access to urgent cares</p>
 </div>
 <p><hr /> <div>   <table style="text-align:center;margin: auto;">   <tr>     <td style="text-align:center; font-size:10px;">     Sponsored by <br>     <img src="img/partners-mclogo.png" height="50px">     </td>   </tr>   <tr>     <td style="text-align:center; font-size:10px; padding-top: 12px;">     Project Contact: Aaron Schroeder, ads7fg@virginia.edu     </td>   </tr>   </table> </div></p>
 

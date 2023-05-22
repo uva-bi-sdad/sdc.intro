@@ -45,6 +45,7 @@ We inventoried a variety of urgent care location data sources for accuracy and q
 <li> Input "2" for Outline Weight and "3" for Background Outline Weight
 <li> Exit the Settings Menu
 <li> In the Variable Menu, select Urgent care geographic (count) under Health
+<li> Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -77,6 +78,7 @@ Drive times calculated using Open Source Routing Machine.
 <li> Scroll down to Map Options and input "2" for Outline Weight and "3" for Background Outline Weight
 <li> Exit the Settings Menu
 <li> In the Variable Menu, select Urgent care availability (drive time) under Health
+<li> Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -109,6 +111,7 @@ Drive times calculated using Open Source Routing Machine.
 <li> Exit the Settings Menu
 <li> In the Variable Menu, select Urgent care geographic availability under Health
 <li> In the Settings Menu, toggle Color by Rank on 
+<li> Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span>
 </figcaption>
@@ -136,6 +139,7 @@ Drive times calculated using Open Source Routing Machine. <a href = "https://uva
 <li> In the Filter Window, select Add Variable Condition
 <li> Scroll down to select Median household income
 <li> Input "Selected" for Component, "<=" for Operator, and 101838 for Value
+<li> Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span> 
 </figcaption>
@@ -172,6 +176,7 @@ Applying filters to our dataset can help us zero in on populations and neighbhor
 <li> In the Variable Menu, select Black population under Demographics
 <li> In the Variable Menu, select Hispanic/Latino population under Demographics
 <li> In the Variable Menu, select White population under Demographics
+<li> Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span> 
 </figcaption>
@@ -200,6 +205,71 @@ Having a comprehensive knowledge of the equity of access to urgent care within n
 <div class="section_text">
 
 Using the Social Impact Data Commons, we can explore access to additional health services using an equity lens. For example, we can explore differences in access to hospitals, primary care physicians, or substance use facilities. We find that access to these services across Fairfax and Arlington do not necessarily follow the same pattern. Using specific measures, policymakers can make informed decisions to address specific health equity gaps. 
+
+</div>
+
+<div style="clear: both">
+
+<div class="section_header">Performing statistical analyses</div>
+
+<div class="section_text">
+
+Using R statistical software, we can perform statistical analyses to analyze the relationships between variables.
+
+```{r warning = FALSE, message = FALSE, fig.height = 8}
+# Install and load necessary packages
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(stringr)
+library(devtools)
+library(smplot2)
+library(tidyr)
+
+# Input the urls (From the Export Data Screen, select Copy API Link)
+hisp_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_hispanic_or_latino&dataset=tract&table_format=mixed&file_format=csv"
+black_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_afr_amer_alone&dataset=tract&table_format=mixed&file_format=csv"
+aapi_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_AAPI&dataset=tract&table_format=mixed&file_format=csv"
+white_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_wht_alone&dataset=tract&table_format=mixed&file_format=csv"
+urgent_care_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=urgent_3sfca&dataset=tract&table_format=mixed&file_format=csv"
+
+# Filter the data, select years, and deselect name
+hisp_data <- read_csv(hisp_url) %>% filter(time == 2020) %>% select(-time, -Name)
+black_data <- read_csv(black_url) %>% filter(time == 2020) %>% select(-time, -Name)
+aapi_data <- read_csv(aapi_url) %>% filter(time == 2020) %>% select(-time, -Name)
+white_data <- read_csv(white_url) %>% filter(time == 2020) %>% select(-time, -Name)
+urgent_care_data <- read_csv(urgent_care_url)
+
+# Join the data frames together
+data <- left_join(hisp_data, urgent_care_data, by = "ID") %>% 
+  left_join(black_data, by = "ID") %>% 
+  left_join(aapi_data, by = "ID") %>% 
+  left_join(white_data, by = "ID") %>% 
+  # Create a new variable for county
+  mutate(county = ifelse(str_detect(ID, "^51059"), "Fairfax", "Arlington")) %>% 
+  # Deselect time and name again
+  select(-time, -Name) %>% 
+  # Put demographic variables in one column together for easy visualization
+  pivot_longer(cols = c(perc_AAPI, perc_hispanic_or_latino, perc_afr_amer_alone, perc_wht_alone))
+
+# Create a scatter plot and correlation statistics for variables
+data %>% 
+  ggplot(aes(x = as.numeric(value), y = urgent_3sfca, color = county, group = county)) +
+  geom_point() +
+  sm_statCorr(label_x = 85) +
+  facet_grid(name ~ .,
+             labeller = as_labeller(c(perc_AAPI = "Asian American/Pacific Islander Alone",
+                          perc_hispanic_or_latino = "Hispanic or Latino",
+                          perc_afr_amer_alone = "African American Alone",
+                          perc_wht_alone = "White Alone"))) +
+  labs(x = "Percentage of Demographic Population in Each Census Tract",
+       y = "Urgent Care Availability per 1,000",
+       caption = "Great caption")
+```
+<br>
+
+We can see that there are no statistically significant relationships between access to urgent care and the chosen demographic variables in Arlington County. In Fairfax County, a higher percentage of a census tract with Asian American/Pacific Islander population is significantly correlated with a higher access to urgent cares. Additionally, a higher percentage of a census tract with Black and White populations are significantly correlated with a lower access to urgent cares
+
 
 </div>
 
