@@ -95,5 +95,8 @@ figcaption {
 .hiddenText {
   display: none;
   text-align: left;
+}
+
+a {
   cursor: pointer;
 }

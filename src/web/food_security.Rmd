@@ -17,8 +17,10 @@ Table of sources & calculator
 Using iterative proportional fitting to estimate income and household size composition of each census tract
 Based on income and household size, families with that household composition in that census tract are either food insecure, at-risk, or food secure
 
-### Results
+### Findings
 
 Areas with high food insecurity
+
+### Exploring food insecurity with access to subsidies (SNAP) 
 
 ### Comparison with current measures of food insecurity
