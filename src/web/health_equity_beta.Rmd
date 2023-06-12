@@ -37,15 +37,18 @@ We inventoried a variety of urgent care location data sources for accuracy and q
 <a onclick="reveal('Fig1');"> Steps to replicate this map <br> </a>  
 <span class="hiddenText" id="Fig1">
 <ol>
-<li> Clear browser cache and reset dashboard settings
 <li> Click "Filter" in the top left navigation bar to open the Filter Window
+![](img/tutorial-filter_menu.png){width="400px"}
 <li> In the Filter Window under "county" select "Arlington County" and "Fairfax County"
+![](img/tutorial-filter_menu_counties.png){width="400px"}
 <li> Exit the Filter Window
 <li> In the Settings Menu, scroll down to Map Options
 <li> Input "2" for Outline Weight and "3" for Background Outline Weight
+![](img/tutorial-outline_weight.png){width="400px"}
 <li> Exit the Settings Menu
 <li> In the Variable Menu, select Urgent care geographic (count) under Health
 <li> Click Export to open the Export Window and select Download to download the data locally
+![](img/tutorial-export.png){width="400px"}
 </ol>
 </span>
 </figcaption>
@@ -70,12 +73,14 @@ Drive times calculated using Open Source Routing Machine.
 <a onclick="reveal('Fig2');"> Steps to replicate this map <br> </a>  
 <span class="hiddenText" id="Fig2">
 <ol>
-<li> Clear browser cache and reset dashboard settings
 <li> Click "Filter" in the top left navigation bar to open the Filter Window
+![](img/tutorial-filter_menu.png){width="400px"}
 <li> In the Filter Window under "county" select "Arlington County" and "Fairfax County"
+[](img/tutorial-filter_menu_counties.png){width="400px"}
 <li> Exit the Filter Window
 <li> In the Settings Menu under Summary Level select "Selected Super-Region"
 <li> Scroll down to Map Options and input "2" for Outline Weight and "3" for Background Outline Weight
+![](img/tutorial-outline_weight.png){width="400px"}
 <li> Exit the Settings Menu
 <li> In the Variable Menu, select Urgent care availability (drive time) under Health
 <li> Click Export to open the Export Window and select Download to download the data locally
@@ -102,7 +107,6 @@ Drive times calculated using Open Source Routing Machine.
 <a onclick="reveal('Fig3');"> Steps to replicate this map <br> </a>  
 <span class="hiddenText" id="Fig3">
 <ol>
-<li> Clear browser cache and reset dashboard settings
 <li> Click "Filter" in the top left navigation bar to open the Filter Window
 <li> In the Filter Window under "county" select "Arlington County" and "Fairfax County"
 <li> Exit the Filter Window
@@ -127,7 +131,6 @@ Drive times calculated using Open Source Routing Machine. <a href = "https://uva
 <a onclick="reveal('Fig4');"> Steps to replicate this map <br> </a>  
 <span class="hiddenText" id="Fig4">
 <ol>
-<li> Clear browser cache and reset dashboard settings
 <li> Click "Filter" in the top left navigation bar to open the Filter Window
 <li> In the Filter Window under "county" select "Arlington County" and "Fairfax County"
 <li> Exit the Filter Window
@@ -138,7 +141,7 @@ Drive times calculated using Open Source Routing Machine. <a href = "https://uva
 <li> In the Settings Menu, toggle Color by Rank on
 <li> In the Filter Window, select Add Variable Condition
 <li> Scroll down to select Median household income
-<li> Input "Selected" for Component, "<=" for Operator, and 101838 for Value
+<li> Input "Selected" for Component, "<=" for Operator, and Q1 for Value
 <li> Click Export to open the Export Window and select Download to download the data locally
 </ol>
 </span> 
@@ -165,7 +168,6 @@ Applying filters to our dataset can help us zero in on populations and neighbhor
 <a onclick="reveal('Fig5');"> Steps to replicate this map <br> </a>  
 <span class="hiddenText" id="Fig5">
 <ol>
-<li> Clear browser cache and reset dashboard settings
 <li> Click "Filter" in the top left navigation bar to open the Filter Window
 <li> In the Filter Window under "county" select "Arlington County" and "Fairfax County"
 <li> Exit the Filter Window
@@ -216,62 +218,81 @@ Using the Social Impact Data Commons, we can explore access to additional health
 
 Using R statistical software, we can perform statistical analyses to analyze the relationships between variables.
 
-```{r warning = FALSE, message = FALSE, fig.height = 8}
-# Install and load necessary packages
-library(dplyr)
-library(readr)
+```{r warning = FALSE, message = FALSE, fig.height = 10, fig.width = 14}
+#
+# retrieve
+#
+
+# define the set of variable we want to retrieve
+variables <- c(
+  "perc_hispanic_or_latino", "perc_afr_amer_alone",
+  "perc_AAPI", "perc_wht_alone", "urgent_3sfca"
+)
+# use them to make an API URL
+url <- paste0(
+  "https://ncr-data-commons.netlify.app/api?", # base URL of the API
+  "id=51013,51059&dataset=tract&time_range=2020,2022&include=", # query string defining a subset
+  paste(variables, collapse = ",") # comma-separate version of the selected variables
+)
+# download and load the data directly
+data <- read.csv(url, na.strings = c("NA", "null"))
+
+#
+# prepare
+#
+
+# since urgent care is only available in 2022, but demographics variables are only available
+# up to 2020, we'll need to align time by moving urgent care to 2020
+
+## first set urgent care in 2020 to that in 2022
+data$urgent_3sfca[data$time == 2020] <- data$urgent_3sfca[data$time == 2022]
+## then remove all but 2020 time points from the dataset
+data <- data[data$time == 2020,]
+
+# since we're interested in comparing counties, but looking at the tract level,
+# we can add a variable for county, identified by the first 5 characters of the tract GEOID
+data$county <- substring(data$ID, 1, 5)
+
+# for plotting, we'll make a tall version of the dataset (to plot multiple variables at once),
+# assign display-ready labels, and remove missing values (likely tracts with no people)
+data_tall <- na.omit(data.frame(
+  Value = unlist(data[, variables[1:4]]),
+  variable = c(
+    perc_AAPI = "Asian American/ \n Pacific Islander \n Alone",
+    perc_hispanic_or_latino = "Hispanic or Latino",
+    perc_afr_amer_alone = "African American \n Alone",
+    perc_wht_alone = "White Alone"
+  )[rep(variables[1:4], each = nrow(data))],
+  urgent_3sfca = rep(data$urgent_3sfca, 4),
+  County = c("51013" = "Arlington", "51059" = "Fairfax")[rep(data$county, 4)]
+))
+
+#
+# analyze
+#
+
+# now we can look at the relationships between urgent care
+# and each demographic variable within tracts, between counties
 library(ggplot2)
-library(stringr)
-library(devtools)
-library(smplot2)
-library(tidyr)
-
-# Input the urls (From the Export Data Screen, select Copy API Link)
-hisp_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_hispanic_or_latino&dataset=tract&table_format=mixed&file_format=csv"
-black_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_afr_amer_alone&dataset=tract&table_format=mixed&file_format=csv"
-aapi_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_AAPI&dataset=tract&table_format=mixed&file_format=csv"
-white_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=perc_wht_alone&dataset=tract&table_format=mixed&file_format=csv"
-urgent_care_url <- "https://ncr-data-commons.netlify.app/api?id=51013,51059&include=urgent_3sfca&dataset=tract&table_format=mixed&file_format=csv"
-
-# Filter the data, select years, and deselect name
-hisp_data <- read_csv(hisp_url) %>% filter(time == 2020) %>% select(-time, -Name)
-black_data <- read_csv(black_url) %>% filter(time == 2020) %>% select(-time, -Name)
-aapi_data <- read_csv(aapi_url) %>% filter(time == 2020) %>% select(-time, -Name)
-white_data <- read_csv(white_url) %>% filter(time == 2020) %>% select(-time, -Name)
-urgent_care_data <- read_csv(urgent_care_url)
-
-# Join the data frames together
-data <- left_join(hisp_data, urgent_care_data, by = "ID") %>% 
-  left_join(black_data, by = "ID") %>% 
-  left_join(aapi_data, by = "ID") %>% 
-  left_join(white_data, by = "ID") %>% 
-  # Create a new variable for county
-  mutate(county = ifelse(str_detect(ID, "^51059"), "Fairfax", "Arlington")) %>% 
-  # Deselect time and name again
-  select(-time, -Name) %>% 
-  # Put demographic variables in one column together for easy visualization
-  pivot_longer(cols = c(perc_AAPI, perc_hispanic_or_latino, perc_afr_amer_alone, perc_wht_alone))
-
-# Create a scatter plot and correlation statistics for variables
-data %>% 
-  ggplot(aes(x = as.numeric(value), y = urgent_3sfca, color = county, group = county)) +
+ggplot(data_tall) +
+  aes(x = Value, y = urgent_3sfca, color = County) +
   geom_point() +
-  sm_statCorr(label_x = 85) +
-  facet_grid(name ~ .,
-             labeller = as_labeller(c(perc_AAPI = "Asian American/Pacific Islander Alone",
-                          perc_hispanic_or_latino = "Hispanic or Latino",
-                          perc_afr_amer_alone = "African American Alone",
-                          perc_wht_alone = "White Alone"))) +
-  labs(x = "Percentage of Demographic Population in Each Census Tract",
-       y = "Urgent Care Availability per 1,000",
-       caption = "Great caption")
+  geom_smooth(method = lm, formula = y ~ x) +
+  labs(
+    y = "Urgent Care Providers per 10,000 People",
+    x = "Percent of the Population",
+    caption = ""
+  ) +
+  facet_grid(variable ~ .) +
+  theme(text = element_text(size = 20))
 ```
 <br>
 
-We can see that there are no statistically significant relationships between access to urgent care and the chosen demographic variables in Arlington County. In Fairfax County, a higher percentage of a census tract with Asian American/Pacific Islander population is significantly correlated with a higher access to urgent cares. Additionally, a higher percentage of a census tract with Black and White populations are significantly correlated with a lower access to urgent cares
-
+We can see that, urgent care access is variable across census tracts in Arlington county, there does not appear to be a relationship between urgent care access demographics. In Fairfax County, census tracts with higher percentages of Asian American/Pacific Islander population appear to have higher access to urgent care, too. Additionally, census tracts with higher percentages of Black and White populations appear to have lower access to urgent cares.
 
 </div>
+
+**Note:** If you find that the Social Impact Data Commons isn't displaying data properly, you may need to clear the dashboard settings (from the Settings Menu) or clear your browser cache. Please contact us if you have other issues.
 
 `r htmltools::includeHTML("./footer.html")`
 
