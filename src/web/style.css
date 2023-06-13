@@ -50,6 +50,7 @@ a:hover {
 
 a {
   color: #F84C1E;
+  cursor: pointer;
 }
 
 /* PAGE TITLES AND SUBTITLES  */
@@ -80,23 +81,28 @@ h3.subtitle {
 
 /* FIGURE CAPTIONS  */
 figcaption {
+  width: 400px;
   font-size: 15px;
   text-align: right;
   padding: 0px 12px 12px 12px;
+  margin-left: auto;
 }
 
-/* STORY IMAGEs */
+/* STORY IMAGES */
 .story_image {
   border: 1px solid #232d4b;
   box-shadow: 5px 5px 3px lightblue;
   margin:15px 15px 25px 15px;
 }
 
+/* TUTORIAL */
 .hiddenText {
   display: none;
   text-align: left;
 }
 
-a {
-  cursor: pointer;
+.hiddenText img {
+  width: 400px;
 }
+
+
