@@ -39,7 +39,6 @@ Our data repositories are replicated to the leading open data archives, includin
 # data_cats_tops <- fread("https://raw.githubusercontent.com/uva-bi-sdad/sdc.standards/main/src/data_categories_topics.csv")
 # reactable(data_cats_tops,
 #           groupBy = c("RepoName", "DataType", "DataCategory"))
+htmltools::includeHTML("./data_inventory_table.html")
+htmltools::includeHTML("./footer.html")
 ```
-
-`r htmltools::includeHTML("./data_inventory_table.html")`
-`r htmltools::includeHTML("./footer.html")`

@@ -2,9 +2,9 @@
 title: "Dashboard"
 ---
 
-[![National Capital Region Dashboard](img/dashboard-ncrlogo.png){width=400px}](https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=tract&variable_type=Broadband&selected_variable=speed_measurements:avg_down_using_devices&selected_year=2021&filter.time_min=2019&filter.time_max=2021)
+[![National Capital Region Dashboard](img/dashboard-ncrlogo.png){width=400px}](https://uva-bi-sdad.github.io/capital_region)
 
-[Explore the Social Impact Data Commons for the National Capital Region]((https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=tract&variable_type=Broadband&selected_variable=speed_measurements:avg_down_using_devices&selected_year=2021&filter.time_min=2019&filter.time_max=2021))
+[Explore the Social Impact Data Commons for the National Capital Region](https://uva-bi-sdad.github.io/capital_region/?shape_type=tract&selected_variable=avg_down_using_devices)
 
 ### Dashboard features
 #### Explore measures by drilling down to geographies of interest

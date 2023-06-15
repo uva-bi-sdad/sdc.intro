@@ -7,6 +7,7 @@ output:
     css: style.css
     includes:
       in_header: header.html
+    highlight: tango
 navbar:
   title: "Social Impact Data Commons"
   left:
