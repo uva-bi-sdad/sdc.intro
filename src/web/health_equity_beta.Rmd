@@ -240,9 +240,9 @@ Using the Social Impact Data Commons, we can explore access to additional health
 
 <div style="clear: both">
 
-<div class="section_header">Performing statistical analyses</div>
+## Performing statistical analyses {.tabset .tabset-fade .tabset-pills}
 
-<div class="section_text">
+### R example {.active}
 
 Using R statistical software, we can perform statistical analyses to analyze the relationships between variables.
 
@@ -314,7 +314,104 @@ ggplot(data_tall) +
   facet_grid(variable ~ .) +
   theme(text = element_text(size = 20))
 ```
+
+### Python example
+
+```{python}
+#!/usr/bin/env python
+# coding: utf-8
+
+import requests
+import pandas as pd
+import io
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from plotnine import (ggplot,aes,geom_point,geom_smooth,labs,facet_grid)
+
+variables = [
+    "perc_hispanic_or_latino", "perc_afr_amer_alone",
+    "perc_AAPI", "perc_wht_alone", "urgent_3sfca"
+]
+
+url = f"https://ncr-data-commons.netlify.app/api?id=51013,51059&dataset=tract&time_range=2020,2022&include={','.join(variables)}"
+
+response = requests.get(url)
+data = pd.read_csv(io.StringIO(response.text))
+
+data
+
+data['urgent_3sfca'].loc[data['time'] == 2020] = data['urgent_3sfca'].loc[data['time'] == 2022].values
+data = data[data['time'] == 2020]
+data['county'] = data['ID'].astype(str).str.slice(0, 5)
+
+data
+print(data.dtypes)
+
+data.county.unique()
+
+data1=data[data['county']=='51059']
+data1.head()
+
+data2=data[data['county']=='51013']
+data2.head()
+
+dt={}
+dt_vars=vars_ = {"perc_hispanic_or_latino":"Hispanic or Latino", "perc_afr_amer_alone":"African American",
+                 "perc_AAPI":"Asian American", "perc_wht_alone":"White Alone"}
+vars_ = ["perc_hispanic_or_latino", "perc_afr_amer_alone","perc_AAPI", "perc_wht_alone"]
+dt['variable']=[]
+dt['value']=[]
+dt['urgent_3sfca']=[]
+for v_ in vars_:
+    dt['value']+=list(data1[v_])
+    dt['urgent_3sfca']+=list(data1['urgent_3sfca'])
+    dt['variable']+=([dt_vars[v_]]*len(list(data1[v_])))
+dt['County']=['51059']*len(dt['value'])
+df1=pd.DataFrame(dt)
+df1.head()
+
+dt1={}
+dt_vars=vars_ = {"perc_hispanic_or_latino":"Hispanic or Latino", "perc_afr_amer_alone":"African American",
+                 "perc_AAPI":"Asian American", "perc_wht_alone":"White Alone"}
+vars_ = ["perc_hispanic_or_latino", "perc_afr_amer_alone","perc_AAPI", "perc_wht_alone"]
+dt1['variable']=[]
+dt1['value']=[]
+dt1['urgent_3sfca']=[]
+for v_ in vars_:
+    dt1['value']+=list(data2[v_])
+    dt1['urgent_3sfca']+=list(data2['urgent_3sfca'])
+    dt1['variable']+=([dt_vars[v_]]*len(list(data2[v_])))
+dt1['County']=['51013']*len(dt1['value'])
+df2=pd.DataFrame(dt1)
+df2.head()
+
+df=pd.concat([df1,df2])
+df.head()
+
+df.County.unique()
+
+df = df.dropna()
+
+# Rivanna is not letting us knit plots 
+
+from plotnine import ggplot, aes, facet_grid, geom_point, geom_smooth, labs, scale_color_discrete
+
+#(
+#    ggplot(df, aes(x='value', y='urgent_3sfca', color='County')) +
+#    facet_grid(facets="variable ~ .") +
+#    geom_point() +
+#    geom_smooth() +
+#    labs(x='Percent of the Population', y='Urgent Care Providers per 10,000 People') +
+#    scale_color_discrete(labels={'51013': 'Arlington', '51059': 'Fairfax'})
+#)
+```
+
+## {-}
+
 <br>
+
+<div class="section_text">
 
 We see that urgent care access is variable across census tracts in Arlington county, there does not appear to be a relationship between urgent care access demographics. In Fairfax County, census tracts with higher percentages of Asian American/Pacific Islander population appear to have higher access to urgent care, too. Additionally, census tracts with higher percentages of Black and White populations appear to have lower access to urgent cares.
 
