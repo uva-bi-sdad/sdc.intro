@@ -11,7 +11,7 @@
 
 
 
-<title>Food Security</title>
+<title>Food Insecurity</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -308,33 +308,69 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Food Security</h1>
-<h3 class="subtitle">How do we measure the food insecurity in Arlington and Fairfax County?</h3>
+<h1 class="title toc-ignore">Food Insecurity</h1>
+<h3 class="subtitle">How do we measure food insecurity in Arlington and Fairfax County?</h3>
 
 </div>
 
 
-<div id="issue-overview" class="section level3">
-<h3>Issue overview</h3>
+<div style="clear: both">
+
+<hr />
+<div class="section_header">
+Issue overview
+</div>
+<div class="section_text">
 <p>Our stakeholders in Arlington and Fairfax Counties were interested in measuring food insecurity at the local level. Present measures for food insecurity are not readily available below the county level. Further, current approaches to measuring food insecurity do not take into account major drivers of food insecurity: income, household size, and cost of living. We aimed to create a new approach to estimating food insecurity for actionable local policymaking.</p>
+<p>Our intuition in devising a new measure of food insecurity begins by understanding the cost of living in a given geographic area. Once we calculate the cost of living, we use data on local incomes to understand if household’s can cover their food budget. Households either can pay (food secure), cannot pay (food insecure), or are within the range of ambiguity (at-risk). These populations give us a new estimate for food insecurity at local levels.</p>
 </div>
-<div id="calculating-cost-of-living" class="section level3">
-<h3>Calculating cost of living</h3>
-<p>Current cost of living calculators do not go below county level, we made our own to esimate cost of living at the census tract level. Table of sources &amp; calculator</p>
+<div class="section_header">
+Calculating cost of living
 </div>
-<div id="approach-to-measuring-food-insecurity" class="section level3">
-<h3>Approach to measuring food insecurity</h3>
-<p>Using iterative proportional fitting to estimate income and household size composition of each census tract Based on income and household size, families with that household composition in that census tract are either food insecure, at-risk, or food secure</p>
+<div class="section_text">
+<p>Our new method begins by calculating the cost of living. Current cost of living calculators do not go below county level, we made our own to estimate cost of living at the census tract level.</p>
+<p>We reviewed cost of living calculators, including</p>
+<ul>
+<li>
+<a href="https://livingwage.mit.edu/">The Living Wage Calculator from Massachusetts Institute of Technology</a>
+<li>
+<a href="https://www.epi.org/resources/budget/">The Family Budget Calculator from Economic Policy Institute</a>
+<li>
+<a href="https://selfsufficiencystandard.org/">The Self Sufficiency Standard from Washington University’s Center for Women’s Welfare</a>.
+</ul>
+<p>In addition to reviewing these calculators, we did a data discovery of new sources to create a cost of living calculator at a geographically granular level that could be replicated across the National Capital Region. The table below shows the sources that were vetted and chosen for the final cost of living calculator.</p>
+<p>The components represented in the final cost of living calculator are Housing, Food, Transportation, Healthcare, Childcare, Broadband, Other Necessities, and Taxes. Broadband represents a contribution. This is a novel dataset we created to represent the cost of broadband internet at local levels.</p>
+<p>For data sources that were not available at Census tract level, some geographic level adjustments were made. Otherwise, if the data is only available at a higher geography, the lower geographies automatically inherit information from the higher geography.</p>
 </div>
-<div id="findings" class="section level3">
-<h3>Findings</h3>
+<div style="text-align: center">
+<img src="img/food-cost_of_living.png" class="story_image" width="800" />
+<figcaption>
+Sources used to calculate the cost of living
+</figcaption>
+<p><strong>graphic may not be updated - other necessities</strong></p>
+<div class="section_header">
+Approach to measuring food insecurity
+</div>
+<div class="section_text">
+<p>To estimate food insecurity, we must add the component of income to compare to our cost of living to understand if households have enough money to pay for food.</p>
+<p>The first step is to determine which income groups fall into the cateogories of food secure, food insecure, and at risk. We use data from the American Community Survey to understand, within the given ranges of income, which households are food secure, at food insecure, or at risk.</p>
+<p>An important component of cost of living, in addition to income, is household size. We use microdata from the American Community Survey to understand the distribution of incomes and household sizes across the nine Public Use Microdata Areas (PUMAs) of Fairfax County. To bring this information down to the Census tract level, we use Iterative Proportional Fitting (IPF), with the marginals being Incomes and Household Sizes reported by the American Community Survey. After this, we have a synthetic dataset of households by Income Bracket and Household size for each Census tract.</p>
+<p>Combined with the information on cost of living and which income brackets are able to cover their costs, we assign households as food insecure, at-risk, or food secure. We are then able to see food insecurity at the Census tract level or the the County level, as well as individuals that may be at risk for food insecurity (i.e. fall within an income bracket where their food security status is ambiguous).</p>
+</div>
+<div class="section_header">
+Findings
+</div>
+<div class="section_text">
 <p>Areas with high food insecurity</p>
 </div>
-<div id="exploring-food-insecurity-with-access-to-subsidies-snap" class="section level3">
-<h3>Exploring food insecurity with access to subsidies (SNAP)</h3>
+<div class="section_header">
+Exploring food insecurity with access to subsidies (SNAP)
 </div>
-<div id="comparison-with-current-measures-of-food-insecurity" class="section level3">
-<h3>Comparison with current measures of food insecurity</h3>
+<div class="section_text">
+<p>Read more about the <a href="https://dspg-young-scholars-program.github.io/fairfax-snap-app/background.html">Supplemental Nutrition Assistance Program in Fairfax County on the analysis page</a>.</p>
+</div>
+<div class="section_header">
+Comparison with current measures of food insecurity
 </div>
 
 
