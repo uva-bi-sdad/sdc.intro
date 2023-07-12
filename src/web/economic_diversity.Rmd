@@ -33,7 +33,7 @@ We propose metrics to describe industry activities that are *cross-sectional* an
 </div>
 
 <div class="section_text">
-Overall, there is an increasing number of companies in Fairfax County between 2011 and 2020. There is also a righting number of minority owned companies. This increase could be the result of improved data collection or a real increase. It is important to note that minority-owned companies still represent a small share of companies in Fairfax County. 
+Overall, there is an increasing number of companies in Fairfax County between 2011 and 2020. There is also a increasing number of minority owned companies. This increase could be the result of improved data collection or a real increase. It is important to note that minority-owned companies still represent a small share of companies in Fairfax County. 
 </div>
 
 </div>
@@ -87,7 +87,7 @@ However, the share of employment by minority-owned companies in each industry re
 </div>
 
 <div class="section_text">
-Employment by minority-owned companies in the Mining, Agriculture, and Arts industries is concentrated by a few companies owned by minorities. Between 2011 and 2020, employment by minority-owned companies has been more concentrated by a few companies in the mining, information, and wholesale trade industry. Less employment concentration by minority-owned companies has been observed in the Management of companies, administrative support, and public administration industry.
+Employment by minority-owned companies in the Mining, Agriculture, and Arts industries is concentrated among a few companies owned by minorities. Between 2011 and 2020, employment by minority-owned companies has been more concentrated among a few companies in the Mining, Information, and Wholesale Trade industry. Less employment concentration among minority-owned companies has been observed in the Management of Companies, Administrative Support, and Public Administration industries.
 </div>
 
 <div style="clear: both">
@@ -102,12 +102,9 @@ Employment by minority-owned companies in the Mining, Agriculture, and Arts indu
 </div>
 
 <div class="section_text">
-A similar distribution of minority workers (workplace) and minority-owned businesses across census block groups [need to work on color to highlight the similarity]
+There is a s similar distribution of minority workers (by workplace) and minority-owned businesses across census block groups. We notice a positive correlation between the number of minority-owned companies and minority workers across census block groups. Further, block groups with more companies overall have more minority-owned companies.
 
-Positive correlation between the number of minority-owned companies and minority workers across census block groups. 
-Locations with many companies also have many minority-owned companies located in the area.
-
-Therefore, the high number of minority employees working in an area with more minority-owned companies can be driven by the fact that the area also has more companies (which employ those minority workers).
+Therefore, it is important to note that a high number of minority employees working in an area with more minority-owned companies is likely driven by the fact that the area also has more companies which employ those minority workers.
 </div>
 
 <div style="clear: both">
@@ -124,11 +121,11 @@ Therefore, the high number of minority employees working in an area with more mi
 </div>
 
 <div class="section_text">
-There is a specific block group where many minority-owned companies in the management of companies industry operate. A high share of employment by minority-owned companies in the management of companies industry is concentrated in the same block group where those minority-owned companies operate. However, it is not that block group that contributes to the management of companies industry activities.
+One block group in particular has many minority-owned companies in the Management of Companies industry operate. A high share of employment by minority-owned companies in the Management of Companies industry is concentrated in the same block group where those minority-owned companies operate. However, that block group does not contribute to the Management of Companies industry activities.
 
-The region with the highest number of minority-owned companies in the management of companies industry is driven by the fact the most significant growth in the number of minority-owned companies from that industry between 2011-2019 occurred in that region.
+The region with the highest number of minority-owned companies in the Management of Companies industry is driven by the fact the most significant growth in the number of minority-owned companies from that industry between 2011-2019 occurred in that region.
 That same region has the highest growth in employment from minority-owned companies.
-However, the contribution from that region to the management of the companies industry declined between 2011 to 2019.
+However, the contribution from that region to the Management of the Companies industry declined between 2011 to 2019.
 </div>
 
 `r htmltools::includeHTML("./footer.html")`

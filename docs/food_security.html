@@ -361,11 +361,51 @@ Approach to measuring food insecurity
 Findings
 </div>
 <div class="section_text">
-<p>Areas with high food insecurity</p>
+<p>Applying our methodology, we can explore food insecurity at the Census tract level in Fairfax. We find that the estimated percentage of households (Average percent?) facing food insecurity in Fairfax is 20 percent. At the Census tract level, tracts are at a minimum 0 percent food insecure and at a maximum 58 percent food insecure.</p>
+<p>Census tracts with the highest percentage of the population estimated to be food insecure include southern Fairfax near Alexandria along Route 1, North Springfield, Merrifield, along Leesburg Pike near southern Arlington, western Fairfax near Dulles, and western Herndon.</p>
+<p>Our methodology can distinguish households that are in a methodologically ambiguous position of being food insecure or secure: They are ‘at-risk’ for food insecurity. Across Fairfax overall, 26 percent of households are at-risk of facing food insecurity. Census tracts have a miniumum of 7.8 percent at-risk households and a maximum of 100 percent. The areas with the highest percentage of households at-risk for food insecurity are in northern Fairfax, including Great Falls and McLean.</p>
+</div>
+<div class="section_header">
+Food insecurity by demographics
+</div>
+<div style = "text-align: center;">
+<img src="img/urgent-demographics.png" class="story_image" width="700" />
+<figcaption>
+Data source: American Community Survey (ACS) Table B01001, accessed 2021. <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=demographics:perc_hispanic_or_latino&selected_year=2019&filter.time_min=2009&filter.time_max=2019&filter.county=51013,51059"> <br> Explore these measures on our dashboard </a> <br> <a onclick="reveal('Fig5');"> Steps to replicate this map <br> </a><br />
+<span class="hiddenText" id="Fig5">
+<ol>
+<li>
+Click “Filter” in the top left navigation bar to open the Filter Window
+<li>
+In the Filter Window under “county” select “Arlington County” and “Fairfax County”
+<li>
+Exit the Filter Window
+<li>
+In the Starting Layer Menu, Select “Tract” <img src="img/tutorial-start_layer_tract.png" />
+<li>
+In the Settings Menu under Summary Level select “Selected Super-Region” <img src="img/tutorial-settings_menu_superregion.png" />
+<li>
+Scroll down to Map Options and input “2” for Outline Weight and “3” for Background Outline Weight <img src="img/tutorial-settings_menu_outlines.png" />
+<li>
+Exit the Settings Menu
+<li>
+In the Variable Menu, select Asian American/Pacific Islander population under Demographics
+<li>
+In the Variable Menu, select Black population under Demographics
+<li>
+In the Variable Menu, select Hispanic/Latino population under Demographics
+<li>
+In the Variable Menu, select White population under Demographics
+<li>
+Click Export to open the Export Window and select Download to download the data locally <img src="img/tutorial-export.png" />
+</ol>
+</span>
+</figcaption>
 </div>
 <div class="section_header">
 Exploring food insecurity with access to subsidies (SNAP)
 </div>
+<p>When we add SNAP access in our model, the percentage of households facing food insecurity falls to 19 percent. The minimum percentage of food insecure population in a Census tract is 0 percent and the maximum is 55 percent. The percentage of at-risk households is a mean of 16.7 in Census tracts, with a minimum of 16.7 percent and a maximum of 100 percent.</p>
 <div class="section_text">
 <p>Read more about the <a href="https://dspg-young-scholars-program.github.io/fairfax-snap-app/background.html">Supplemental Nutrition Assistance Program in Fairfax County on the analysis page</a>.</p>
 </div>
