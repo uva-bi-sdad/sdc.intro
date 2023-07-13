@@ -135,13 +135,12 @@ When we overlay patterns of food insecurity with demographics, we can see patter
 Looking towards the at-risk population, which is concentrated in Great Falls and McLean, we see that these areas are made up of predominately White as well as Asian American/Pacific Islander populations.
 </div>
 
-<div class="section_header"> Exploring food insecurity with access to subsidies (SNAP) </div>
+<div class="section_header"> Exploring food insecurity with access to subsidies </div>
 
 <div class="section_text">
+Read more about the [Supplemental Nutrition Assistance Program (SNAP) in Fairfax County on the analysis page](https://dspg-young-scholars-program.github.io/fairfax-snap-app/background.html).
 
 When we add SNAP access in our model, the percentage of households facing food insecurity falls to 19 percent. The minimum percentage of food insecure population in a Census tract is 0 percent and the maximum is 55 percent. The percentage of at-risk households is a mean of 16.7 in Census tracts, with a minimum of 16.7 percent and a maximum of 100 percent. 
-
-Read more about the [Supplemental Nutrition Assistance Program in Fairfax County on the analysis page](https://dspg-young-scholars-program.github.io/fairfax-snap-app/background.html).
 
 </div>
 
