@@ -1,6 +1,6 @@
 ---
 title: "Food Insecurity"
-subtitle: "How do we measure food insecurity in Fairfax County?"
+subtitle: How do we measure food insecurity in Fairfax County?
 ---
 
 <hr />
@@ -8,16 +8,16 @@ subtitle: "How do we measure food insecurity in Fairfax County?"
 
 <div class="section_text">
 
-Our stakeholders in Fairfax county need local estimates of food insecurity to create effective policy and programs. Present measures for food insecurity, including those produced by the [Department of Agriculture](https://www.ers.usda.gov/topics/food-nutrition-assistance/food-security-in-the-u-s/) and [Feeding America](https://map.feedingamerica.org/) are not  available at sub-county geographies. Current approaches to measuring food insecurity also often do not take into account major drivers of food insecurity, including the relationship between income, household size, and the local cost of living. We identified a need to devise a new approach for estimating food insecurity to inform local policy.
+Our stakeholders in Fairfax County need local estimates of food insecurity to create effective policies and programs. Present measures for food insecurity, including those produced by the [Department of Agriculture](https://www.ers.usda.gov/topics/food-nutrition-assistance/food-security-in-the-u-s/) and [Feeding America](https://map.feedingamerica.org/) are not  available at sub-county geographies. Current approaches to measuring food insecurity also often do not consider significant drivers of food insecurity, including the relationship between income, household size, and the local cost of living. We identified a need to devise a new approach for estimating food insecurity to inform local policy.
 
-To build a new measure of food insecurity, we began by calculating the cost of living in a given geographic area. Information on local cost of living, compared with local income data, helps us to understand if a household can afford to pay for food. Our model classifies households as food secure (unambiguously able pay for food), food insecure (unambiguously not able pay for food), or at-risk for food insecurity (within a range of ambiguity). We are able to produce this information at the Census tract level, providing our stakeholders with a sub-county estimate of food insecurity. 
+To build a new measure of food insecurity, we first calculated the cost of living in a given geographic area. Information on local cost of living, compared with local income data, helps us to understand if a household can afford to pay for food. Our model classifies households as food secure (unambiguously able to pay for food), food insecure (unambiguously not able to pay for food), or at-risk for food insecurity (within a range of ambiguity). We are able to produce this information at the Census tract level, providing our stakeholders with a sub-county estimate of food insecurity. 
 
 </div>
 
 <div class="section_header">Calculating local cost of living</div>
 
 <div class="section_text">
-Our novel method begins by calculating the local cost of living. We reviewed cost of living calculators, including 
+Our novel method begins by calculating the local cost of living. We reviewed the following cost of living calculators
 
 <ul>
 <li> [The Living Wage Calculator from Massachusetts Institute of Technology](https://livingwage.mit.edu/)
@@ -25,7 +25,7 @@ Our novel method begins by calculating the local cost of living. We reviewed cos
 <li> [The Self Sufficiency Standard from Washington University's Center for Women's Welfare](https://selfsufficiencystandard.org/).
 </ul>
 
-We found that the available cost of living calculators did not meet our need detail at the sub-county level. To construct a sub-county cost of living, we completed a data discovery to find available sources for budget categories that were available at a geographically granular level and replicable across the National Capital Region. The table below shows the sources that were vetted and chosen for the final local cost of living calculator. 
+We found that the available cost of living calculators did not meet our need detail at the sub-county level. To construct a sub-county cost of living, we completed a data discovery to find available sources for budget categories available at a geographically granular level and replicable across the National Capital Region. The table below shows the sources vetted and chosen for the final local cost of living calculator. 
 
 </div>
 
@@ -36,18 +36,18 @@ We found that the available cost of living calculators did not meet our need det
 **JS NOTE graphic may not be updated? (other necessities %)**
 
 <div class="section_text">
-The components represented in the final local cost of living calculator are housing, food, transportation, healthcare, childcare, broadband, other necessities, and taxes. In our review of cost of living calculators, we found that broadband costs were often overlooked or assumed to be a standard national rate. Our calculated local cost of broadband, which extends to the Census block level, is a significant contribution to present solutions to calculating the local cost of living. We found that not all components had data sources available at Census tract level. For these components, appropriate adjustments were made to bring the data to sub-county geographies.
+The final cost of living calculator represents cost of housing, food, transportation, healthcare, childcare, broadband, other necessities, and taxes. In our review of cost of living calculators, we found that broadband costs were often overlooked or assumed to be a standard national rate. Our calculated local cost of broadband, which extends to the Census block level, is a novel contribution to present solutions for calculating the cost of living. We found that not all components had data sources available at the Census tract level. For these components, appropriate adjustments were made to bring the data to sub-county geographies.
 
-An important component of cost of living, in addition to income, is household size and composition. We needed to take into account the number of individuals in a household, as well as their ages, to best understand their costs across the different budget categories. 
+An important dimension affecting cost of living is household size and composition. We needed to take into account the number of individuals in a household, as well as their ages, to best understand their costs across the different budget categories. 
 </div>
 
 <div class="section_header">Approach to measuring food insecurity</div>
 
 <div class="section_text">
 
-The next step to estimating food insecurity was to add the income component. Income, along with the cost of living, allows us to understand if households have enough money to pay for food. We use microdata (person-level data) from the American Community Survey to understand the joint distribution of incomes and household sizes across the nine public use microdata areas (PUMAs) of Fairfax County. To bring this information down to the Census tract level, we use iterative proportional fitting (IPF or raking), with the marginals being the distribution of income alone and household size alone reported by the American Community Survey. This approach yields a synthetic dataset of households by income and household Size for each Census tract.
+The next step to estimating food insecurity was to add the income component. Income and the cost of living allow us to understand if households have enough money to pay for food. We use microdata (person-level data) from the American Community Survey to understand the joint distribution of incomes and household sizes across the nine public use microdata areas (PUMAs) of Fairfax County. To bring this information down to the Census tract level, we use iterative proportional fitting (IPF or raking), with the marginals being the distribution of income alone and household size alone reported by the American Community Survey. This approach yields a estimate for the number of households in each income and household size intersection for each Census tract.
 
-Bringing in our cost of living dataset, we are able to compare the cost of living with incomes of the synthetic population. At this stage, we can identify households as food insecure, at-risk, or food secure. Within a Census tract, then, we are able to calculate the percentage of households that are estimated to be food insecure or at-risk for food insecurity. We are also able to calculate food insecurity at the County level to compare our novel method to present measures of food insecurity. 
+Bringing in our cost of living dataset, we are able to compare the cost of living with the incomes yieled from IPF. At this stage, we can identify households as food insecure, at-risk, or food secure. Within a Census tract, then, we are able to calculate the percentage of households that are estimated to be food insecure or at-risk for food insecurity. We are also able to calculate food insecurity at the county level to compare our novel method to present measures of food insecurity. 
 
 </div>
 
@@ -69,7 +69,7 @@ National Bureau of Economic Research's program TAXSIM Version 35, accessed 2022
 </div>
 
 <div class="section_text">
-Applying our methodology, we can explore food insecurity at the Census tract level in Fairfax. We find that the estimated percentage of households facing food insecurity in Fairfax is 20 percent *JS NOTE this is aggregated right? Percent not average percent*. Within the county, Census tracts are at a minimum 0 percent food insecure and at a maximum 58 percent food insecure. 
+Applying our methodology, we can explore food insecurity at the Census tract level in Fairfax. We find that the estimated percentage of households facing food insecurity in Fairfax is 20 percent. Within the county, Census tracts are at a minimum 0 percent food insecure and at a maximum 58 percent food insecure. 
 
 Census tracts with the highest percentage of the population estimated to be food insecure include southern Fairfax near Alexandria along Route 1, North Springfield, Merrifield, along Leesburg Pike near southern Arlington, western Fairfax near Dulles, and western Herndon. 
 </div>
@@ -90,7 +90,8 @@ National Bureau of Economic Research's program TAXSIM Version 35, accessed 2022
 </div>
 
 <div class="section_text">
-Our methodology distinguishes households that are in a ambiguous position of being food secure: they are at-risk for food insecurity. Across Fairfax overall, 26 percent of households are at-risk of facing food insecurity. Census tracts have a miniumum of 7.8 percent at-risk households and a maximum of 100 percent. The areas with the highest percentage of households at-risk for food insecurity are in northern Fairfax, including Great Falls and McLean. 
+Our methodology distinguishes households that are in an ambiguous position of being food secure: they are at-risk for food insecurity. Across Fairfax overall, 26 percent of households are at-risk of facing food insecurity.
+
 </div>
 
 </div>
@@ -130,7 +131,7 @@ Our methodology distinguishes households that are in a ambiguous position of bei
 
 
 <div class="section_text">
-When we overlay patterns of food insecurity with demographics, we can see patterns in the burden of food insecurity. We see that southern Fairfax near Alexandria along Route 1, which are disproportionately food insecure, have a higher Black population as well as Hispanic/Latino population. Similarly, North Springfield, and Leesburg Pike near southern Arlington also have a higher Black population as well as Hispanic/Latino population. Merrifield, western Fairfax near Dulles, and western Herndon, which experience higher than average food insecurity, have a higher than average Asian American/Pacific Islander population. 
+When we overlay patterns of food insecurity with demographics, we can see patterns in the burden of food insecurity. We see that southern Fairfax near Alexandria along Route 1, which is disproportionately food insecure, has a higher Black population as well as Hispanic/Latino population. Similarly, North Springfield, and Leesburg Pike near southern Arlington also have a higher Black population as well as Hispanic/Latino population. Merrifield, western Fairfax near Dulles, and western Herndon, which experience higher than average food insecurity, have a higher than average Asian American/Pacific Islander population. 
 
 Looking towards the at-risk population, which is concentrated in Great Falls and McLean, we see that these areas are made up of predominately White as well as Asian American/Pacific Islander populations.
 </div>
@@ -140,7 +141,7 @@ Looking towards the at-risk population, which is concentrated in Great Falls and
 <div class="section_text">
 Read more about the [Supplemental Nutrition Assistance Program (SNAP) in Fairfax County on the analysis page](https://dspg-young-scholars-program.github.io/fairfax-snap-app/background.html).
 
-When we add SNAP access in our model, the percentage of households facing food insecurity falls to 19 percent. The minimum percentage of food insecure population in a Census tract is 0 percent and the maximum is 55 percent. The percentage of at-risk households is a mean of 16.7 in Census tracts, with a minimum of 16.7 percent and a maximum of 100 percent. 
+When we add SNAP access to our model, the percentage of households facing food insecurity falls to 19 percent. The minimum percentage of food insecure population in a Census tract is 0 percent and the maximum is 55 percent. The percentage of at-risk households is a mean of 16.7 in Census tracts, with a minimum of 16.7 percent and a maximum of 100 percent. 
 
 </div>
 
