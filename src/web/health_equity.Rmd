@@ -15,7 +15,7 @@ function reveal(id) {
 
 ---
 title: "Health Equity in the National Capital Region"
-subtitle: "Is access to urgent care centers equitable in Arlington and Fairfax County?"
+subtitle: "Is access to urgent care health services equitable in Arlington and Fairfax County?"
 ---
 
 <div style="clear: both">
@@ -23,15 +23,16 @@ subtitle: "Is access to urgent care centers equitable in Arlington and Fairfax C
 <hr />
 <div class="section_header">Issue overview</div>
 
-<div class="section_text"> Our partners in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race, by household income, and by housing type. We began analyzing access to urgent care facilities. 
+<div class="section_text"> Our partners in Arlington and Fairfax Counties were interested in understanding the equity of access to health services by neighborhood, by race and ethnicity, and by household income. We began analyzing access to urgent care health services facilities. 
 
-We inventoried a variety of urgent care location data sources for accuracy and quality. Given that urgent care is a rapidly growing health care service, we found that administrative datasets were incomplete by a wide margin. We found that [Google Maps](https://maps.google.com/) provided the most complete picture of urgent care facility locations in the Capital Region. To get a better understanding of the idea of access, we compared several measures.</div>
+We inventoried a variety of urgent care health services location data sources for accuracy and quality. Given that urgent care is a rapidly growing health care service, we found that administrative datasets were incomplete. We found that [Google Maps](https://maps.google.com/) provided the most complete picture of urgent care health services locations in the National Capital Region. To get a better understanding of the idea of access, we compared several measures.</div>
 
 <div class="section_header">Where are urgent cares in Arlington and Fairfax?</div>
 
 <div class="section_text">
 
 <div style="float: right;">
+</figcaption> Exhibit 1. Urgent Care Health Services locations in Arlington and Fairfax Counties by Census Tract, 2022. </figcaption>
 ![](img/urgent-locations.png){width="400px" class="story_image"}
 <figcaption style="width:400px;"> Data source: Google Maps, accessed 2022 <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=access_scores_urgent:urgent_cnt&selected_year=2021&filter.time_min=2021&filter.time_max=2021&filter.county=51013,51059"> <br> Explore this measure on our dashboard </a> <br>
 <a onclick="reveal('Fig1');"> Steps to replicate this map <br> </a>  
@@ -57,7 +58,7 @@ We inventoried a variety of urgent care location data sources for accuracy and q
 </figcaption>
 </div>
 
-First, we began by examining the locations of urgent care.<br /><br /> <blockquote> <strong>There are 113 urgent care facilities in Fairfax and 18 facilities in Arlington.</strong> </blockquote> By number of facilities, Fairfax has the greatest access to urgent care in the National Capital region. We calculated access to urgent care by count, or presence of an urgent care in a given geography. For most census tracts, there is no urgent care present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby, though.</div>
+First, we began by examining the locations of urgent care health service facilities, shown in Exhibit 1.<br /><br /> <blockquote> <strong>There are 113 urgent care health service facilities in Fairfax and 18 in Arlington.</strong> </blockquote> By number of facilities, Fairfax has the greatest access to urgent care in the National Capital region. <!--- This would be expected given the Fairfax County population is X times larger than Arlington County (cite Fairfax County’s population versus Arlington County’s population) and large geographic area than Arlinton County (cite Fairfax County’s square miles versus Arlington County’s square miles). ----> We also calculated presence of Urgent Care Health facilities by census tract. For most census tracts, there is no Urgent Care Health facility present. Fairfax and Arlington residents who live in a census tract without an urgent care may be able to easily drive to one nearby. </div>
 
 </div>
 
@@ -69,6 +70,7 @@ First, we began by examining the locations of urgent care.<br /><br /> <blockquo
 <div class="section_text">
 
 <div style="float: left">
+</figcaption> Exhibit 1. Urgent Care Health Services Availability by Drive Time (minutes) in Arlington and Fairfax Counties by Census Tract, 2022. </figcaption>
 ![](img/urgent-drivetime.png){width="400px" class="story_image"}
 <figcaption style="width:400px;">Data source: Google Maps, accessed 2022. <br> 
 Drive times calculated using Open Source Routing Machine.
