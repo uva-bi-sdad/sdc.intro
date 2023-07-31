@@ -1,123 +1,39 @@
 ---
-# title: "The Social Impact Data Commons"
-# subtitle: "Supporting local equity-informed decision-making in the National Capital Region"
-output:
-    html_document:
-      css: bootstap.min.css
+title: "The Social Impact Data Commons"
+subtitle: "Supporting local equity-informed decision-making in the National Capital Region"
 ---
 
-<style>
-.navbar {
-  background-color: #0D0D0D;
-}
-
-.dropdown-toggle {
-  background-color: #0D0D0D !important;
-}
-
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  text-align: left;
-  background-color: #0D0D0D;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.navbar-brand {
-  background-color: #0D0D0D;
-}
-
-a,
-a:hover {
-  color: #FFFFFF !important;
-}
-
-.placeholder {
-    width: 150px;
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: gray;
-}
-
-.flex-container {
-  justify-content: space-between;
-  background-color:#E2E2E2;
-}
-
-.main-container {
-  max-width: 1800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-</style>
-
-
-[//]: # <div style="margin: auto; width: 100%; text-align: center; border: 2px solid white;">
-[//]: # <h4><strong>DATA - APPLICATIONS - TOOLS - METHODS</strong></h4>
-[//]: # </div>
-
-<div style="background-color:#E2E2E2; padding:10px; margin:10px">
-
-<div class="placeholder" style="float:right; width:33%; height:80%;">
-
-</div>
-
-<div>
-
-<h2>Supporting local equity-informed decision-making in the National Capital Region</h2>
-
-<br>
-
-<h3>We provide actionable data for local-level decision-making by creating new below county-level datasets and measures derived from publicly collectible data sources. We aim to inform equitable and sustainable growth in Virginia and the National Capital Region.
-
-<br>
-
+<div style="margin: auto; width: 100%; text-align: center; border: 2px solid white;">
 <h4><strong>DATA - APPLICATIONS - TOOLS - METHODS</strong></h4>
-
-</div>
 </div>
 
-<h3>What is a Data Commons?</h3>
-
-<h4>A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data.</h4>
-
-<h3>Our Social Impact Data Commons</h3>
-  <div class="flex-container">
-  <div>
-<div class="placeholder"></div>
-<h3>provides data, indicators, indices, case studies, and training</h3> 
-</div>
-  <div> 
-<div class="placeholder"></div>
-<h3>analyzes impact from social, economic, and health trends and major events</h3> 
-  </div>
-  <div> 
-<div class="placeholder"></div>
-<h3>enables ongoing learning from data</h3> 
-  </div>
-  <div>
-<div class="placeholder"></div>
-<h3>addresses local issues of concern (food insecurity and equity, for example)</h3> 
-  </div>
-</div>
-
-<div style="background-color:#E2E2E2; padding:10px;">
-<h3>Stories</h3>
-  <div class="flex-container">
-  <div> 
-  <div class="placeholder"></div>
-<h2>Access to Broadband</h2> </div>
-  <div> 
-  <div class="placeholder"></div>
-<h2>Health Equity</h2> </div>
-  <div> 
-  <div class="placeholder"></div>
-<h2>Business Diversity</h2> </div>
-</div>
-</div>
+<table>
+  <tr>
+    <td>
+    <h4>We provide <b>actionable data for local-level decision-making</b> by creating new <b>below county-level datasets and measures</b> derived from publicly collectible data sources. We aim to <b>inform equitable and sustainable growth</b> in Virginia and the National Capital Region.</h4>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+    ![The Social Impact Data Commons framework developed by the University of Virginia Biocomplexity Institute, Social and Decision Analytics Division](img/index-sdc-3.png){width="600px"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <h3>What is a Data Commons?</h3>
+    <h4>A Data Commons is an open knowledge repository that **co-locates** data from a variety of sources, builds and **curates data insights**, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data.</h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <h3>Our Social Impact Data Commons</h3>
+<h4>
+-   provides data, indicators, indices, case studies, and training
+-   analyzes impact from social, economic, and health trends and major events
+-   enables ongoing learning from data
+-   addresses local issues of concern (food insecurity and equity, for example)
+</h4>
+</table>
 
 `r htmltools::includeHTML("./footer.html")`
 
