@@ -148,3 +148,79 @@ When we add SNAP access to our model, the percentage of households facing food i
 **Note:** If you find that the Social Impact Data Commons isn't displaying data properly, you may need to clear the dashboard settings (from the Settings Menu) or clear your browser cache. Please contact us if you have other issues.
 
 `r htmltools::includeHTML("./footer.html")`
+
+
+
+
+```{r, include=FALSE}
+library(tidyr)
+library(dplyr)
+library(stringr)
+library(stringdist)
+library(DT)
+library(data.table)
+library(htmltools)
+```
+
+
+
+
+```{r, echo = FALSE}
+COL_df <- data.frame(
+  Component = c("Housing", "Food", "Transportation", "Healthcare", "Childcare", "Broadband", "Other Necessities", "Tax
+Liability"),  
+  `Data Updates` = c("Yearly", "Monthly", "Yearly", "Yearly", "Biennial", "NA", "NA", "Yearly"),  
+  `Data Source` = c(
+    '<a href="https://www.huduser.gov/portal/datasets/fmr/fmrs/FY2023_code/2023summary_sa.odn" target="_blank">Washington-Arlington-Alexandria, DC-VA-MD HUD Metro FMR Area Advisory Small Area FMRs by Unit Bedrooms</a> (includes utilities)',
+    '<a href="https://www.fns.usda.gov/cnpp/usda-food-plans-cost-food-reports-monthly-reports" target="_blank">USDA Food Plans: Cost of Food Reports (monthly reports)</a><br>Low-Cost Food Plan adjusted for Economies-of-Scale<br><a href="https://fns-prod.azureedge.us/sites/default/files/usda_food_plans_cost_of_food/FoodPlans2007AdminReport.pdf" target="_blank">(Methodology)</a>',
+    '<a href="https://htaindex.cnt.org/" target="_blank">H+T </a>(Housing + Transit Affordability Index)<br>non-profit <a href="https://cnt.org/" target="_blank">Center for Neighborhood Technology</a><br><a href="https://htaindex.cnt.org/about/method-2022.pdf" target="_blank">(Methodology)</a>',
+    'U.S. Centers for Medicare & Medicaid Services,  <a href="https://www.healthcare.gov/health-plan-information-2022/" target="_blank">Health Insurance Market Place </a> Bronze Plan;<a href=https://www.kff.org/report-section/ehbs-2021-summary-of-findings/" target="_blank">Kaiser Family Foundation 2021 Health Benefits Survey',
+    '<a href="https://www.dol.gov/agencies/wb/topics/featured-childcare" target="_blank"> Department of Labor Women’s Bureau National </a> Median Home-Based Childcare
+<a href="https://www.dol.gov/sites/dolgov/files/WB/media/NationalDatabaseofChildcarePricesTechnicalGuideFinal.pdf" target="_blank"> (Methodology)</a>',
+'Scrapped from <br><a href="https://broadbandnow.com/" target="_blank">BroadbandNow;</a><br> <a href="https://www.transportation.gov/gis/national-address-database" target="_blank">Department of Transportation, National Address Database</a>',
+'20% of the cost of housing, utilities, food',
+'National Bureau of Economic Research’s <a href="http://taxsim.nber.org/taxsim35/" target="_blank">TAXSIM </a> Version 35 R interface 
+<a href="https://cran.rstudio.com/web/packages/usincometaxes/vignettes/using-usincometaxes.html" target="_blank"> usincometaxes</a>'
+  ),
+  `Original Geographic Area` = c(
+    "ZIP code",
+    "National",
+    "Census tract",
+    '<a href="https://www.cms.gov/cciio/programs-and-initiatives/health-insurance-market-reforms/va-gra" target="_blank">State geographic rating area</a>',
+    "County",
+    "Address at the center of a Census block",
+    "NA",
+    "State"
+  ), 
+  `Geographic Area Adjustment` = c(
+    "ZIPS codes are distributed to census tracts based on demographic data",
+    "National adjusted to the county or city level using Feeding America’s Map the Meal Gap 2021 data",
+    "NA",
+    "NA",
+    "NA",
+    "NA",
+    "NA",
+    "NA"
+  ),
+  `Inflation (Time) Adjustment` = c(
+    "NA",
+    '<a href="https://www.bls.gov/regions/mid-atlantic/news-release/consumerpriceindex_washingtondc.htm#ro3xg01wbu.f.1" target="_blank">Consumer Price Index, CBSA Washington DC – March 2023;</a>(used to adjust the 2021 Feeding America’s Map the Meal Gap data)',
+    "NA",
+    "NA",
+    "DOL Women’s Bureau National Methodology used to impute the Washington, D.C. childcare costs from 2012 to 2022",
+    "NA",
+    "NA",
+    "NA"
+  ),
+  `Final Geographic Area` = c("Census tract", "County", "Census tract", "County", "County", "Census tract", "Census tract", "State"),  
+  stringsAsFactors = FALSE
+)
+
+library(DT)  
+colnames(COL_df) <- c(
+  "Component", "Data Updates", "Data Source", "Original Geographic Area",
+  "Geographic Area Adjustment", "Inflation (Time) Adjustment", "Final Geographic Area"
+)
+datatable(COL_df, escape = FALSE, options = list(pageLength = 10),  caption = "Components of the Household Living Income:  Date, Data Source, Geographic Area, and Adjustments", rownames = FALSE)
+```
+
