@@ -1,4 +1,10 @@
 <style>
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -24,6 +30,10 @@
   display: table;
   clear: both;
 }
+
+.card-header {
+  text-align: center;
+}
 </style>
 
 <div class="card mb-3 row" style="background-color:#F0F0F0">
@@ -35,7 +45,7 @@
   </div>
   </div>
   <div class="column right">
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
     <rect width="100%" height="100%" fill="#868e96"></rect>
     <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
   </svg>
@@ -78,30 +88,44 @@ and major events </div>
   </div>
 </div>
 <br>
-<br>
 
 <div class="card mb-3 row" style="background-color:#F0F0F0">
   <div class="card-header"> <h2> Stories </h2> </div>
-  <div class="card text-white bg-primary mb-3 column left" style="width:33%;">
-  <div class="card-header">Access to Broadband</div>
-  <button type="button" class="btn btn-secondary">Learn More</button>
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+  <div class="card text-white bg-secondary mb-3 column left" style="width:33%;">
+  <div class="card-header"><strong>Access to Broadband</strong></div>
+  <div class="column left" style ="width:33%">
+  <p> Multiple measures tell the story in Arlington County </p>
+  <a href="broadband.html" type="button" class="btn btn-primary btn-sm">Read Story</a>
+  </div>
+  <div class="column left" style ="width:66%">
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
   <rect width="100%" height="100%" fill="#868e96"></rect>
   <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
   </div>
-  <div class="card text-white bg-primary mb-3 column left" style="width:33%;">
-  <div class="card-header">Health Equity</div>
-  <button type="button" class="btn btn-secondary">Learn More</button>
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+  </div>
+  <div class="card text-white bg-secondary mb-3 column left" style="width:33%;">
+  <div class="card-header"><strong>Health Equity</strong></div>
+  <div class="column left" style ="width:33%">
+  <p> Is access to urgent care health services equitable in Arlington and Fairfax County? </p>
+  <a href="health_equity.html" type="button" class="btn btn-primary btn-sm">Read Story</a>
+  </div>
+  <div class="column left" style ="width:66%">
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
   <rect width="100%" height="100%" fill="#868e96"></rect>
   <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
   </div>
-  <div class="card text-white bg-primary mb-3 column left" style="width:33%;">
-  <div class="card-header">Business Diversity</div>
-  <button type="button" class="btn btn-secondary">Learn More</button>
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+  </div>
+  <div class="card text-white bg-secondary mb-3 column left" style="width:33%;">
+  <div class="card-header"><strong>Business Diversity</strong></div>
+  <div class="column left" style ="width:33%">
+  <p> What are the patterns in minority business ownership in Fairfax County? </p>
+  <a href="economic_diversity.html" type="button" class="btn btn-primary btn-sm">Read Story</a>
+  </div>
+  <div class="column left" style ="width:66%">
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
   <rect width="100%" height="100%" fill="#868e96"></rect>
   <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+  </div>
   </div>
   </div>
 </div>
