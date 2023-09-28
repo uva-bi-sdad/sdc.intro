@@ -195,7 +195,7 @@ Applying filters to the dataset can help us zero in on populations and neighborh
 
 ![](img/urgent-demographics.png){width="700px" class="story_image"}
 <figcaption>Data source: American Community Survey (ACS) Table B01001, accessed 2021.
-    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=demographics:perc_hispanic_or_latino&selected_year=2019&filter.time_min=2009&filter.time_max=2019&filter.county=51013,51059"> <br> Explore these measures on our dashboard </a> <br>
+    <a href = "https://uva-bi-sdad.github.io/capital_region/?plot_type=scatter&shape_type=county&selected_variable=demographics:race_hispanic_or_latino_percent_direct&selected_year=2019&filter.time_min=2009&filter.time_max=2019&filter.county=51013,51059"> <br> Explore these measures on our dashboard </a> <br>
 <a onclick="reveal('Fig5');"> Steps to replicate this map <br> </a>  
 <span class="hiddenText" id="Fig5">
 <ol>
@@ -259,8 +259,8 @@ Using R statistical software, we can perform statistical analyses to analyze the
 
 # define the set of variable we want to retrieve
 variables <- c(
-  "perc_hispanic_or_latino", "perc_afr_amer_alone",
-  "perc_AAPI", "perc_wht_alone", "urgent_3sfca"
+  "race_hispanic_or_latino_percent_direct", "race_afr_amer_alone_percent_direct",
+  "race_AAPI_percent_direct", "race_wht_alone_percent_direct", "urgent_3sfca"
 )
 # use them to make an API URL
 url <- paste0(
@@ -292,10 +292,10 @@ data$county <- substring(data$ID, 1, 5)
 data_tall <- na.omit(data.frame(
   Value = unlist(data[, variables[1:4]]),
   variable = c(
-    perc_AAPI = "Asian American/ \n Pacific Islander \n Alone",
-    perc_hispanic_or_latino = "Hispanic or Latino",
-    perc_afr_amer_alone = "African American \n Alone",
-    perc_wht_alone = "White Alone"
+    race_AAPI_percent_direct = "Asian American/ \n Pacific Islander \n Alone",
+    race_hispanic_or_latino_percent_direct = "Hispanic or Latino",
+    race_afr_amer_alone_percent_direct = "African American \n Alone",
+    race_wht_alone_percent_direct = "White Alone"
   )[rep(variables[1:4], each = nrow(data))],
   urgent_3sfca = rep(data$urgent_3sfca, 4),
   County = c("51013" = "Arlington", "51059" = "Fairfax")[rep(data$county, 4)]
@@ -336,8 +336,8 @@ import numpy as np
 from plotnine import (ggplot,aes,geom_point,geom_smooth,labs,facet_grid)
 
 variables = [
-    "perc_hispanic_or_latino", "perc_afr_amer_alone",
-    "perc_AAPI", "perc_wht_alone", "urgent_3sfca"
+    "race_hispanic_or_latino_percent_direct", "race_afr_amer_alone_percent_direct",
+    "race_AAPI_percent_direct", "race_wht_alone_percent_direct", "urgent_3sfca"
 ]
 
 url = f"https://ncr-data-commons.netlify.app/api?id=51013,51059&dataset=tract&time_range=2020,2022&include={','.join(variables)}"
@@ -363,9 +363,9 @@ data2=data[data['county']=='51013']
 data2.head()
 
 dt={}
-dt_vars=vars_ = {"perc_hispanic_or_latino":"Hispanic or Latino", "perc_afr_amer_alone":"African American",
-                 "perc_AAPI":"Asian American", "perc_wht_alone":"White Alone"}
-vars_ = ["perc_hispanic_or_latino", "perc_afr_amer_alone","perc_AAPI", "perc_wht_alone"]
+dt_vars=vars_ = {"race_hispanic_or_latino_percent_direct":"Hispanic or Latino", "race_afr_amer_alone_percent_direct":"African American",
+                 "race_AAPI_percent_direct":"Asian American", "race_wht_alone_percent_direct":"White Alone"}
+vars_ = ["race_hispanic_or_latino_percent_direct", "race_afr_amer_alone_percent_direct","race_AAPI_percent_direct", "race_wht_alone_percent_direct"]
 dt['variable']=[]
 dt['value']=[]
 dt['urgent_3sfca']=[]
@@ -378,9 +378,9 @@ df1=pd.DataFrame(dt)
 df1.head()
 
 dt1={}
-dt_vars=vars_ = {"perc_hispanic_or_latino":"Hispanic or Latino", "perc_afr_amer_alone":"African American",
-                 "perc_AAPI":"Asian American", "perc_wht_alone":"White Alone"}
-vars_ = ["perc_hispanic_or_latino", "perc_afr_amer_alone","perc_AAPI", "perc_wht_alone"]
+dt_vars=vars_ = {"race_hispanic_or_latino_percent_direct":"Hispanic or Latino", "race_afr_amer_alone_percent_direct":"African American",
+                 "race_AAPI_percent_direct":"Asian American", "race_wht_alone_percent_direct":"White Alone"}
+vars_ = ["race_hispanic_or_latino_percent_direct", "race_afr_amer_alone_percent_direct","race_AAPI_percent_direct", "race_wht_alone_percent_direct"]
 dt1['variable']=[]
 dt1['value']=[]
 dt1['urgent_3sfca']=[]

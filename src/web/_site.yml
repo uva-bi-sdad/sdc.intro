@@ -42,7 +42,8 @@ navbar:
         href: health_equity.html
       - text: "Business Diversity"
         href: economic_diversity.html
-      - text: "Food Insecurity"
+      - text: "Food Security"
+        href: food_security.html
     - text: "Media"
       href: media.html
     - text: "Partners"
