@@ -13,7 +13,8 @@
 
 <title>index_working.knit</title>
 
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -29,9 +30,8 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg"/>
 
 <style type="text/css">
@@ -42,7 +42,6 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
-
 
 
 
@@ -73,9 +72,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -133,15 +129,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +162,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,9 +171,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -225,7 +224,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -247,7 +246,7 @@ $(document).ready(function () {
   <a href="dashboard.html">Dashboard</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tools &amp; Methods
      
     <span class="caret"></span>
@@ -265,7 +264,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Stories
      
     <span class="caret"></span>
@@ -280,7 +279,9 @@ $(document).ready(function () {
     <li>
       <a href="economic_diversity.html">Business Diversity</a>
     </li>
-    <li class="dropdown-header">Food Insecurity</li>
+    <li>
+      <a href="food_security.html">Food Security</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -353,12 +354,16 @@ $(document).ready(function () {
 <div class="column left">
 <div class="card-header">
 <h2>
-Supporting local equity-informed decision-making in the National Capital Region
+Supporting local equity-informed decision-making in the National Capital
+Region
 </h2>
 </div>
 <div class="card-body">
 <p class="card-text">
-We provide <b>actionable data for local-level decision-making</b> by creating new <b>below county-level datasets and measures</b> derived from publicly collectible data sources. We aim to <b>inform equitable and sustainable growth</b> in Virginia and the National Capital Region.
+We provide <b>actionable data for local-level decision-making</b> by
+creating new <b>below county-level datasets and measures</b> derived
+from publicly collectible data sources. We aim to <b>inform equitable
+and sustainable growth</b> in Virginia and the National Capital Region.
 </p>
 <h4 class="card-title">
 Data - Applications - Tools - Methods
@@ -366,7 +371,9 @@ Data - Applications - Tools - Methods
 </div>
 </div>
 <div class="column right">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text> </svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text> </svg>
 </div>
 </div>
 <div class="card mb-3">
@@ -377,7 +384,11 @@ What is a Data Commons?
 </div>
 <div class="card-body">
 <p class="card-text">
-A Data Commons is an open knowledge repository that co-locates data from a variety of sources, builds and curates data insights, and provides tools designed to track issues over time and geography. A Data Commons allows governments and key stakeholders to learn continuously from their own data.
+A Data Commons is an open knowledge repository that co-locates data from
+a variety of sources, builds and curates data insights, and provides
+tools designed to track issues over time and geography. A Data Commons
+allows governments and key stakeholders to learn continuously from their
+own data.
 </p>
 <h4 class="card-title">
 Our Social Impact Data Commons
@@ -385,28 +396,42 @@ Our Social Impact Data Commons
 </div>
 </div>
 <div class="card mb-3 row">
-<div class="card text-white bg-primary mb-3 column left" style="width:25%;">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text> </svg>
+<div class="card text-white bg-primary mb-3 column left"
+style="width:25%;">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text> </svg>
 <div class="card-header">
 provides data, indicators, indicies, case studies, and training
 </div>
 </div>
-<div class="card text-white bg-primary mb-3 column left" style="width:25%;">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+<div class="card text-white bg-primary mb-3 column left"
+style="width:25%;">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
 <div class="card-header">
-analyzes impact from social, economic, and health trends and major events
+analyzes impact from social, economic, and health trends and major
+events
 </div>
 </div>
-<div class="card text-white bg-primary mb-3 column left" style="width:25%;">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+<div class="card text-white bg-primary mb-3 column left"
+style="width:25%;">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
 <div class="card-header">
 enables ongoing learning from data
 </div>
 </div>
-<div class="card text-white bg-primary mb-3 column left" style="width:25%;">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+<div class="card text-white bg-primary mb-3 column left"
+style="width:25%;">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
 <div class="card-header">
-addresses local issues of concern (food insecurity and equity, for example)
+addresses local issues of concern (food insecurity and equity, for
+example)
 </div>
 </div>
 </div>
@@ -417,7 +442,8 @@ addresses local issues of concern (food insecurity and equity, for example)
 Stories
 </h2>
 </div>
-<div class="card text-white bg-secondary mb-3 column left" style="width:33%;">
+<div class="card text-white bg-secondary mb-3 column left"
+style="width:33%;">
 <div class="card-header">
 <strong>Access to Broadband</strong>
 </div>
@@ -425,27 +451,36 @@ Stories
 <p>
 Multiple measures tell the story in Arlington County
 </p>
-<a href="broadband.html" type="button" class="btn btn-primary btn-sm">Read Story</a>
+<a href="broadband.html" type="button" class="btn btn-primary btn-sm">Read
+Story</a>
 </div>
 <div class="column left" style="width:66%">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
 </div>
 </div>
-<div class="card text-white bg-secondary mb-3 column left" style="width:33%;">
+<div class="card text-white bg-secondary mb-3 column left"
+style="width:33%;">
 <div class="card-header">
 <strong>Health Equity</strong>
 </div>
 <div class="column left" style="width:33%">
 <p>
-Is access to urgent care health services equitable in Arlington and Fairfax County?
+Is access to urgent care health services equitable in Arlington and
+Fairfax County?
 </p>
-<a href="health_equity.html" type="button" class="btn btn-primary btn-sm">Read Story</a>
+<a href="health_equity.html" type="button" class="btn btn-primary btn-sm">Read
+Story</a>
 </div>
 <div class="column left" style="width:66%">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
 </div>
 </div>
-<div class="card text-white bg-secondary mb-3 column left" style="width:33%;">
+<div class="card text-white bg-secondary mb-3 column left"
+style="width:33%;">
 <div class="card-header">
 <strong>Business Diversity</strong>
 </div>
@@ -453,10 +488,13 @@ Is access to urgent care health services equitable in Arlington and Fairfax Coun
 <p>
 What are the patterns in minority business ownership in Fairfax County?
 </p>
-<a href="economic_diversity.html" type="button" class="btn btn-primary btn-sm">Read Story</a>
+<a href="economic_diversity.html" type="button" class="btn btn-primary btn-sm">Read
+Story</a>
 </div>
 <div class="column left" style="width:66%">
-<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle"> <rect width="100%" height="100%" fill="#868e96"></rect> <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="80%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+<rect width="100%" height="100%" fill="#868e96"></rect>
+<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
 </div>
 </div>
 </div>

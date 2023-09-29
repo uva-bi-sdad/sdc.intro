@@ -13,7 +13,8 @@
 
 <title>Economic Health and Diversity</title>
 
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -29,9 +30,8 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="https://raw.githubusercontent.com/uva-bi-sdad/community/main/logo.svg"/>
 
 <style type="text/css">
@@ -42,7 +42,6 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
-
 
 
 
@@ -73,9 +72,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -133,15 +129,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +162,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,9 +171,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -225,7 +224,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -247,7 +246,7 @@ $(document).ready(function () {
   <a href="dashboard.html">Dashboard</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tools &amp; Methods
      
     <span class="caret"></span>
@@ -265,7 +264,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Stories
      
     <span class="caret"></span>
@@ -280,7 +279,9 @@ $(document).ready(function () {
     <li>
       <a href="economic_diversity.html">Business Diversity</a>
     </li>
-    <li class="dropdown-header">Food Insecurity</li>
+    <li>
+      <a href="food_security.html">Food Security</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -309,7 +310,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Economic Health and Diversity</h1>
-<h3 class="subtitle">What are the patterns in minority business ownership in Fairfax County?</h3>
+<h3 class="subtitle">What are the patterns in minority business
+ownership in Fairfax County?</h3>
 
 </div>
 
@@ -321,35 +323,82 @@ $(document).ready(function () {
 Overview
 </div>
 <div class="section_text">
-<p>Fairfax County stakeholders are interested in understanding economic health, in particular economic diversity and minority business ownership. Specifically, our stakeholders are interested in gaining an overview of minority owned business activity in the County. We also wanted to study the relationship between minority businesses ownership and employment of minorities. To investigate this topic, we began by discovering existing data sources related to businesses.</p>
+<p>Fairfax County stakeholders are interested in understanding economic
+health, in particular economic diversity and minority business
+ownership. Specifically, our stakeholders are interested in gaining an
+overview of minority owned business activity in the County. We also
+wanted to study the relationship between minority businesses ownership
+and employment of minorities. To investigate this topic, we began by
+discovering existing data sources related to businesses.</p>
 </div>
 <div class="section_header">
 Data discovery
 </div>
 <div class="section_text">
-<p>We found that <a href="https://www.mergentintellect.com">Mergent Intellect</a>, a data source licensed by the University of Virginia Library, contained information on business locations and minority ownership. To use this data to align with our stakeholder’s questions, we carefully examined available metadata and data dictionaries. A <strong>minority owned business</strong>, as defined by the <a href="https://in.nau.edu/contracting-purchasing-services/small-and-diverse-business-program-definitions/">U.S. Small Business Administration (SBA)</a>, must be majority (51%) owned by an individual or individuals belonging to minority racial or ethnic (Hispanic) groups. Other designations by SBA, such as Women and Veteran-owned businesses, were not within the scope of this investigation.</p>
-<p>In our process of data discovery, we found a large discrepancy between the composition of business ownership reported in Fairfax by the <a href="https://experience.arcgis.com/experience/7a670bacb15b4e67b80982e6fd6a9fba/page/Demog-Composition/">U.S. Census Bureau Survey of Business Owners</a> and the composition reported by Mergent Intellect. As we will discuss in next steps, we are currently investigating methods to bridge this gap and efficiently use real-time opportunity data to investigate minority business ownership.</p>
-<p>For our investigation, we aimed to provide Fairfax County with a descriptive overview of business activity by minority owned businesses. To describe business activity, we collected information related to industry and time. To understand industry activity, we extracted industry classification data from Mergent Intellect. Mergent Intellect provides the North American Industry Classification System (NAICS) Code for businesses, which is a standard for collecting and publishing data related to the business economy. Mergent Intellect also reports the founding year of a business, so we inferred its years of operation between 2011-2020. Given these data, we proposed metrics to describe industry activities that are <em>cross-sectional</em> and <em>over time</em>.</p>
+<p>We found that <a href="https://www.mergentintellect.com">Mergent
+Intellect</a>, a data source licensed by the University of Virginia
+Library, contained information on business locations and minority
+ownership. To use this data to align with our stakeholder’s questions,
+we carefully examined available metadata and data dictionaries. A
+<strong>minority owned business</strong>, as defined by the <a
+href="https://in.nau.edu/contracting-purchasing-services/small-and-diverse-business-program-definitions/">U.S.
+Small Business Administration (SBA)</a>, must be majority (51%) owned by
+an individual or individuals belonging to minority racial or ethnic
+(Hispanic) groups. Other designations by SBA, such as Women and
+Veteran-owned businesses, were not within the scope of this
+investigation.</p>
+<p>In our process of data discovery, we found a large discrepancy
+between the composition of business ownership reported in Fairfax by the
+<a
+href="https://experience.arcgis.com/experience/7a670bacb15b4e67b80982e6fd6a9fba/page/Demog-Composition/">U.S.
+Census Bureau Survey of Business Owners</a> and the composition reported
+by Mergent Intellect. As we will discuss in next steps, we are currently
+investigating methods to bridge this gap and efficiently use real-time
+opportunity data to investigate minority business ownership.</p>
+<p>For our investigation, we aimed to provide Fairfax County with a
+descriptive overview of business activity by minority owned businesses.
+To describe business activity, we collected information related to
+industry and time. To understand industry activity, we extracted
+industry classification data from Mergent Intellect. Mergent Intellect
+provides the North American Industry Classification System (NAICS) Code
+for businesses, which is a standard for collecting and publishing data
+related to the business economy. Mergent Intellect also reports the
+founding year of a business, so we inferred its years of operation
+between 2011-2020. Given these data, we proposed metrics to describe
+industry activities that are <em>cross-sectional</em> and <em>over
+time</em>.</p>
 </div>
 <div style="clear: both">
 <div class="section_header">
 Overview of minority owned businesses
 </div>
 <div class="section_text">
-<p>Exhibit 1 below presents data from Mergent Intellect to show the number of businesses in Fairfax County between 2011 and 2020 by minority and non-minority ownership.</p>
-<p>Mergent Intellect data show that the number of companies in Fairfax County has grown 112% between 2011 and 2020. The number of minority owned companies has grown 138%. Minority owned companies represent a small share of companies in Fairfax County. In 2011, the share of minority owned companies represented 7% of total companies which grew to 8% in 2020 (see Exhibit 1).</p>
+<p>Exhibit 1 below presents data from Mergent Intellect to show the
+number of businesses in Fairfax County between 2011 and 2020 by minority
+and non-minority ownership.</p>
+<p>Mergent Intellect data show that the number of companies in Fairfax
+County has grown 112% between 2011 and 2020. The number of minority
+owned companies has grown 138%. Minority owned companies represent a
+small share of companies in Fairfax County. In 2011, the share of
+minority owned companies represented 7% of total companies which grew to
+8% in 2020 (see Exhibit 1).</p>
 </div>
 <div style="text-align: center;">
 <figcaption>
-Exhibit 1: Number of Companies in Fairfax County, by Minority/Non-Minority Ownership, 2011-2020.
+Exhibit 1: Number of Companies in Fairfax County, by
+Minority/Non-Minority Ownership, 2011-2020.
 </figcaption>
-<img src="img/econ-n_companies_years.png" class="story_image" width="600" />
+<img src="img/econ-n_companies_years.png" class="story_image"
+width="600" />
 <figcaption>
 Data source: Mergent Intellect, accessed 2022
 </figcaption>
 </div>
 <div class="section_text">
-<p>In Fairfax County, the top five industries by minority owned business activity in 2020 are listed below (see Exhibit 2). The number in parentheses represents the share of minority owned companies in that industry (see Exhibit 2).</p>
+<p>In Fairfax County, the top five industries by minority owned business
+activity in 2020 are listed below (see Exhibit 2). The number in
+parentheses represents the share of minority owned companies in that
+industry (see Exhibit 2).</p>
 <ul>
 <li>Professional, scientific (16%)</li>
 <li>Administrative and support (11%)</li>
@@ -357,27 +406,38 @@ Data source: Mergent Intellect, accessed 2022
 <li>Information (8%)</li>
 <li>Transportation and warehousing (9%)</li>
 </ul>
-<p>In 2020, minority owned companies represented less than 20% of all companies across all industries.</p>
+<p>In 2020, minority owned companies represented less than 20% of all
+companies across all industries.</p>
 </div>
 <div style="text-align: center;">
 <figcaption>
-Exhibit 2: Number and Percentage of Minority-Owned Businesses by Industry in Fairfax County, 2020.
+Exhibit 2: Number and Percentage of Minority-Owned Businesses by
+Industry in Fairfax County, 2020.
 </figcaption>
-<img src="img/econ-minority_companies_industry.png" class="story_image" width="600" />
+<img src="img/econ-minority_companies_industry.png" class="story_image"
+width="600" />
 <figcaption>
 Data source: Mergent Intellect, accessed 2022
 </figcaption>
 </div>
 <div class="section_text">
-<p>The data from Mergent Intellect provide a general overview of minority owned business activity in Fairfax. The number of minority owned businesses in the county has grown relatively proportionally to business growth overall. We also see that minority owned businesses do not exceed more than 20% of total ownership in any industry.</p>
+<p>The data from Mergent Intellect provide a general overview of
+minority owned business activity in Fairfax. The number of minority
+owned businesses in the county has grown relatively proportionally to
+business growth overall. We also see that minority owned businesses do
+not exceed more than 20% of total ownership in any industry.</p>
 </div>
 </div>
 <div style="clear: both">
 <div class="section_header">
-The relationship between minority business ownership and minority employment
+The relationship between minority business ownership and minority
+employment
 </div>
 <div class="section_text">
-<p>Exhibit 3 shows overall trends for employment by minority owned businesses across all industries. We see that employment is concentrated in industries characterized by high minority owned business activity:</p>
+<p>Exhibit 3 shows overall trends for employment by minority owned
+businesses across all industries. We see that employment is concentrated
+in industries characterized by high minority owned business
+activity:</p>
 <ul>
 <li>Professional, scientific (21%)</li>
 <li>Administrative and support (17%)</li>
@@ -385,11 +445,14 @@ The relationship between minority business ownership and minority employment
 <li>Information (12%)</li>
 <li>Transportation and warehousing (19%)</li>
 </ul>
-<p>The share of employment by minority owned companies in each industry remains below 23%. For all industries with high minority owned business activity except construction, the share of employment is above 10%.</p>
+<p>The share of employment by minority owned companies in each industry
+remains below 23%. For all industries with high minority owned business
+activity except construction, the share of employment is above 10%.</p>
 </div>
 <div style="text-align: center;">
 <figcaption>
-Exhibit 3: Number and Percentage of Employment by Minority Owned Businesses in Fairfax County, 2020.
+Exhibit 3: Number and Percentage of Employment by Minority Owned
+Businesses in Fairfax County, 2020.
 </figcaption>
 <img src="img/econ-e3.png" class="story_image" width="600" />
 <figcaption>
@@ -398,28 +461,62 @@ Data source: Mergent Intellect, accessed 2022
 </div>
 </div>
 <div class="section_text">
-<p>Our stakeholders were interested in understanding the relationship between minority owned businesses and employment of minorities. The Longitudinal Employer-Household Dynamic Survey (LEHD) Origin-Destination Employment Statistics (LODES) provides data on jobs by Census block group broken down into racial and ethnic classifications. We were able to combine this data with information from Mergent Intellect to investigate the spatial relationship between minority owned businesses and minority employment.</p>
-<p>Exhibit 4 (Left) shows the percentage of minority employees by Census block group in Fairfax County in 2019. We observe that minority employment accounts for below 25% of total employment in most Census block groups in Fairfax. We also see pockets with higher concentrations of minority employment in the County. Exhibit 4 (Right) shows the percentage of minority businesses by Census block group in Fairfax County in 2019. We observe that minority ownership, as well, accounts for less than 20% of total ownership in most Census block groups in Fairfax. Again, we also see areas with higher concentrations of minority business ownership in the County.</p>
+<p>Our stakeholders were interested in understanding the relationship
+between minority owned businesses and employment of minorities. The
+Longitudinal Employer-Household Dynamic Survey (LEHD) Origin-Destination
+Employment Statistics (LODES) provides data on jobs by Census block
+group broken down into racial and ethnic classifications. We were able
+to combine this data with information from Mergent Intellect to
+investigate the spatial relationship between minority owned businesses
+and minority employment.</p>
+<p>Exhibit 4 (Left) shows the percentage of minority employees by Census
+block group in Fairfax County in 2019. We observe that minority
+employment accounts for below 25% of total employment in most Census
+block groups in Fairfax. We also see pockets with higher concentrations
+of minority employment in the County. Exhibit 4 (Right) shows the
+percentage of minority businesses by Census block group in Fairfax
+County in 2019. We observe that minority ownership, as well, accounts
+for less than 20% of total ownership in most Census block groups in
+Fairfax. Again, we also see areas with higher concentrations of minority
+business ownership in the County.</p>
 </div>
 <div style="text-align: center;">
 <figcaption>
-Exhibit 4: Percentage of Minority Employees by Census Block Group in Fairfax County, 2019 (Left), Percentage of Minority Owned Businesses by Census Block Group in Fairfax County, 2019 (Right).
+Exhibit 4: Percentage of Minority Employees by Census Block Group in
+Fairfax County, 2019 (Left), Percentage of Minority Owned Businesses by
+Census Block Group in Fairfax County, 2019 (Right).
 </figcaption>
 <img src="img/econ-e4.png" class="story_image" width="700" />
 <figcaption>
-Data Source: Data sources: Longitudinal Employer-Household Dynamic Survey (LEHD) Origin-Destination Employment Statistics (LODES) (Left), Mergent Intellect, accessed 2022 (Right)
+Data Source: Data sources: Longitudinal Employer-Household Dynamic
+Survey (LEHD) Origin-Destination Employment Statistics (LODES) (Left),
+Mergent Intellect, accessed 2022 (Right)
 </figcaption>
 </div>
 <div class="section_text">
-<p>Exhibit 5 shows the relationship between between the percentage of minority owned businesses and the percentage of minority workers in Census block groups in Fairfax County in 2019. We see no correlation in the presence of minority owned businesses and the presence of minority employees. We were surprised by this finding, as we were expecting to find a positive relationship between these variables. A spatial correlation between minority business ownership and minority employment can be mostly explained by a higher concentration of businesses overall. In other words, more minority businesses operate in Census block groups with high business activity in general, and therefore higher employment overall, including minority employment.</p>
+<p>Exhibit 5 shows the relationship between between the percentage of
+minority owned businesses and the percentage of minority workers in
+Census block groups in Fairfax County in 2019. We see no correlation in
+the presence of minority owned businesses and the presence of minority
+employees. We were surprised by this finding, as we were expecting to
+find a positive relationship between these variables. A spatial
+correlation between minority business ownership and minority employment
+can be mostly explained by a higher concentration of businesses overall.
+In other words, more minority businesses operate in Census block groups
+with high business activity in general, and therefore higher employment
+overall, including minority employment.</p>
 </div>
 <div style="text-align: center;">
 <figcaption>
-Exhibit 5. The Relationship Between the Percentage of Minority Owned Businesses and the Percentage of Minority workers in Census Block Groups in Fairfax County, 2019.
+Exhibit 5. The Relationship Between the Percentage of Minority Owned
+Businesses and the Percentage of Minority workers in Census Block Groups
+in Fairfax County, 2019.
 </figcaption>
 <img src="img/econ-e5.png" class="story_image" width="600" />
 <figcaption>
-Data Source: Data sources: Longitudinal Employer-Household Dynamic Survey (LEHD) Origin-Destination Employment Statistics (LODES), Mergent Intellect, accessed 2022
+Data Source: Data sources: Longitudinal Employer-Household Dynamic
+Survey (LEHD) Origin-Destination Employment Statistics (LODES), Mergent
+Intellect, accessed 2022
 </figcaption>
 </div>
 <div style="clear: both">
@@ -428,12 +525,20 @@ Next Steps
 </div>
 </div>
 <div class="section_text">
-<p>This analysis provides an early view of minority business ownership. We are continuing to collaborate with our stakeholders in Fairfax County to investigate the topic of minority business ownership. The next steps in our analysis include:</p>
+<p>This analysis provides an early view of minority business ownership.
+We are continuing to collaborate with our stakeholders in Fairfax County
+to investigate the topic of minority business ownership. The next steps
+in our analysis include:</p>
 <ul>
-<li>Continuing to validate our results using U.S. Census Bureau Survey of Business Owners.</li>
-<li>Leveraging real-time opportunity data and modeling techniques to measure minority business ownership more accurately.</li>
-<li>Completing case studies to understand the business ownership and employment dynamics of specific industries or business corridor.</li>
-<li>Creating more metrics for studying this topic, including the exit and entry rate of businesses, as well as the creation and destruction of jobs.</li>
+<li>Continuing to validate our results using U.S. Census Bureau Survey
+of Business Owners.</li>
+<li>Leveraging real-time opportunity data and modeling techniques to
+measure minority business ownership more accurately.</li>
+<li>Completing case studies to understand the business ownership and
+employment dynamics of specific industries or business corridor.</li>
+<li>Creating more metrics for studying this topic, including the exit
+and entry rate of businesses, as well as the creation and destruction of
+jobs.</li>
 </ul>
 </div>
 <div style="clear: both">

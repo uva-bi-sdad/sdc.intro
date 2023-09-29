@@ -323,7 +323,7 @@ ggplot(data_tall) +
 
 ### Python example
 
-```{python}
+```{python, include = TRUE, eval = FALSE}
 #!/usr/bin/env python
 # coding: utf-8
 
